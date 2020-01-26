@@ -205,25 +205,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/admin/penelitian')}}" class="nav-link">
+                <a href="{{url('/admin/kepustakaan/penelitian')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Penelitian</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/perpustakaan')}}" class="nav-link">
+                <a href="{{url('/admin/kepustakaan/perpustakaan')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Perpustakaan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/galeri')}}" class="nav-link">
+                <a href="{{url('/admin/kepustakaan/galeri')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Galeri</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/download')}}" class="nav-link">
+                <a href="{{url('/admin/kepustakaan/download')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Download</p>
                 </a>

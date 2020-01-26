@@ -54,12 +54,18 @@ Route::patch('/admin/beritadanartikel/artikel/{artikel}', 'ArtikelController@upd
 
 ///kepustakaan
 //penelitian
-Route::get('/admin/penelitian', 'PenelitianController@index');
-Route::get('/admin/penelitian/create', 'PenelitianController@create');
+Route::get('/admin/kepustakaan/penelitian', 'PenelitianController@index');
+Route::get('/admin/kepustakaan/penelitian/create', 'PenelitianController@create');
+
 
 //perpustakaan
-Route::get('/admin/perpustakaan', 'PerpustakaanController@index');
-Route::get('/admin/perpustakaan/create', 'PerpustakaanController@create');
+Route::get('/admin/kepustakaan/perpustakaan', 'PerpustakaanController@index');
+Route::get('/admin/kepustakaan/perpustakaan/create', 'PerpustakaanController@create');  
+Route::get('/admin/kepustakaan/perpustakaan/{perpustakaan}', 'PerpustakaanController@show'); 
+Route::post('/admin/kepustakaan/perpustakaan', 'PerpustakaanController@store');  
+Route::delete('/admin/kepustakaan/perpustakaan/{perpustakaan}', 'PerpustakaanController@destroy'); 
+Route::get('/admin/kepustakaan/perpustakaan/{perpustakaan}/edit', 'PerpustakaanController@edit'); 
+Route::patch('/admin/kepustakaan/perpustakaan/{perpustakaan}', 'PerpustakaanController@update'); 
 
 //galeri
 //download
