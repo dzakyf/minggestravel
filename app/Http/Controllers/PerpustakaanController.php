@@ -168,6 +168,6 @@ class PerpustakaanController extends Controller
     public function destroy(Perpustakaan $perpustakaan)
     {
         Perpustakaan::destroy($perpustakaan->id_perpustakaan);
-        return redirect('/admin/kepustakaan/perpustakaan')->with('status','Data Berita Berhasil Dihapus');
+        return redirect('/admin/kepustakaan/perpustakaan')->with('status','Data Perpustakaan Berhasil Dihapus');
     }
 }

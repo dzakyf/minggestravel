@@ -75,6 +75,13 @@ Route::get('/admin/kepustakaan/galeri/{galeri}/edit', 'GaleriController@edit');
 Route::patch('/admin/kepustakaan/galeri/{galeri}', 'GaleriController@update'); 
 
 //download
+Route::get('/admin/kepustakaan/download', 'DownloadController@index');
+Route::get('/admin/kepustakaan/download/create', 'DownloadController@create');
+Route::get('/admin/kepustakaan/download/{download}', 'DownloadController@show'); 
+Route::post('/admin/kepustakaan/download', 'DownloadController@store');  
+Route::delete('/admin/kepustakaan/download/{download}', 'DownloadController@destroy'); 
+Route::get('/admin/kepustakaan/download/{download}/edit', 'DownloadController@edit'); 
+Route::patch('/admin/kepustakaan/download/{download}', 'DownloadController@update');
 
 ///profle
 //sejarah
