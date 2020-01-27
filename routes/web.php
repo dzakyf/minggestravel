@@ -27,12 +27,6 @@ Route::get('/admin/profile/kompetensisdm');
 //layanan dan tarif
 //loop kategori ATAU href ke controller
 
-//kepustakaan
-Route::get('/admin/kepustakaan/penelitian');
-Route::get('/admin/kepustakaan/perpustakaan');
-Route::get('/admin/kepustakaan/galeri');
-Route::get('/admin/kepustakaan/download');
-
 //berita dan artikel
 Route::get('/admin/beritadanartikel', 'MenuController@beritadanartikel'); //done
 //berita
@@ -72,6 +66,14 @@ Route::get('/admin/kepustakaan/perpustakaan/{perpustakaan}/edit', 'PerpustakaanC
 Route::patch('/admin/kepustakaan/perpustakaan/{perpustakaan}', 'PerpustakaanController@update'); 
 
 //galeri
+Route::get('/admin/kepustakaan/galeri', 'GaleriController@index');
+Route::get('/admin/kepustakaan/galeri/create', 'GaleriController@create');
+Route::get('/admin/kepustakaan/galeri/{galeri}', 'GaleriController@show'); 
+Route::post('/admin/kepustakaan/galeri', 'GaleriController@store');  
+Route::delete('/admin/kepustakaan/galeri/{galeri}', 'GaleriController@destroy'); 
+Route::get('/admin/kepustakaan/galeri/{galeri}/edit', 'GaleriController@edit'); 
+Route::patch('/admin/kepustakaan/galeri/{galeri}', 'GaleriController@update'); 
+
 //download
 
 ///profle

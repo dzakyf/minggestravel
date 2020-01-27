@@ -15,6 +15,8 @@ class CreateKompetensiSdmTable extends Migration
     {
         Schema::create('kompetensi_sdm', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('judul');
+            $table->text('kompetensi_sdm');
             $table->timestamps();
         });
     }
