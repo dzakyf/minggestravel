@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Penelitian;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Traits\UploadTrait;
 
 class PenelitianController extends Controller
 {
+    use UploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,8 @@ class PenelitianController extends Controller
      */
     public function index()
     {
-        //
+        $penelitian = Penelitian::orderBy('id_penelitian', 'DESC')->get();
+        return view('admins.kepustakaan.penelitian.index', ['penelitian' => $penelitian]);
     }
 
     /**
@@ -24,7 +28,7 @@ class PenelitianController extends Controller
      */
     public function create()
     {
-        //
+        return view('admins.kepustakaan.penelitian.create');
     }
 
     /**
@@ -35,7 +39,21 @@ class PenelitianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul'             => 'required',
+            'peneliti'          => 'required',
+            'tanggal'           => 'required',
+            'deskripsi'         => 'required',
+        ]);
+
+        Penelitian::create([
+            'judul'             => $request->judul,
+            'peneliti'          => $request->peneliti,
+            'tanggal'           => $request->tanggal,
+            'deskripsi'         => $request->deskripsi
+        ]);
+
+        return redirect()->to('/admin/kepustakaan/penelitian')->with('status','Data Penelitian berhasil ditambahkan');
     }
 
     /**
@@ -46,7 +64,7 @@ class PenelitianController extends Controller
      */
     public function show(Penelitian $penelitian)
     {
-        //
+        return view('admins.kepustakaan.penelitian.show', compact('penelitian'));
     }
 
     /**
@@ -57,7 +75,7 @@ class PenelitianController extends Controller
      */
     public function edit(Penelitian $penelitian)
     {
-        //
+        return view('admins.kepustakaan.penelitian.edit', compact('penelitian'));
     }
 
     /**
@@ -69,7 +87,22 @@ class PenelitianController extends Controller
      */
     public function update(Request $request, Penelitian $penelitian)
     {
-        //
+        $request->validate([
+            'judul'             => 'required',
+            'peneliti'          => 'required',
+            'tanggal'           => 'required',
+            'deskripsi'         => 'required'
+        ]);
+
+        Penelitian::where('id_penelitian', $penelitian->id_penelitian)
+            ->update([
+                'judul'         => $request->judul,
+                'peneliti'      => $request->peneliti,
+                'tanggal'       => $request->tanggal,
+                'deskripsi'     => $request->deskripsi
+            ]);
+
+        return redirect()->to('/admin/kepustakaan/penelitian')->with('status','Data Penelitian Berhasil Diubah');
     }
 
     /**
@@ -80,6 +113,7 @@ class PenelitianController extends Controller
      */
     public function destroy(Penelitian $penelitian)
     {
-        //
+        Penelitian::destroy($penelitian->id_penelitian);
+        return redirect('/admin/kepustakaan/penelitian')->with('status','Data Penelitian Berhasil Dihapus');
     }
 }

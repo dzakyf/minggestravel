@@ -15,10 +15,10 @@ class CreatePenelitianTable extends Migration
     {
         Schema::create('penelitian', function (Blueprint $table) {
             $table->bigIncrements('id_penelitian');
-            $table->string('nama_penelitian');
+            $table->string('penelitian');
             $table->string('peneliti');
             $table->text('deskripsi');
-            $table->dateTime('tanggal');
+            $table->string('tanggal');
             $table->timestamps();
         });
     }
