@@ -140,6 +140,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
 
   @section('script')
     <script>

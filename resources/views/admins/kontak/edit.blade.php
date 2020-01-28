@@ -1,12 +1,9 @@
 @extends('layout.admin')
 
 @section('css')
-<!-- summernote -->
-<link rel="stylesheet" href="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.css')}}">
 @endsection
 
 @section('content')
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -76,6 +73,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
 
   @section('script')
     <script src="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.min.js')}}"></script>

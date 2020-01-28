@@ -112,6 +112,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
 
   @section('script')
     <script src="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.min.js')}}"></script>

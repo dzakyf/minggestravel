@@ -19,7 +19,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('/admin/kepustakaan/perpustkaan') }}">Perpustakaan</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('/admin/kepustakaan/perpustakaan') }}">Perpustakaan</a></li>
               <li class="breadcrumb-item active">Edit Perpustakaan</li>
             </ol>
           </div>
@@ -33,7 +33,7 @@
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
           <div class="card-header">
-            <h3 class="card-title">Form Edit Perpustkaan</h3>
+            <h3 class="card-title">Form Edit Perpustakaan</h3>
           </div>
           <!-- /.card-header -->
           <form method="post" action="{{ url('/admin/kepustakaan/perpustakaan') }}/{{$perpustakaan->id_perpustakaan}}" enctype="multipart/form-data">
@@ -177,6 +177,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
 
   @section('script')
     <script src="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.min.js')}}"></script>

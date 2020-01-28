@@ -19,7 +19,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('/admin/kepustakaan/penelitian') }}">Perpustakaan</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('/admin/kepustakaan/penelitian') }}">Penelitian</a></li>
               <li class="breadcrumb-item active">Edit Penelitian</li>
             </ol>
           </div>
@@ -126,6 +126,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
 
   @section('script')
     <script src="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.min.js')}}"></script>
