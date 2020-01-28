@@ -40,17 +40,18 @@ class KategoriPelayananController extends Controller
         $request->validate([
             'kategoripelayanan' => 'required',
             'jenispelayanan'    => 'required',
-            'jasa_sarana'       => 'required',
-            'jasa_pelayanan'    => 'required',
-            'total'             => 'required'
+            'jasa_sarana'       => 'required|numeric',
+            'jasa_pelayanan'    => 'required|numeric',
         ]);
 
+        $total = $request->jasa_sarana + $request->jasa_pelayanan;
+        
         KategoriPelayanan::create([
             'id_pelayanan'      => $request->jenispelayanan,
             'nama'              => $request->kategoripelayanan,
             'jasa_sarana'       => $request->jasa_sarana,
             'jasa_pelayanan'    => $request->jasa_pelayanan,
-            'total'             => $request->total
+            'total'             => $total
         ]);
 
         return redirect()->to('/admin/layanandantarif')->with('status','Data Jenis Kategori berhasil ditambahkan');
@@ -108,9 +109,10 @@ class KategoriPelayananController extends Controller
             'jenispelayanan'        => 'required',
             'kategoripelayanan'     => 'required',
             'jasa_sarana'           => 'required',
-            'jasa_pelayanan'        => 'required',
-            'total'                 => 'required'
+            'jasa_pelayanan'        => 'required'
         ]);
+
+        $total = $request->jasa_sarana + $request->jasa_pelayanan;
 
         KategoriPelayanan::where('id_kategori', $query->id_kategori)
             ->update([
@@ -118,7 +120,7 @@ class KategoriPelayananController extends Controller
                 'nama'                  => $request->kategoripelayanan,
                 'jasa_sarana'           => $request->jasa_sarana,
                 'jasa_pelayanan'        => $request->jasa_pelayanan,
-                'total'                 => $request->total
+                'total'                 => $total
             ]);
 
         return redirect()->to('/admin/layanandantarif')->with('status','Data Kategori Pelayanan Berhasil Diubah');

@@ -44,22 +44,7 @@
           @csrf
             <div class="card-body">
               <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                    <?php
-                      $id_kategori_last = DB::table('kategori_pelayanan')->select('id_kategori')->latest('id_kategori')->first();
-                      if($id_kategori_last){
-                        $id_kategori_lastplus1 = $id_kategori_last->id_kategori + 1;
-                      }else{
-                        $id_kategori_lastplus1 = 1;
-                      }
-                    ?>
-                    <label for="id_kategori">Id Kategori</label>
-                    <input type="text" class="form-control" style="width: 100%;" disabled="disabled" name="id_kategori" id="id_kategori" value="{{$id_kategori_lastplus1}}">
-                  </div>
-                  <!-- /.form-group -->
-                </div>
-                <!-- /.col -->
+                
 
                 <?php
                     $query = DB::table('jenis_pelayanan')->get();
@@ -95,10 +80,10 @@
                 </div>
                 <!-- /.col -->
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
-                    <label for="jasa_sarana">Harga Jasa Sarana</label>
-                    <input type="text" class="form-control @error('jasa_sarana') is-invalid @enderror" style="width: 100%;" name="jasa_sarana" id="jasa_sarana" placeholder="Masukkan Harga Jasa Sarana" value="{{old('jasa_sarana')}}">
+                    <label for="jasa_sarana">Harga Jasa Sarana (HJS)</label>
+                    <input type="text" class="form-control @error('jasa_sarana') is-invalid @enderror" style="width: 100%;" name="jasa_sarana" id="jasa_sarana" placeholder="Masukkan Harga Jasa Sarana" value="{{old('jasa_sarana')}}" onkeyup="sum();">
                     <!-- munculin pesan error jika salah -->
                     @error('jasa_sarana')
                             <div class="invalid-feedback"> {{ $message }} </div>
@@ -108,10 +93,10 @@
                 </div>
                 <!-- /.col -->
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
-                    <label for="jasa_pelayanan">Harga Jasa Layanan</label>
-                    <input type="text" class="form-control @error('jasa_pelayanan') is-invalid @enderror" style="width: 100%;" name="jasa_pelayanan" id="jasa_pelayanan" placeholder="Masukkan Harga Jasa Layanan" value="{{old('jasa_pelayanan')}}">
+                    <label for="jasa_pelayanan">Harga Jasa Layanan (HJL)</label>
+                    <input type="text" class="form-control @error('jasa_pelayanan') is-invalid @enderror" style="width: 100%;" name="jasa_pelayanan" id="jasa_pelayanan" placeholder="Masukkan Harga Jasa Layanan" value="{{old('jasa_pelayanan')}}" onkeyup="sum();">
                     <!-- munculin pesan error jika salah -->
                     @error('jasa_pelayanan')
                             <div class="invalid-feedback"> {{ $message }} </div>
@@ -121,10 +106,10 @@
                 </div>
                 <!-- /.col -->
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
-                    <label for="total">Harga Total</label>
-                    <input type="text" class="form-control @error('total') is-invalid @enderror" style="width: 100%;" name="total" id="total" placeholder="Masukkan Harga Total" value="{{old('total')}}">
+                    <label for="total">Harga Total (HJS + HJL)</label>
+                    <input type="text" class="form-control @error('total') is-invalid @enderror" style="width: 100%;" disabled="disabled" name="total" id="total" placeholder="Masukkan Harga Total" value="{{old('total')}}">
                     <!-- munculin pesan error jika salah -->
                     @error('total')
                             <div class="invalid-feedback"> {{ $message }} </div>
@@ -158,11 +143,14 @@
   @endsection
 
   @section('script')
-    <script src="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.min.js')}}"></script>
-    <script>
-    $(function () {
-        // Summernote
-        $('.textarea').summernote()
-    })
-    </script>
+  <script>
+    function sum() {
+          var txtFirstNumberValue = document.getElementById('jasa_sarana').value;
+          var txtSecondNumberValue = document.getElementById('jasa_pelayanan').value;
+          var result = parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue);
+          if (!isNaN(result)) {
+            document.getElementById('total').value = result;
+          }
+    }
+  </script>
   @endsection
