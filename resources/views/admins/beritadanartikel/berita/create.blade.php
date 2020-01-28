@@ -13,7 +13,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Event</h1>
+            <h1>Tambah Berita</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -60,6 +60,7 @@
                   <!-- /.form-group -->
                 </div>
                 <!-- /.col -->
+
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="judul">Judul</label>
@@ -74,8 +75,9 @@
                 <!-- /.col -->
 
                 <div class="col-md-12">
+
+                <label for="deskripsi">Deskripsi Singkat Berita</label>
                   <div class="form-group">
-                      <label for="deskripsi">Deskripsi Singkat Berita</label>
                       <textarea name="deskripsi" id="deskripsi" class="textarea form-control @error('deskripsi') is-invalid @enderror" placeholder="Masukkan Deskripsi Singkat Event" value="{{old('deskripsi')}}"
                             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{old('deskripsi')}}</textarea>
                       <!-- munculin pesan error jika salah -->

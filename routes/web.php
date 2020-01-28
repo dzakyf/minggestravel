@@ -83,6 +83,18 @@ Route::delete('/admin/kepustakaan/download/{download}', 'DownloadController@dest
 Route::get('/admin/kepustakaan/download/{download}/edit', 'DownloadController@edit'); 
 Route::patch('/admin/kepustakaan/download/{download}', 'DownloadController@update');
 
+///layanan dan tarif
+Route::get('/admin/layanandantarif', 'MenuController@layanandantarif'); //done
+//jenispelayanan
+Route::get('/admin/layanandantarif/jenispelayanan/create', 'JenisPelayananController@create');
+//kategoripelayanan
+Route::get('/admin/layanandantarif/kategoripelayanan/create', 'KategoriPelayananController@create');
+Route::get('/admin/layanandantarif/kategoripelayanan/{query}', 'KategoriPelayananController@show');
+Route::post('/admin/layanandantarif/kategoripelayanan', 'KategoriPelayananController@store'); 
+Route::delete('/admin/layanandantarif/kategoripelayanan/{query}', 'KategoriPelayananController@destroy');
+Route::get('/admin/layanandantarif/kategoripelayanan/{query}/edit', 'KategoriPelayananController@edit');
+Route::patch('/admin/layanandantarif/kategoripelayanan/{query}', 'KategoriPelayananController@update'); 
+
 ///profle
 //sejarah
 Route::get('/admin/profile/');

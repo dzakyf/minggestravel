@@ -175,7 +175,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('#') }}" class="nav-link @yield('classsidebardashboard')">
+            <a href="{{ url('/admin/layanandantarif') }}" class="nav-link @yield('classsidebardashboard')">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Layanan dan Tarif</p>
             </a>

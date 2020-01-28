@@ -45,7 +45,7 @@
 
               <!-- event id : -->
               <div class="col-md-3">
-              <p class="card-title">id_berita</p> <p class="text-right">:</p> 
+              <p class="card-title">Id berita</p> <p class="text-right">:</p> 
               </div>
               <!-- /.col -->
               <div class="col-md-9">
