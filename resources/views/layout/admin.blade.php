@@ -189,7 +189,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('/admin') }}" class="nav-link @yield('classsidebardashboard')">
+            <a href="{{ url('/admin/kontak') }}" class="nav-link @yield('classsidebardashboard')">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Kontak</p>
             </a>

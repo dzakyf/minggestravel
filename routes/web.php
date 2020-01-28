@@ -95,6 +95,16 @@ Route::delete('/admin/layanandantarif/kategoripelayanan/{query}', 'KategoriPelay
 Route::get('/admin/layanandantarif/kategoripelayanan/{query}/edit', 'KategoriPelayananController@edit');
 Route::patch('/admin/layanandantarif/kategoripelayanan/{query}', 'KategoriPelayananController@update'); 
 
+///kontak
+Route::get('/admin/kontak', 'KontakController@index');
+Route::get('/admin/kontak/create', 'KontakController@create');
+Route::get('/admin/kontak/{kontak}', 'KontakController@show'); 
+Route::post('/admin/kontak', 'KontakController@store');  
+Route::delete('/admin/kontak/{kontak}', 'KontakController@destroy'); 
+Route::get('/admin/kontak/{kontak}/edit', 'KontakController@edit'); 
+Route::patch('/admin/kontak/{kontak}', 'KontakController@update'); 
+
+
 ///profle
 //sejarah
 Route::get('/admin/profile/');

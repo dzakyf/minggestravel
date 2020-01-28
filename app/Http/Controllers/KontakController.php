@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kontak;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KontakController extends Controller
 {
@@ -14,7 +15,8 @@ class KontakController extends Controller
      */
     public function index()
     {
-        //
+        $kontak    = Kontak::orderBy('id_kontak', 'DESC')->get();
+        return view('admins.kontak.index', ['kontak' => $kontak]);
     }
 
     /**
@@ -24,7 +26,7 @@ class KontakController extends Controller
      */
     public function create()
     {
-        //
+        return view('admins.kontak.create');
     }
 
     /**
@@ -35,7 +37,16 @@ class KontakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'email'             => 'required|email'
+            
+        ]);
+
+        Kontak::create([
+            'email'             => $request->email,
+        ]);
+
+        return redirect()->to('/admin/kontak')->with('status','Data kontak berhasil ditambahkan');
     }
 
     /**
@@ -46,7 +57,7 @@ class KontakController extends Controller
      */
     public function show(Kontak $kontak)
     {
-        //
+        return view('admins.kontak.show', compact('kontak')); 
     }
 
     /**
@@ -57,7 +68,7 @@ class KontakController extends Controller
      */
     public function edit(Kontak $kontak)
     {
-        //
+        return view('admins.kontak.edit', compact('kontak'));
     }
 
     /**
@@ -69,7 +80,16 @@ class KontakController extends Controller
      */
     public function update(Request $request, Kontak $kontak)
     {
-        //
+        $request->validate([
+            'email'         => 'required'
+        ]);
+
+        Kontak::where('id_kontak', $kontak->id_kontak)
+            ->update([
+                'email'         => $request->email
+            ]);
+
+        return redirect()->to('/admin/kontak')->with('status','Data Kontak Berhasil Diubah');
     }
 
     /**
@@ -80,6 +100,7 @@ class KontakController extends Controller
      */
     public function destroy(Kontak $kontak)
     {
-        //
+        Kontak::destroy($kontak->id_kontak);
+        return redirect('/admin/kontak')->with('status','Data Kontak Berhasil Dihapus');
     }
 }
