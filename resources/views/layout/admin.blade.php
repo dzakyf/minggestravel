@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Dashboard 2</title>
+  <title>Administrator</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/fontawesome-free/css/all.min.css')}}">
@@ -130,31 +130,31 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link @yield('classsidebarsejarah')">
+                <a href="{{url('/admin/profile/sejarah')}}" class="nav-link @yield('classsidebarsejarah')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sejarah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link @yield('classsidebarvisidanmisi')">
+                <a href="{{url('/admin/profile/sejarah')}}" class="nav-link @yield('classsidebarvisidanmisi')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Visi dan Misi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link @yield('classsidebarstrukturorganisasi')">
+                <a href="{{url('/admin/profile/strukturorganisasi')}}" class="nav-link @yield('classsidebarstrukturorganisasi')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Struktur Organisasi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link @yield('classsidebarupayakesehatan')">
+                <a href="{{url('/admin/profile/sejarah')}}" class="nav-link @yield('classsidebarupayakesehatan')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Upaya Kesehatan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link @yield('classsidebarkompetensisdm')">
+                <a href="{{url('/admin/profile/sejarah')}}" class="nav-link @yield('classsidebarkompetensisdm')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kompetensi SDM</p>
                 </a>
