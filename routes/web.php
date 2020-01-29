@@ -124,6 +124,24 @@ Route::delete('/admin/profile/strukturorganisasi/{struktur_organisasi}', 'Strukt
 Route::get('/admin/profile/strukturorganisasi/{struktur_organisasi}/edit', 'StrukturOrganisasiController@edit'); // untuk menampilkan form edit
 Route::patch('/admin/profile/strukturorganisasi/{struktur_organisasi}', 'StrukturOrganisasiController@update'); // untuk menyimpan dari form edit 
 
+//upaya kesehatan
+Route::get('/admin/profile/upayakesehatan', 'UpayaKesehatanController@index');
+Route::get('/admin/profile/upayakesehatan/create','UpayaKesehatanController@create');
+Route::get('/admin/profile/upayakesehatan/{upaya_kesehatan}','UpayaKesehatanController@show');
+Route::post('/admin/profile/upayakesehatan/', 'UpayaKesehatanController@store');  //Untuk menyimpan data yang telah ditambah didalma method create
+Route::delete('/admin/profile/upayakesehatan/{upaya_kesehatan}', 'UpayaKesehatanController@destroy'); //Untuk menghapus
+Route::get('/admin/profile/upayakesehatan/{upaya_kesehatan}/edit', 'UpayaKesehatanController@edit'); // untuk menampilkan form edit
+Route::patch('/admin/profile/upayakesehatan/{upaya_kesehatan}', 'UpayaKesehatanController@update'); // untuk menyimpan dari form edit 
+
+//kompetensi SDM
+Route::get('/admin/profile/kompetensisdm', 'KompetensiSDMController@index');
+Route::get('/admin/profile/kompetensisdm/create','KompetensiSDMController@create');
+Route::get('/admin/profile/kompetensisdm/{kompetensi_sdm}','KompetensiSDMController@show');
+Route::post('/admin/profile/kompetensisdm/', 'KompetensiSDMController@store');  //Untuk menyimpan data yang telah ditambah didalma method create
+Route::delete('/admin/profile/kompetensisdm/{kompetensi_sdm}', 'KompetensiSDMController@destroy'); //Untuk menghapus
+Route::get('/admin/profile/kompetensisdm/{kompetensi_sdm}/edit', 'KompetensiSDMController@edit'); // untuk menampilkan form edit
+Route::patch('/admin/profile/kompetensisdm/{kompetensi_sdm}', 'KompetensiSDMController@update'); // untuk menyimpan dari form edit 
+
 ///visi dan misi
 Route::get('/admin/profile/visidanmisi', 'MenuController@visidanmisi');
 //visi
