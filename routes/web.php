@@ -142,13 +142,26 @@ Route::delete('/admin/profile/kompetensisdm/{kompetensi_sdm}', 'KompetensiSDMCon
 Route::get('/admin/profile/kompetensisdm/{kompetensi_sdm}/edit', 'KompetensiSDMController@edit'); // untuk menampilkan form edit
 Route::patch('/admin/profile/kompetensisdm/{kompetensi_sdm}', 'KompetensiSDMController@update'); // untuk menyimpan dari form edit 
 
-///visi dan misi
+//visi dan misi
 Route::get('/admin/profile/visidanmisi', 'MenuController@visidanmisi');
+
 //visi
 Route::get('/admin/profile/visidanmisi/visi/create', 'VisiController@create');
+Route::get('/admin/profile/visidanmisi/visi/{visi}','VisiController@show');
+Route::post('/admin/profile/visidanmisi/visi', 'VisiController@store');  //Untuk menyimpan data yang telah ditambah didalma method create
+Route::delete('/admin/profile/visidanmisi/visi/{visi}', 'VisiController@destroy'); //Untuk menghapus
+Route::get('/admin/profile/visidanmisi/visi/{visi}/edit', 'VisiController@edit'); // untuk menampilkan form edit
+Route::patch('/admin/profile/visidanmisi/visi/{visi}', 'VisiController@update'); // untuk menyimpan dari form edit 
+
 
 //misi
 Route::get('/admin/profile/visidanmisi/misi/create', 'MisiController@create');
+Route::get('/admin/profile/visidanmisi/misi/{misi}','MisiController@show');
+Route::post('/admin/profile/visidanmisi/misi', 'MisiController@store');  //Untuk menyimpan data yang telah ditambah didalma method create
+Route::delete('/admin/profile/visidanmisi/misi/{misi}', 'MisiController@destroy'); //Untuk menghapus
+Route::get('/admin/profile/visidanmisi/misi/{misi}/edit', 'MisiController@edit'); // untuk menampilkan form edit
+Route::patch('/admin/profile/visidanmisi/misi/{misi}', 'MisiController@update'); // untuk menyimpan dari form edit 
+
 
 
 ///ADMINend

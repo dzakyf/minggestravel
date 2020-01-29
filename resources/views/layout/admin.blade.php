@@ -136,7 +136,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/profile/sejarah')}}" class="nav-link @yield('classsidebarvisidanmisi')">
+                <a href="{{url('/admin/profile/visidanmisi')}}" class="nav-link @yield('classsidebarvisidanmisi')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Visi dan Misi</p>
                 </a>

@@ -11,6 +11,8 @@ use App\Penelitian;
 use App\Perpustakaan;
 use App\Galeri;
 use App\Download;
+use App\Visi;
+use App\Misi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
@@ -44,6 +46,12 @@ class MenuController extends Controller
                     ->orderBy('id_kategori', 'DESC')->get();
         $jenis_pelayanan    = JenisPelayanan::orderBy('id_pelayanan', 'DESC')->get();
         return view('admins.layanandantarif.index', ['query' => $query, 'jenis_pelayanan' => $jenis_pelayanan]);
+    }
+
+    function visidanmisi(){
+        $visi   = Visi::orderBy('id_visi', 'DESC')->get();
+        $misi   = Misi::orderBy('id_misi', 'DESC')->get();
+        return view('admins.profile.visidanmisi.index', ['visi' => $visi, 'misi' => $misi]);
     }
 
 }

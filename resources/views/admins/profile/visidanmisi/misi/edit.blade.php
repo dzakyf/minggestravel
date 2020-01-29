@@ -7,7 +7,7 @@
 
 @section('profile-menu-open', 'menu-open')
 @section('classsidebarprofile', 'active')
-@section('classsidebarupayakesehatan', 'active')
+@section('classsidebarvisidanmisi', 'active')
 
 @section('content')
 
@@ -18,16 +18,16 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Upaya Kesehatan</h1>
+            <h1>Edit Misi</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('/admin/profile') }}">Upaya Kesehatan dan Artikel</a></li>
-              <li class="breadcrumb-item active">Edit Upaya Kesehatan</li>
+              <li class="breadcrumb-item"><a href="{{ url('/admin/profile/visidanmisi') }}">Visi dan Misi</a></li>
+              <li class="breadcrumb-item active">Edit Misi</li>
             </ol>
           </div>
-        </div>
+        </div >
       </div><!-- /.container-fluid -->
     </section>
 
@@ -37,48 +37,35 @@
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
           <div class="card-header">
-            <h3 class="card-title">Form Edit Upaya Kesehatan</h3>
+            <h3 class="card-title">Form Edit Misi</h3>
           </div>
           <!-- /.card-header -->
-          <form method="post" action="{{ url('/admin/profile/upayakesehatan') }}/{{$upaya_kesehatan->id_upaya_kesehatan}}" enctype="multipart/form-data">
+          <form method="post" action="{{ url('/admin/profile/visidanmisi/misi') }}/{{$misi->id_misi}}" enctype="multipart/form-data">
           @method('patch')
           @csrf
             <div class="card-body">
               <div class="row">
+                
+               
 
-                <div class="col-md-6">
+                
+
+                <div class="col-md-12">
                   <div class="form-group">
-                    <label for="judul">Judul</label>
-                    <input type="text" class="form-control @error('judul') is-invalid @enderror" style="width: 100%;" name="judul" id="judul" placeholder="Masukkan Judul" value="{{$upaya_kesehatan->judul}}">
-                    <!-- munculin pesan error jika salah -->
-                    @error('judul')
-                            <div class="invalid-feedback"> {{ $message }} </div>
-                    @enderror
-                  </div>
-                  <!-- /.form-group -->
-                </div>
-                <!-- /.col -->
-
-
-
-               <div class="col-md-12">
-                  <div class="form-group">
-                      <label for="upaya_kesehatan">Upaya Kesehatan</label>
-                      <textarea name="upaya_kesehatan" id="upaya_kesehatan" class="textarea form-control @error('upaya_kesehatan') is-invalid @enderror" placeholder="Masukkan Upaya Kesehatan Event" 
+                      <label for="misi">misi</label>
+                      <textarea name="misi" id="misi" class="textarea form-control @error('misi') is-invalid @enderror" placeholder="Masukkan misi Event" 
                             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                            {{$upaya_kesehatan->upaya_kesehatan}}
+                            {{$misi->misi}}
                       </textarea>
                       <!-- munculin pesan error jika salah -->
-                      @error('upaya_kesehatan')
+                      @error('misi')
                             <div class="invalid-feedback"> {{ $message }} </div>
                       @enderror
                   </div>
                   <!-- /.form group -->
                 </div>
                 <!-- /.col -->
-                
-                
-                
+               
                 <div class="col-12 text-center">
                   <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Update">
@@ -100,7 +87,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+@endsection
   @section('script')
     <script src="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
