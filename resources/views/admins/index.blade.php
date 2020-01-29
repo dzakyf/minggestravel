@@ -115,7 +115,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Email</span>
                 <span class="info-box-number">
-                  Dinkesdiy@gmail.com
+                  {{$kontak->email}}
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -140,7 +140,6 @@
                 <span class="info-box-text">Penelitian</span>
                 <span class="info-box-number">
                   {{$penelitian}}
-                  <small>%</small>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -204,8 +203,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Sejarah</span>
                 <span class="info-box-number">
-                  10
-                  <small>%</small>
+                  {{$sejarah}}
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -219,7 +217,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Visi dan Misi</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number">{{$visi}} visi, {{$misi}} misi</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -236,7 +234,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Struktur Organisasi</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-number">{{$struktur_organisasi}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -249,7 +247,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Upaya Kesehatan</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number">{{$upaya_kesehatan}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -263,7 +261,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Kompetensi SDM</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number">{{$kompetensi_sdm}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>

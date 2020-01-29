@@ -13,6 +13,10 @@ use App\Galeri;
 use App\Download;
 use App\Visi;
 use App\Misi;
+use App\Sejarah;
+use App\Struktur_Organisasi;
+use App\Upaya_Kesehatan;
+use App\Kompetensi_SDM;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
@@ -25,12 +29,18 @@ class MenuController extends Controller
         $artikel        = DB::table('artikel')->count();
         $jenispelayanan = DB::table('jenis_pelayanan')->count();
         $kategoripelayanan = DB::table('kategori_pelayanan')->count();
-        $kontak         = DB::table('kontak')->count();
+        $kontak         = DB::table('kontak')->select('email')->first();
         $penelitian     = DB::table('penelitian')->count();
         $perpustakaan   = DB::table('perpustakaan')->count();
         $galeri         = DB::table('galeri')->count();
         $download       = DB::table('download')->count();
-        return view('admins.index')->with(compact('berita', 'artikel', 'jenispelayanan', 'kategoripelayanan', 'kontak', 'penelitian', 'perpustakaan', 'galeri', 'download'));
+        $sejarah        = DB::table('sejarah')->count();
+        $visi           = DB::table('visi')->count();
+        $misi           = DB::table('misi')->count();
+        $struktur_organisasi    = DB::table('struktur_organisasi')->count();
+        $upaya_kesehatan        = DB::table('upaya_kesehatan')->count();
+        $kompetensi_sdm         = DB::table('kompetensi_sdm')->count();
+        return view('admins.index')->with(compact('berita', 'artikel', 'jenispelayanan', 'kategoripelayanan', 'kontak', 'penelitian', 'perpustakaan', 'galeri', 'download', 'sejarah', 'visi', 'misi', 'struktur_organisasi', 'upaya_kesehatan', 'kompetensi_sdm'));
     }
 
     function beritadanartikel(){

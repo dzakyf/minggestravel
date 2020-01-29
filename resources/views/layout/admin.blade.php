@@ -31,7 +31,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Logout
+        <a class="nav-link" href="{{ url('/logout') }}">Logout
         </a>
       </li>
     </ul>
