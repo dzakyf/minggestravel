@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
 
+@section('classsidebarlayanandantarif', 'active')
+
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->

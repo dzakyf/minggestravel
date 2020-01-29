@@ -5,6 +5,11 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.css')}}">
 @endsection
 
+@section('kepustakaan-menu-open', 'menu-open')
+@section('classsidebarkepustakaan', 'active')
+@section('classsidebarperpustakaan', 'active')
+
+
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->

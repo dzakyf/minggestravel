@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.css')}}">
 @endsection
 
+@section('kepustakaan-menu-open', 'menu-open')
+@section('classsidebarkepustakaan', 'active')
+@section('classsidebardownload', 'active')
+
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -64,7 +68,7 @@
               </div>
               <!-- /.col -->
               <div class="col-md-9"> 
-                <img src="{{URL::asset($download->file)}}" style='width: 50%; vertical-align: middle'; /> 
+                <a href="{{URL::asset($download->file)}}" target="_blank">Lihat File</a>
                 <p class="card-text"></p> 
               </div>
               <!-- /.col -->

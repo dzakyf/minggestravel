@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
 
+@section('kepustakaan-menu-open', 'menu-open')
+@section('classsidebarkepustakaan', 'active')
+@section('classsidebarperpustakaan', 'active')
+
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->

@@ -6,6 +6,11 @@ use App\Berita;
 use App\Artikel;
 use App\JenisPelayanan;
 use App\KategoriPelayanan;
+use App\Kontak;
+use App\Penelitian;
+use App\Perpustakaan;
+use App\Galeri;
+use App\Download;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
@@ -14,7 +19,16 @@ class MenuController extends Controller
 {
 
     public function dashboard(){
-        return view('admins.index');
+        $berita         = DB::table('berita')->count();
+        $artikel        = DB::table('artikel')->count();
+        $jenispelayanan = DB::table('jenis_pelayanan')->count();
+        $kategoripelayanan = DB::table('kategori_pelayanan')->count();
+        $kontak         = DB::table('kontak')->count();
+        $penelitian     = DB::table('penelitian')->count();
+        $perpustakaan   = DB::table('perpustakaan')->count();
+        $galeri         = DB::table('galeri')->count();
+        $download       = DB::table('download')->count();
+        return view('admins.index')->with(compact('berita', 'artikel', 'jenispelayanan', 'kategoripelayanan', 'kontak', 'penelitian', 'perpustakaan', 'galeri', 'download'));
     }
 
     function beritadanartikel(){

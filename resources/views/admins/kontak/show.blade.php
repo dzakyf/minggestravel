@@ -3,6 +3,8 @@
 @section('css')
 @endsection
 
+@section('classsidebarkontak', 'active')
+
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
