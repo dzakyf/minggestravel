@@ -107,7 +107,13 @@ Route::patch('/admin/kontak/{kontak}', 'KontakController@update');
 
 ///profle
 //sejarah
-Route::get('/admin/profile/');
+Route::get('/admin/profile/sejarah', 'SejarahController@index');
+Route::get('/admin/profile/sejarah/create','SejarahController@create');
+Route::get('/admin/profile/sejarah/{sejarah}','SejarahController@show');
+Route::post('/admin/profile/sejarah', 'SejarahController@store');  //Untuk menyimpan data yang telah ditambah didalma method create
+Route::delete('/admin/profile/sejarah/{sejarah}', 'SejarahController@destroy'); //Untuk menghapus
+Route::get('/admin/profile/sejarah/{sejarah}/edit', 'SejarahController@edit'); // untuk menampilkan form edit
+Route::patch('/admin/profile/sejarah/{sejarah}', 'SejarahController@update'); // untuk menyimpan dari form edit 
 
 ///visi dan misi
 Route::get('/admin/profile/visidanmisi', 'MenuController@visidanmisi');

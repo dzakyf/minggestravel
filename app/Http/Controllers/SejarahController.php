@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Sejarah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Traits\UploadTrait;
+
 
 class SejarahController extends Controller
 {
+    use UploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,8 @@ class SejarahController extends Controller
      */
     public function index()
     {
-        //
+        $sejarah = Sejarah::orderBy('id_sejarah', 'DESC')->get();
+        return view('admins.profile.sejarah.index', ['sejarah' => $sejarah]);
     }
 
     /**
@@ -24,8 +29,9 @@ class SejarahController extends Controller
      */
     public function create()
     {
-        //
+        return view('admins.profile.sejarah.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +41,25 @@ class SejarahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'sejarah'             => 'required',
+        ]);
+
+        
+        $id_sejarahlast = DB::table('sejarah')->select('id_sejarah')->latest('id_sejarah')->first();
+        if($id_sejarahlast){
+            $id_sejarahlastplus1 = $id_sejarahlast->id_sejarah + 1;
+        }else{
+            $id_sejarahlastplus1 = 1;
+        }
+        
+
+        Sejarah::create([
+            'sejarah'             => $request->sejarah,
+        ]);
+
+        return redirect()->to('/admin/profile/sejarah')->with('status','Data sejarah berhasil ditambahkan');
+
     }
 
     /**
@@ -46,7 +70,8 @@ class SejarahController extends Controller
      */
     public function show(Sejarah $sejarah)
     {
-        //
+        return view('admins.profile.sejarah.show', compact('sejarah')); 
+
     }
 
     /**
@@ -57,7 +82,8 @@ class SejarahController extends Controller
      */
     public function edit(Sejarah $sejarah)
     {
-        //
+       return view('admins.profile.sejarah.edit', compact('sejarah'));
+
     }
 
     /**
@@ -69,7 +95,18 @@ class SejarahController extends Controller
      */
     public function update(Request $request, Sejarah $sejarah)
     {
-        //
+        $request->validate([
+            'sejarah'         => 'required',
+        ]);
+
+        
+        Sejarah::where('id_sejarah', $sejarah->id_sejarah)
+            ->update([
+                'sejarah'        => $request->sejarah
+            ]);
+
+        return redirect()->to('/admin/profile/sejarah')->with('status','Data sejarah berhasil diubah');
+
     }
 
     /**
@@ -80,6 +117,8 @@ class SejarahController extends Controller
      */
     public function destroy(Sejarah $sejarah)
     {
-        //
+        Sejarah::destroy($sejarah->id_sejarah);
+        return redirect('/admin/profile/sejarah')->with('status','Data sejarah berhasil dihapus');
+
     }
 }
