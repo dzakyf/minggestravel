@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'PagesController@index');
+Route::get('sejarah', 'PagesController@sejarah');
+Route::get('visidanmisi', 'PagesController@visidanmisi');
+Route::get('strukturorganisasi', 'PagesController@strukturorganisasi');
+Route::get('upayakesehatan', 'PagesController@upayakesehatan');
+Route::get('kompetensisdm', 'PagesController@kompetensisdm');
 
 //Register
 Route::get('register', 'AuthController@register');
@@ -57,7 +60,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
     Route::group(['prefix' => 'layanandantarif'], function(){
         Route::get('/', 'MenuController@layanandantarif');
         //jenispelayanan
-        Route::get('jenispelayanan/create', 'JenisPelayananController@create');
+        Route::get  ('jenispelayanan/create', 'JenisPelayananController@create');
         Route::post('jenispelayanan', 'JenisPelayananController@store');
         //kategoripelayanan
         Route::get('kategoripelayanan/create','KategoriPelayananController@create');

@@ -59,7 +59,21 @@
                 </div>
                 <!-- /.col -->
 
-
+                <div class="col-md-12">
+                  <div class="form-group">
+                      <label for="deskripsi">Deskripsi Singkat</label>
+                      <textarea name="deskripsi" id="deskripsi" class="textarea form-control @error('deskripsi') is-invalid @enderror" placeholder="Masukkan Upaya Kesehatan Event" 
+                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                            {{$upaya_kesehatan->deskripsi}}
+                      </textarea>
+                      <!-- munculin pesan error jika salah -->
+                      @error('upaya_kesehatan')
+                            <div class="invalid-feedback"> {{ $message }} </div>
+                      @enderror
+                  </div>
+                  <!-- /.form group -->
+                </div>
+                <!-- /.col -->
 
                <div class="col-md-12">
                   <div class="form-group">
@@ -77,7 +91,17 @@
                 </div>
                 <!-- /.col -->
                 
-                
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="gambar">Upload Gambar (klik browse jika ingin mengganti gambar)</label>
+                        <input type="file" class="mb-2 form-control-file @error('gambar') is-invalid @enderror" name="gambar" id="gambar"> <img src="{{$upaya_kesehatan->gambar}}" class="d-flex justify-content-center" style="width: 50%"/>
+                        @error('gambar')
+                          <div class="invalid-feedback"> {{ $message }} </div>
+                        @enderror
+                    </div>
+                  <!-- /.form-group -->
+                </div>
+                <!-- /.col -->                
                 
                 <div class="col-12 text-center">
                   <div class="form-group">

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Upaya_Kesehatan;
 use Illuminate\Http\Request;
+use App\Traits\UploadTrait;
 
 class UpayaKesehatanController extends Controller
 {
+    use UploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -41,8 +43,9 @@ class UpayaKesehatanController extends Controller
     {
         $request->validate([
             'judul'                       => 'required',
+            'deskripsi'                   => 'required',
             'upaya_kesehatan'             => 'required',
-
+            'gambar'                      => 'required',
         ]);
 
         
@@ -52,11 +55,27 @@ class UpayaKesehatanController extends Controller
         }else{
             $id_upaya_kesehatanlastplus1 = 1;
         }
+
+        // Check if a image has been uploaded
+        if ($request->has('gambar')) {
+            // Get image file
+            $image = $request->file('gambar');
+            // Make a image name based on id_upaya_kesehatan, judul and current timestamp
+            $name = $id_upaya_kesehatanlastplus1 .'_'. $request->judul .'_'. time();
+            // Define folder path   
+            $folder = '/uploads/images/profile/upayakesehatan/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image, fungsi ini ada di app/Traits/UploadTrait.php diambil dari larashout.com cara upload image, accessed by Fany
+            $this->uploadOne($image, $folder, 'public', $name);
+        }
         
 
         Upaya_Kesehatan::create([
             'judul'                       => $request->judul,
+            'deskripsi'                   => $request->deskripsi,
             'upaya_kesehatan'             => $request->upaya_kesehatan,
+            'gambar'                      => $filePath
         ]);
 
         return redirect()->to('/admin/profile/upayakesehatan')->with('status','Data upaya kesehatan berhasil ditambahkan');
@@ -98,14 +117,32 @@ class UpayaKesehatanController extends Controller
     {
          $request->validate([
             'judul'                   => 'required',
+            'deskripsi'               => 'required',
             'upaya_kesehatan'         => 'required'
         ]);
 
+        $filePath = $upaya_kesehatan->gambar;
+
+        // Check if a image has been uploaded
+        if ($request->has('gambar')) {
+            // Get image file
+            $image = $request->file('gambar');
+            // Make a image name based on id_upaya_kesehatan, judul and current timestamp
+            $name = $upaya_kesehatan->id_upaya_kesehatan .'_'.$request->judul .'_'.time();
+            // Define folder path   
+            $folder = '/uploads/images/profile/upayakesehatan/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image, fungsi ini ada di app/Traits/UploadTrait.php diambil dari larashout.com cara upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+        }    
         
         Upaya_Kesehatan::where('id_upaya_kesehatan', $upaya_kesehatan->id_upaya_kesehatan)
             ->update([
-                'judul'                   =>$request->judul, 
-                'upaya_kesehatan'        => $request->upaya_kesehatan
+                'judul'                 => $request->judul,
+                'deskripsi'             => $request->deskripsi,
+                'upaya_kesehatan'       => $request->upaya_kesehatan,
+                'gambar'                => $filePath
             ]);
 
         return redirect()->to('/admin/profile/upayakesehatan')->with('status','Data upaya kesehatan berhasil diubah');

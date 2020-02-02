@@ -57,6 +57,7 @@ body {
   font-size: 14px;
   font-family: "Roboto", sans-serif;
   font-weight: normal;
+  background-image: url(../img/backgrounds.jpg);
   color: #777777; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -321,7 +322,7 @@ a {
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 .home_banner_area {
-  background: url(../img/banner.jpg) no-repeat center bottom;
+  background: url(../img/banner/home.jpg) no-repeat center bottom;
   position: relative;
   z-index: 1;
   height: 900px; }

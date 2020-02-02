@@ -49,6 +49,18 @@
               <div class="col-md-9">
                 <p class="card-text">{{$upaya_kesehatan->judul}}</p> 
               </div>
+              <!-- /.col -->
+
+              <!-- Deskripsi Singkat -->
+              <div class="col-md-3">
+                <p class="card-title">Deskripsi Singkat</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+              <div class="col-md-12">
+                <textarea name="deskripsi" id="deskripsi" class="textarea2" placeholder="Masukkan Upaya Kesehatan" value=""
+                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$upaya_kesehatan->deskripsi}}</textarea>
+              </div>
+              <!-- /.col -->
 
              <!-- Upaya Kesehatan -->
               <div class="col-md-3">
@@ -56,14 +68,20 @@
               </div>
               <!-- /.col -->
               <div class="col-md-12">
-                <textarea name="upaya_kesehatan" id="upaya_kesehatan" class="textarea2" placeholder="Masukkan Upaya Kesehatan" value=""
+                <textarea name="upaya_kesehatan" id="upaya_kesehatan" class="textarea4" placeholder="Masukkan Upaya Kesehatan" value=""
                             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$upaya_kesehatan->upaya_kesehatan}}</textarea>
               </div>
               <!-- /.col -->
             
+              <!-- Gambar -->
+              <div class="col-md-3">
+                <p class="card-title">Gambar</p><p class="text-right">:</p>  
+              </div>
               <!-- /.col -->
-              
-              
+              <div class="col-md-9"> 
+                <img src="{{URL::asset($upaya_kesehatan->gambar)}}" style='width: 50%; vertical-align: middle'; /> 
+                <p class="card-text"></p> 
+              </div>
               <!-- /.col -->
 
               <!-- Created at -->
@@ -115,8 +133,8 @@
     <script>
     $(function () {
         // Summernote
-        $('.textarea1').summernote("disable")
         $('.textarea2').summernote("disable")
+        $('.textarea4').summernote("disable")
     })
     </script>
   @endsection
