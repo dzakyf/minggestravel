@@ -51,6 +51,57 @@
                   <!-- /.form-group -->
                 </div>
                 <!-- /.col -->
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="kategori">Kategori Artikel</label>
+                        <select class="form-control @error('kategori') is-invalid @enderror" style="width: 100%;" id="kategori" name="kategori">
+                            <option value="" disabled selected>Kategori Artikel</option>
+                                @if($artikel->kategori == 'sport')
+                                    <option value="sport" selected>Sport</option>
+                                @else
+                                    <option value="sport">sport</option>
+                                @endif
+                                @if($artikel->kategori == 'teknologi')
+                                    <option value="teknologi" selected>Teknologi</option>
+                                @else
+                                    <option value="teknologi">Teknologi</option>
+                                @endif
+                                @if($artikel->kategori == 'finance')
+                                    <option value="finance" selected>Finance</option>
+                                @else
+                                    <option value="finance">Finance</option>
+                                @endif
+                                @if($artikel->kategori == 'finance')
+                                    <option value="finance" selected>Finance</option>
+                                @else
+                                    <option value="finance">Finance</option>
+                                @endif
+                                @if($artikel->kategori == 'otomotif')
+                                    <option value="otomotif" selected>Otomotif</option>
+                                @else
+                                    <option value="otomotif">Otomotif</option>
+                                @endif
+                                @if($artikel->kategori == 'makanan')
+                                    <option value="makanan" selected>Makanan</option>
+                                @else
+                                    <option value="makanan">Makanan</option>
+                                @endif
+                                @if($artikel->kategori == 'kesehatan')
+                                    <option value="kesehatan" selected>Kesehatan</option>
+                                @else
+                                    <option value="kesehatan">Kesehatan</option>
+                                @endif
+                        </select>
+                        @error('kategori')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+
+
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="judul">Judul</label>

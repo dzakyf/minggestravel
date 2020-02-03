@@ -41,6 +41,7 @@ class ArtikelController extends Controller
     {
         $request->validate([
             'judul'     => 'required',
+            'kategori'  => 'required',
             'deskripsi' => 'required',
             'artikel'   => 'required',
             'gambar'    => 'required'
@@ -59,10 +60,10 @@ class ArtikelController extends Controller
         if ($request->has('gambar')) {
             // Get image file
             $image = $request->file('gambar');
-            // Make a image name based on id_berita, judul and current timestamp
+            // Make a image name based on id_artikel, judul and current timestamp
             $name = $id_artikellastplus1 .'_'. $request->judul .'_'. time();
             // Define folder path   
-            $folder = '/uploads/images/beritadanartikel/berita/';
+            $folder = '/uploads/images/beritadanartikel/artikel/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             // Upload image, fungsi ini ada di app/Traits/UploadTrait.php diambil dari larashout.com cara upload image, accessed by Fany
@@ -71,12 +72,13 @@ class ArtikelController extends Controller
 
         Artikel::create([
             'judul'             => $request->judul,
+            'kategori'          => $request->kategori,
             'deskripsi'         => $request->deskripsi,
             'artikel'           => $request->artikel,
             'gambar'            => $filePath
         ]);
 
-        return redirect()->to('/admin/beritadanartikel')->with('status','Data berita berhasil ditambahkan');
+        return redirect()->to('/admin/beritadanartikel')->with('status','Data artikel berhasil ditambahkan');
 
     }
 
@@ -115,8 +117,9 @@ class ArtikelController extends Controller
     {
         $request->validate([
             'judul'         => 'required',
+            'kategori'      => 'required',
             'deskripsi'     => 'required',
-            'artikel'        => 'required',
+            'artikel'       => 'required',
             
         ]);
 
@@ -139,8 +142,9 @@ class ArtikelController extends Controller
         Artikel::where('id_artikel', $artikel->id_artikel)
             ->update([
                 'judul'         => $request->judul,
+                'kategori'      => $request->kategori,
                 'deskripsi'     => $request->deskripsi,
-                'artikel'        => $request->artikel,
+                'artikel'       => $request->artikel,
                 'gambar'        => $filePath
             ]);
 

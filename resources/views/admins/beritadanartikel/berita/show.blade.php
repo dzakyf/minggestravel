@@ -51,6 +51,16 @@
               </div>
               <!-- /.col -->
 
+              <!-- event id : -->
+              <div class="col-md-3">
+              <p class="card-title">Kategori Berita</p> <p class="text-right">:</p> 
+              </div>
+              <!-- /.col -->
+              <div class="col-md-9">
+                <p class="card-text">{{$berita->kategori}}</p>
+              </div>
+              <!-- /.col -->
+
               <!-- nama_event -->
               <div class="col-md-3">
                 <p class="card-title">Judul</p><p class="text-right">:</p>  

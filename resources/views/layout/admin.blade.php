@@ -84,6 +84,13 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{url('/admin/pengumuman')}}" class="nav-link @yield('classsidebarpengumuman')">
+              <i class="nav-icon fas fa-bullhorn"></i>
+              <p>Pengumuman</p>
+            </a>
+          </li>
+
           <li class="nav-item has-treeview @yield('kepustakaan-menu-open')">
             <a href="#" class="nav-link @yield('classsidebarkepustakaan')">
               <i class="nav-icon fas fa-book"></i>

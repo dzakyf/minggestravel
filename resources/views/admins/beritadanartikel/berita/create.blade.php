@@ -41,18 +41,22 @@
           @csrf
             <div class="card-body">
               <div class="row">
-                <div class="col">
+
+                <div class="col-md-6">
                   <div class="form-group">
-                    <?php
-                      $id_berita_last = DB::table('berita')->select('id_berita')->latest('id_berita')->first();
-                      if($id_berita_last){
-                        $id_berita_lastplus1 = $id_berita_last->id_berita + 1;
-                      }else{
-                        $id_berita_lastplus1 = 1;
-                      }
-                    ?>
-                    <label for="id_berita">id_berita</label>
-                    <input type="text" class="form-control" style="width: 100%;" disabled="disabled" name="id_berita" id="id_berita" value="{{$id_berita_lastplus1}}">
+                    <label for="kategori">Kategori Berita</label>
+                    <select class="form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori" required>
+                        <option value="" disabled selected>Kategori Berita</option>
+                        <option value="sport">Sport</option>
+                        <option value="teknologi">Teknologi</option>
+                        <option value="finance">Finance</option>
+                        <option value="Otomotif">Otomotif</option>
+                        <option value="Makanan">Makanan</option>
+                        <option value="Kesehatan">Kesehatan</option>
+                    </select>
+                    @error('kategori')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                   </div>
                   <!-- /.form-group -->
                 </div>

@@ -7,10 +7,10 @@
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="banner_content text-center">
-					<h2>Upaya Kesehatan</h2>
+					<h2>Berita</h2>
 					<div class="page_link">
 						<a href="{{url('/')}}">Beranda</a>
-						<a href="{{('/upayakesehatan')}}">Upaya Kesehatan</a>
+						<a href="{{('/upayakesehatan')}}">Berita</a>
 					</div>
 				</div>
 			</div>
@@ -23,24 +23,24 @@
 	<section class="recent_event section_gap_custom">
 		<div class="container">
 			<div class="row">
-				@foreach($upaya_kesehatan as $upayakesehatans)
+				@foreach($berita as $beritas)
 					<div class="col-lg-6">
 						<div class="single_event">
 							<div class="row">
 								<div class="col-lg-6 col-md-5">
 									<figure>
-										<img class="img-fluid w-100" src="{{URL::asset($upayakesehatans->gambar)}}" style="width:263px;height:220px;" alt="">
+										<img class="img-fluid w-100" src="{{URL::asset($beritas->gambar)}}" style="width:263px;height:220px;" alt="">
 										<div class="img-overlay"></div>
 									</figure>
 								</div>
 								<div class="col-lg-6 col-md-6">
 									<div class="content_wrapper">
-										<p class="date_time">{{date('d M Y', strtotime($upayakesehatans->updated_at))}}</p>
+										<p class="date_time">{{date('d M Y', strtotime($beritas->updated_at))}}</p>
 										<h4 class="title">
-											<a href="event-details.html">{{$upayakesehatans->judul}}</a>
+											<a href="{{('/berita')}}/{{$beritas->id_berita}}">{{$beritas->judul}}</a>
 										</h4>
 										<?php
-											echo "$upayakesehatans->deskripsi";
+											echo "$beritas->deskripsi";
 										?>
 									</div>
 								</div>
@@ -50,7 +50,7 @@
 				@endforeach
 			</div>
 			<div class="row text-center mt-2">
-				{{$upaya_kesehatan->links()}}
+				{{$berita->links()}}
 			</div>
 		</div>
 	</section>

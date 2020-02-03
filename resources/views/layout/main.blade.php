@@ -17,8 +17,8 @@
 	<link rel="stylesheet" href="{{URL::asset('extdinkes/vendors/animate-css/animate.css')}}">
 	<link rel="stylesheet" href="{{URL::asset('extdinkes/vendors/jquery-ui/jquery-ui.css')}}">
 	<!-- main css -->
-	<link rel="stylesheet" href="{{('extdinkes/css/style.css')}}">
-	<link rel="stylesheet" href="{{('extdinkes/css/responsive.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('extdinkes/css/style.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('extdinkes/css/responsive.css')}}">
 </head>
 
 <div >

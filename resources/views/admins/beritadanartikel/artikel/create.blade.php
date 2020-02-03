@@ -41,7 +41,27 @@
           @csrf
             <div class="card-body">
               <div class="row">
-                <div class="col">
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="kategori">Kategori Artikel</label>
+                    <select class="form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori" required>
+                        <option value="" disabled selected>Kategori Berita</option>
+                        <option value="sport">Sport</option>
+                        <option value="teknologi">Teknologi</option>
+                        <option value="finance">Finance</option>
+                        <option value="Otomotif">Otomotif</option>
+                        <option value="Makanan">Makanan</option>
+                        <option value="Kesehatan">Kesehatan</option>
+                    </select>
+                    @error('kategori')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                  </div>
+                  <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+
                  
                 <!-- /.col -->
                 <div class="col-md-6">

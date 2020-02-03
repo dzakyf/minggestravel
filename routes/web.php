@@ -12,11 +12,15 @@
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('sejarah', 'PagesController@sejarah');
-Route::get('visidanmisi', 'PagesController@visidanmisi');
-Route::get('strukturorganisasi', 'PagesController@strukturorganisasi');
-Route::get('upayakesehatan', 'PagesController@upayakesehatan');
-Route::get('kompetensisdm', 'PagesController@kompetensisdm');
+Route::get('/sejarah', 'PagesController@sejarah');
+Route::get('/visidanmisi', 'PagesController@visidanmisi');
+Route::get('/strukturorganisasi', 'PagesController@strukturorganisasi');
+Route::get('/upayakesehatan', 'PagesController@upayakesehatan');
+Route::get('/kompetensisdm', 'PagesController@kompetensisdm');
+Route::get('/berita', 'PagesController@berita');
+Route::get('/artikel', 'PagesController@artikel');
+Route::get('/berita/{berita}', 'PagesController@showberita');
+Route::get('/artikel/{artikel}', 'PagesController@showartikel');
 
 //Register
 Route::get('register', 'AuthController@register');
@@ -65,14 +69,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
         //kategoripelayanan
         Route::get('kategoripelayanan/create','KategoriPelayananController@create');
         Route::get('kategoripelayanan/{query}','KategoriPelayananController@show');
-        Route::post('kategoripelayanan/', 'KategoriPelayananController@store');  //Untuk menyimpan data yang telah ditambah didalma method create
-        Route::delete('kategoripelayanan/{query}', 'KategoriPelayananController@destroy'); //Untuk menghapus
-        Route::get('kategoripelayanan/{query}/edit', 'KategoriPelayananController@edit'); // untuk menampilkan form edit
-        Route::patch('kategoripelayanan/{query}', 'KategoriPelayananController@update'); // untuk menyimpan dari form edit 
+        Route::post('kategoripelayanan/', 'KategoriPelayananController@store'); 
+        Route::delete('kategoripelayanan/{query}', 'KategoriPelayananController@destroy'); 
+        Route::get('kategoripelayanan/{query}/edit', 'KategoriPelayananController@edit'); 
+        Route::patch('kategoripelayanan/{query}', 'KategoriPelayananController@update'); 
 
     });
     ///kontak
     Route::resource('kontak', 'KontakController');
+    //pengumuman
+    Route::resource('pengumuman', 'PengumumanController');
     ///profle
     Route::group(['prefix' => 'profile'], function(){
         //sejarah
