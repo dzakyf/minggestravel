@@ -19,6 +19,7 @@
 	<!-- main css -->
 	<link rel="stylesheet" href="{{URL::asset('extdinkes/css/style.css')}}">
 	<link rel="stylesheet" href="{{URL::asset('extdinkes/css/responsive.css')}}">
+	@yield('css')
 </head>
 
 <div >
@@ -102,27 +103,27 @@
 										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kepustakaan</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item">
-												<a class="nav-link" href="#">Penelitian</a>
+												<a class="nav-link" href="{{url('/penelitian')}}">Penelitian</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="#">Perpustakaan</a>
+												<a class="nav-link" href="{{('/perpustakaan')}}">Perpustakaan</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="#">Galery</a>
+												<a class="nav-link" href="{{('/galeri')}}">Galery</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="#">Download</a>
+												<a class="nav-link" href="{{('/download')}}">Download</a>
 											</li>
 										</ul>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Berita</a>
+										<a class="nav-link" href="{{url('/berita')}}">Berita</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Artikel</a>
+										<a class="nav-link" href="{{url('/artikel')}}">Artikel</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Kontak</a>
+										<a class="nav-link" href="{{url('/kontak')}}">Kontak</a>
 									</li>
 									<!--<li class="nav-item">
 										<a class="main_btn" href="#">Log in</a>
@@ -260,6 +261,8 @@
 	<script src="{{URL::asset('extdinkes/js/custom.js')}}"></script>
 
 	</div>
+
+	@yield('js')
 </body class="background">
 
 

@@ -10,6 +10,11 @@ use App\Kompetensi_SDM;
 use App\Berita;
 use App\Artikel;
 use App\Pengumuman;
+use App\Penelitian;
+use App\Perpustakaan;
+use App\Galeri;
+use App\Download;
+USE App\Kontak;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -35,7 +40,7 @@ class PagesController extends Controller
     }
 
     public function upayakesehatan(){
-        $upaya_kesehatan = Upaya_Kesehatan::paginate(6);
+        $upaya_kesehatan = Upaya_Kesehatan::orderBy('id_upaya_kesehatan', 'DESC')->paginate(6);
         return view('upayakesehatan')->with(compact('upaya_kesehatan'));
     }
 
@@ -45,7 +50,7 @@ class PagesController extends Controller
     }
 
     public function berita(){
-        $berita = Berita::paginate(6);
+        $berita = Berita::orderBy('id_berita', 'DESC')->paginate(6);
         return view('berita')->with(compact('berita'));
     }
 
@@ -57,7 +62,7 @@ class PagesController extends Controller
     }
 
     public function artikel(){
-        $artikel = Artikel::paginate(6);
+        $artikel = Artikel::orderBy('id_artikel', 'DESC')->paginate(6);
         return view('artikel')->with(compact('artikel'));
     }
 
@@ -66,5 +71,34 @@ class PagesController extends Controller
         $artikels     = Artikel::orderBy('id_artikel', 'DESC')->get();
         $pengumumans  = Pengumuman::orderBy('id_pengumuman', 'DESC')->get();
         return view('showartikel', compact('artikel', 'beritans', 'artikels', 'pengumumans'));
+    }
+
+    public function penelitian(){
+        $penelitian     = Penelitian::orderBy('id_penelitian', 'DESC')->paginate(5);
+        return view('penelitian', compact('penelitian'));
+    }
+
+    public function perpustakaan(){
+        $perpustakaan   = Perpustakaan::orderBy('id_perpustakaan', 'DESC')->paginate(6);
+        return view('perpustakaan', compact('perpustakaan'));
+    }
+
+    public function showperpustakaan(Perpustakaan $perpustakaan){
+        return view('showperpustakaan', compact('perpustakaan'));
+    }
+
+    public function galeri(){
+        $galeri         = Galeri::orderBy('id_galeri', 'DESC')->paginate(8);
+        return view('galeri', compact('galeri'));
+    }
+
+    public function download(){
+        $download = Download::orderBy('id_download', 'DESC')->paginate(10);
+        return view('download')->with(compact('download'));
+    }
+
+    public function kontak(){
+        $kontak     = Kontak::orderBy('id_kontak', 'DESC')->get();
+        return view('kontak')->with(compact('kontak'));
     }
 }

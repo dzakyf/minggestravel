@@ -19,8 +19,15 @@ Route::get('/upayakesehatan', 'PagesController@upayakesehatan');
 Route::get('/kompetensisdm', 'PagesController@kompetensisdm');
 Route::get('/berita', 'PagesController@berita');
 Route::get('/artikel', 'PagesController@artikel');
-Route::get('/berita/{berita}', 'PagesController@showberita');
+Route::get('/berita/{berita}', 'PagesController@showberita');   
 Route::get('/artikel/{artikel}', 'PagesController@showartikel');
+Route::get('/penelitian', 'PagesController@penelitian');
+Route::get('/perpustakaan', 'PagesController@perpustakaan');
+Route::get('/perpustakaan/{perpustakaan}', 'PagesController@showperpustakaan');
+Route::get('/galeri', 'PagesController@galeri');
+Route::get('/download', 'PagesController@download');
+Route::get('/kontak', 'PagesController@kontak');
+
 
 //Register
 Route::get('register', 'AuthController@register');
