@@ -27,7 +27,8 @@ Route::get('/perpustakaan/{perpustakaan}', 'PagesController@showperpustakaan');
 Route::get('/galeri', 'PagesController@galeri');
 Route::get('/download', 'PagesController@download');
 Route::get('/kontak', 'PagesController@kontak');
-
+Route::get('/layanan/{jenispelayanan}', 'PagesController@layanan');
+Route::get('/tarif', 'PagesController@tarif');
 
 //Register
 Route::get('register', 'AuthController@register');
@@ -86,6 +87,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
     Route::resource('kontak', 'KontakController');
     //pengumuman
     Route::resource('pengumuman', 'PengumumanController');
+    //mitra
+    Route::resource('mitra', 'MitraController');
+    //sertifikat
+    Route::resource('sertifikat', 'SertifikatController');
     ///profle
     Route::group(['prefix' => 'profile'], function(){
         //sejarah

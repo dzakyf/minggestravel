@@ -91,6 +91,20 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{url('/admin/mitra')}}" class="nav-link @yield('classsidebarmitra')">
+              <i class="nav-icon fas fa-handshake"></i>
+              <p>Mitra</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{url('/admin/sertifikat')}}" class="nav-link @yield('classsidebarsertifikat')">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Sertifikat</p>
+            </a>
+          </li>
+
           <li class="nav-item has-treeview @yield('kepustakaan-menu-open')">
             <a href="#" class="nav-link @yield('classsidebarkepustakaan')">
               <i class="nav-icon fas fa-book"></i>

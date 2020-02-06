@@ -102,8 +102,8 @@
                   </div>
                   <!-- /.form group -->
                 </div>
-                
                 <!-- /.col -->
+                
                 <div class="col-md-6">
                   <div class="form-group">
                       <label for="gambar" class="d-block">Upload Gambar</label>

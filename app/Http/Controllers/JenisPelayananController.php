@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\JenisPelayanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Traits\UploadTrait;
 
 class JenisPelayananController extends Controller
 {
+    use UploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -36,11 +39,35 @@ class JenisPelayananController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama'             => 'required',
+            'nama'      => 'required',
+            'icon'      => 'required'
         ]);
 
+        $id_pelayananlast = DB::table('jenis_pelayanan')->select('id_pelayanan')->latest('id_pelayanan')->first();
+        if($id_pelayananlast){
+            $id_pelayananlastplus1 = $id_pelayananlast->id_pelayanan + 1;
+        }else{
+            $id_pelayananlastplus1 = 1;
+        }
+        
+
+        // Check if a icon has been uploaded
+        if ($request->has('icon')) {
+            // Get image file
+            $image = $request->file('icon');
+            // Make a image name based on $id_pelayanan, nama and current timestamp
+            $name = $id_pelayananlastplus1 .'_'. $request->nama .'_'. time();
+            // Define folder path   
+            $folder = '/uploads/images/jenispelayanan/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image, fungsi ini ada di app/Traits/UploadTrait.php diambil dari larashout.com cara upload image, accessed by Fany
+            $this->uploadOne($image, $folder, 'public', $name);
+        }
+
         JenisPelayanan::create([
-            'nama'             => $request->nama,
+            'nama'      => $request->nama,
+            'icon'      => $filePath
         ]);
 
         return redirect()->to('/admin/layanandantarif')->with('status','Data Jenis Pelayanan berhasil ditambahkan');

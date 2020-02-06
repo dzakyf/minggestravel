@@ -29,7 +29,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html">
+					<a class="navbar-brand logo_h" href="{{url('/')}}">
 						<img width="85%" height="100%" src="{{URL::asset('extdinkes/img/logo.png')}}" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -44,7 +44,7 @@
 							<div class="col-lg-12 pr-0">
 								<ul class="nav navbar-nav center_nav pull-right">
 									<li class="nav-item active">
-										<a class="nav-link" href="index.html">Beranda</a>
+										<a class="nav-link" href="{{url('/')}}">Beranda</a>
 									</li>
 									<li class="nav-item submenu dropdown">
 										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profil</a>
@@ -70,33 +70,20 @@
 
 
 										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Layanan </a>
+										<?php
+											$jenispelayanan = DB::table('jenis_pelayanan')->get();
+										?>
 										<ul class="dropdown-menu">
-											<li class="nav-item">
-												<a class="nav-link" href="#">Immunologi</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="#">Patologi</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="#">Mikrobiologi</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="#">Kimia Kesehatan</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="#">Kalibrasi</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="#">Napza & Forensik</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="#">Penelitian & Magang</a>
-											</li>
+											@foreach($jenispelayanan as $jenispelayanan)
+												<li class="nav-item">
+													<a class="nav-link" href="{{('/layanan')}}/{{$jenispelayanan->id_pelayanan}}">{{$jenispelayanan->nama}}</a>
+												</li>
+											@endforeach
 										</ul>
 									</li>
 									
 									<li class="nav-item">
-										<a class="nav-link" href="#">Tarif</a>
+										<a class="nav-link" href="{{url('/tarif')}}">Tarif</a>
 									</li>
 
 									<li class="nav-item submenu dropdown">

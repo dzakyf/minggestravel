@@ -25,52 +25,16 @@
 	<section class="donation_details pad_top">
 		<div class="container">
 			<h1><center>Layanan Laboratorium</center></h1>
-			  <div class="row">
-				<div class="col-lg-4 col-md-6 single_donation_box">
-					<img src="{{URL::asset('extdinkes/img/icons/home1.png')}}" alt="">
-					<h4>Layanan Patologi</h4>
-					<p>
-						Untuk Pelayanan Patologi
-					</p>
-				</div>
-				<div class="col-lg-4 col-md-6 single_donation_box">
-					<img src="{{URL::asset('extdinkes/img/icons/home2.png')}}" alt="">
-					<h4>Layanan Mikrobiologi</h4>
-					<p>
-						Untuk Pelayanan Mikrobiologi
-					</p>
-				</div>
-				<div class="col-lg-4 col-md-6 single_donation_box">
-					<img src="{{URL::asset('extdinkes/img/icons/home3.png')}}" alt="">
-					<h4>Layanan Kimia Kesehatan</h4>
-					<p>
-						Untuk Layanan Kimia Kesehatan
-					</p>
-				</div>
-				<div class="col-lg-4 col-md-6 single_donation_box">
-					<img src="{{URL::asset('extdinkes/img/icons/home4.png')}}" alt="">
-					<h4>Layanan Immunologi</h4>
-					<p>
-						Untuk Layanan Immunologi
-					</p>
-				</div>
-				<div class="col-lg-4 col-md-6 single_donation_box">
-					<img src="{{URL::asset('extdinkes/img/icons/home5.png')}}" alt="">
-					<h4>Layanan Kalibrasi</h4>
-					<p>
-						Untuk Layanan Kalibrasi
-					</p>
-				</div>
-				<div class="col-lg-4 col-md-6 single_donation_box">
-
-					<img src="{{URL::asset('extdinkes/img/icons/home6.png')}}" alt="">
-					<h4>Layanan Penelitian dan Magang</h4>
-					<p>
-						Untuk Layanan Penelitian dan Magang
-					</p>
-				</div>
-				</div>
-				</div>
+			<div class="row">
+				@foreach($jenispelayanan as $jenispelayanan)
+					<div class="col-lg-4 col-md-6 single_donation_box">
+						<a href="{{url('/layanan')}}/{{$jenispelayanan->id_pelayanan}}"><img src="{{URL::asset($jenispelayanan->icon)}}" style="width:67px; height:67px;" alt="icon"></a>
+						<h4>Layanan {{$jenispelayanan->nama}}</h4>
+						<p>
+							Untuk Pelayanan {{$jenispelayanan->nama}}
+						</p>
+					</div>
+				@endforeach
 			</div>
 		</div>
 	</section>

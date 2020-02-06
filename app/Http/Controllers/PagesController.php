@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\JenisPelayanan;
+use App\KategoriPelayanan;
 use App\Sejarah;
 use App\Visi;
 use App\Misi;
@@ -14,13 +16,15 @@ use App\Penelitian;
 use App\Perpustakaan;
 use App\Galeri;
 use App\Download;
-USE App\Kontak;
+use App\Kontak;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function index(){
-        return view('index');
+        $jenispelayanan = JenisPelayanan::orderBy('nama', 'DESC')->get();
+        return view('index')->with(compact('jenispelayanan'));
     }
 
     public function sejarah(){
@@ -100,5 +104,27 @@ class PagesController extends Controller
     public function kontak(){
         $kontak     = Kontak::orderBy('id_kontak', 'DESC')->get();
         return view('kontak')->with(compact('kontak'));
+    }
+
+    public function layanan(JenisPelayanan $jenispelayanan){
+        $id_pelayanan   = $jenispelayanan->id_pelayanan;
+
+        $nama_pelayanan = $jenispelayanan->nama;
+
+        $query = DB::table('kategori_pelayanan')
+                    ->join('jenis_pelayanan', 'kategori_pelayanan.id_pelayanan', '=', 'jenis_pelayanan.id_pelayanan')
+                    ->select('kategori_pelayanan.nama')
+                    ->where('kategori_pelayanan.id_pelayanan', $id_pelayanan)
+                    ->orderBy('kategori_pelayanan.nama', 'ASC')->get();
+
+        return view('layanan', ['query' => $query, 'nama_pelayanan' => $nama_pelayanan]);
+    }
+
+    public function tarif(){
+        $query = DB::table('kategori_pelayanan')
+                    ->join('jenis_pelayanan', 'kategori_pelayanan.id_pelayanan', '=', 'jenis_pelayanan.id_pelayanan')
+                    ->select('kategori_pelayanan.nama', 'kategori_pelayanan.total', 'jenis_pelayanan.nama as namas')
+                    ->orderBy('kategori_pelayanan.id_pelayanan', 'ASC')->get();
+        return view('tarif', ['query' => $query]);
     }
 }

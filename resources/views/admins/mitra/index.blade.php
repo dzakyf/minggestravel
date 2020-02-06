@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
 
-@section('classsidebarlayanandantarif', 'active')
+@section('classsidebarmitra', 'active')
 
 @section('content')
 
@@ -16,12 +16,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Layanan dan Tarif</h1>
+            <h1>Mitra</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item active">Layanan dan Tarif</li>
+              <li class="breadcrumb-item active">Mitra</li>
             </ol>
           </div>
         </div>
@@ -40,18 +40,15 @@
           @endif
 
         <div class="col mb-2 text-right">
-          <a href="{{ url('/admin/layanandantarif/jenispelayanan/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Jenis Pelayanan</button>
-          </a>
-          <a href="{{ url('/admin/layanandantarif/kategoripelayanan/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Kategori Pelayanan</button>
+          <a href="{{ url('/admin/mitra/create') }}">
+                <button class="btn btn-primary" type="button">Tambah Mitra</button>
           </a>
         </div>
 
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Jenis Pelayanan</h3>
+              <h3 class="card-title">Mitra</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -59,58 +56,19 @@
                 <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Jenis Pelayanan</th>
-                  <th>Icon</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($jenis_pelayanan as $jenis_pelayanan)
-                <tr>
-                  <th scope="row">{{ $loop->iteration }}</th>
-                  <td>{{$jenis_pelayanan->nama}}</td>
-                  <td><img src="{{URL::asset($jenis_pelayanan->icon)}}" style="width:67px; height:67px;" alt="icon"></td>
-                </tr>
-                @endforeach
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>No.</th>
-                  <th>Jenis Pelayanan</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Kategori Pelayanan</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example3" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Kategori Pelayanan</th>
-                  <th>Jenis Pelayanan</th>
-                  <th>Total</th>
+                  <th>Nama Mitra</th>
+                  <th>Gambar</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($query as $query)
+                @foreach($mitra as $mitra)
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
-                  <td>{{$query->nama}}</td>
-                  <td>{{$query->namas}}</td>
-                  <td>{{$query->total}}</td>
+                  <td>{{$mitra->nama}}</td>
+                  <td><img src="{{URL::asset($mitra->gambar)}}" style="width:67px; height:67px;" alt="gambar"></td>
                   <td>
-                    <a class="badge badge-info" href="{{url('/admin/layanandantarif/kategoripelayanan/')}}/{{$query->id_kategori}}">
+                    <a class="badge badge-info" href="{{url('/admin/mitra/')}}/{{$mitra->id_mitra}}">
                       detail
                     </a>
                   </td>
@@ -120,9 +78,8 @@
                 <tfoot>
                 <tr>
                   <th>No.</th>
-                  <th>Kategori Pelayanan</th>
-                  <th>Jenis Pelayanan</th>
-                  <th>Total</th>
+                  <th>Nama Mitra</th>
+                  <th>Gambar</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>
@@ -132,7 +89,6 @@
           </div>
           <!-- /.card -->
         </div>
-
         
         <!-- /.col -->
       </div>
@@ -153,19 +109,6 @@
   $(function () {
     $("#example1").DataTable();
     $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
-  });
-</script>
-<script>
-  $(function () {
-    $("#example3").DataTable();
-    $('#example4').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,
