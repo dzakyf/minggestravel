@@ -91,6 +91,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
     Route::resource('mitra', 'MitraController');
     //sertifikat
     Route::resource('sertifikat', 'SertifikatController');
+    //banner
+    Route::resource('banner', 'BannerController');
     ///profle
     Route::group(['prefix' => 'profile'], function(){
         //sejarah

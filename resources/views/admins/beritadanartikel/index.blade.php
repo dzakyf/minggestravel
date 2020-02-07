@@ -71,7 +71,7 @@
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$berita->judul}}</td>
-                  <td>{{$berita->deskripsi}}</td>
+                  <td><?php echo $berita->deskripsi ?></td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/beritadanartikel/berita/')}}/{{$berita->id_berita}}">
                       detail
@@ -116,7 +116,7 @@
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$artikel->judul}}</td>
-                  <td>{{$artikel->deskripsi}}</td>
+                  <td><?php echo $artikel->deskripsi ?></td>
 
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/beritadanartikel/artikel/')}}/{{$artikel->id_artikel}}">

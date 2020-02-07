@@ -6,6 +6,8 @@ use App\Artikel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Facades\File;
+use Helper;
 
 
 class ArtikelController extends Controller
@@ -127,6 +129,11 @@ class ArtikelController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
+            $serverpathimage = Helper::serverpathimage();
+            $image_path = "$serverpathimage$artikel->gambar";  // Value is not URL but directory file path
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
             // Get image file
             $image = $request->file('gambar');
             // Make a image name based on id_artikel, judul and current timestamp
@@ -160,6 +167,11 @@ class ArtikelController extends Controller
      */
     public function destroy(Artikel $artikel)
     {
+        $serverpathimage = Helper::serverpathimage();
+        $image_path = "$serverpathimage$artikel->gambar";  // Value is not URL but directory file path
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
         Artikel::destroy($artikel->id_artikel);
         return redirect('/admin/beritadanartikel')->with('status','Data artikel Berhasil Dihapus');
     }

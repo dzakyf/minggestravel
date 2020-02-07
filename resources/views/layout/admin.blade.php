@@ -105,6 +105,13 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{url('/admin/banner')}}" class="nav-link @yield('classsidebarbanner')">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Banner Landing Page</p>
+            </a>
+          </li>
+
           <li class="nav-item has-treeview @yield('kepustakaan-menu-open')">
             <a href="#" class="nav-link @yield('classsidebarkepustakaan')">
               <i class="nav-icon fas fa-book"></i>

@@ -72,7 +72,7 @@
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$penelitian->judul}}</td>
                   <td>{{$penelitian->peneliti}}</td>
-                  <td>{{$penelitian->deskripsi}}</td>
+                  <td><?php echo $penelitian->deskripsi ?></td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/kepustakaan/penelitian/')}}/{{$penelitian->id_penelitian}}">
                       detail

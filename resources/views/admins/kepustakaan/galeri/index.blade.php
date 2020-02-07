@@ -70,7 +70,7 @@
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$galeri->id_galeri}}</td>
-                  <td>{{$galeri->deskripsi}}</td>
+                  <td><?php echo $galeri->deskripsi ?></td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/kepustakaan/galeri/')}}/{{$galeri->id_galeri}}">
                       detail

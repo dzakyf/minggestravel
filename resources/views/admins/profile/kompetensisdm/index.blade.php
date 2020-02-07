@@ -70,7 +70,7 @@
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$kompetensi_sdm ->judul}}</td>
-                  <td>{{$kompetensi_sdm ->kompetensi_sdm}}</td>
+                  <td><?php echo $kompetensi_sdm ->kompetensi_sdm?></td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/profile/kompetensisdm/')}}/{{$kompetensi_sdm->id_kompetensi_sdm}}">
                       detail

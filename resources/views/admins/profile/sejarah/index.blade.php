@@ -68,7 +68,7 @@
                 @foreach($sejarah as $sejarah)
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
-                  <td>{{$sejarah ->sejarah}}</td>
+                  <td><?php echo $sejarah ->sejarah ?></td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/profile/sejarah/')}}/{{$sejarah->id_sejarah}}">
                       detail

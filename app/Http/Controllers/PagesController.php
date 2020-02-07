@@ -17,14 +17,19 @@ use App\Perpustakaan;
 use App\Galeri;
 use App\Download;
 use App\Kontak;
+use App\Mitra;
+use App\Sertifikat;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function index(){
+        $mitra      = Mitra::all();
+        $sertifikat = Sertifikat::all();
+        $beritanz    = Berita::orderBy('id_berita', 'DESC')->get();
         $jenispelayanan = JenisPelayanan::orderBy('nama', 'DESC')->get();
-        return view('index')->with(compact('jenispelayanan'));
+        return view('index')->with(compact('jenispelayanan', 'beritanz', 'sertifikat', 'mitra'));
     }
 
     public function sejarah(){

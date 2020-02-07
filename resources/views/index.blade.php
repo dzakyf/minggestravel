@@ -54,10 +54,11 @@
 
 			<div class="row">
 				<div id="our-major-cause" class="owl-carousel">
+					@foreach($beritanz as $beritanz)
 					<div class="card">
 						<div class="card-body">
 							<figure>
-								<img class="card-img-top img-fluid" src="{{URL::asset('extdinkes/img/donation/d1.jpg')}}" alt="Card image cap">
+								<img class="card-img-top img-fluid" src="{{URL::asset($beritanz->gambar)}}" style="width:310px;height:213px" alt="Card image cap">
 							</figure>
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
@@ -68,152 +69,17 @@
 								<div class="card-body-top">
 									<!-- <span>Raised: $7,689</span> / $10,000 -->
 								</div>
-								<h4 class="card-title">Did not find your Package</h4>
-								<p class="card-text">inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
-									in the workplace that’s why it’s crucial.
-								</p>
-								<a href="#" class="main_btn2">Baca Sekarang</a>
+								<h4 class="card-title">{{$beritanz->judul}}</h4>
+								<p class="card-text"><?php echo $beritanz->deskripsi ?></p>
+								<a href="{{url('/berita')}}/{{$beritanz->id_berita}}" class="main_btn2">Baca Sekarang</a>
 							</div>
 						</div>
 					</div>
+					@endforeach
 
-					<div class="card">
-						<div class="card-body">
-							<figure>
-								<img class="card-img-top img-fluid" src="{{URL::asset('extdinkes/img/donation/d2.jpg')}}" alt="Card image cap">
-							</figure>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
-									<!-- <span>Funded 76%</span> -->
-								</div>
-							</div>
-							<div class="card_inner_body">
-								<div class="card-body-top">
-									<!-- <span>Raised: $7,689</span> / $10,000 -->
-								</div>
-								<h4 class="card-title">Did not find your Package</h4>
-								<p class="card-text">inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
-									in the workplace that’s why it’s crucial.
-								</p>
-								<a href="#" class="main_btn2">Baca Sekarang</a>
-							</div>
-						</div>
-					</div>
+					
 
-					<div class="card">
-						<div class="card-body">
-							<figure>
-								<img class="card-img-top img-fluid" src="{{URL::asset('extdinkes/img/donation/d3.jpg')}}" alt="Card image cap">
-							</figure>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
-									<!-- <span>Funded 76%</span> -->
-								</div>
-							</div>
-							<div class="card_inner_body">
-								<div class="card-body-top">
-									<!-- <span>Raised: $7,689</span> / $10,000 -->
-								</div>
-								<h4 class="card-title">Did not find your Package</h4>
-								<p class="card-text">inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
-									in the workplace that’s why it’s crucial.
-								</p>
-								<a href="#" class="main_btn2">Baca Sekarang</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-body">
-							<figure>
-								<img class="card-img-top img-fluid" src="{{URL::asset('extdinkes/img/donation/d2.jpg')}}" alt="Card image cap">
-							</figure>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
-									<!-- <span>Funded 76%</span> -->
-								</div>
-							</div>
-							<div class="card_inner_body">
-								<div class="card-body-top">
-									<!-- <span>Raised: $7,689</span> / $10,000 -->
-								</div>
-								<h4 class="card-title">Did not find your Package</h4>
-								<p class="card-text">inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
-									in the workplace that’s why it’s crucial.
-								</p>
-								<a href="#" class="main_btn2">Baca Sekarang</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-body">
-							<figure>
-								<img class="card-img-top img-fluid" src="{{URL::asset('extdinkes/img/donation/d3.jpg')}}" alt="Card image cap">
-							</figure>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
-									<!-- <span>Funded 76%</span> -->
-								</div>
-							</div>
-							<div class="card_inner_body">
-								<div class="card-body-top">
-									<!-- <span>Raised: $7,689</span> / $10,000 -->
-								</div>
-								<h4 class="card-title">Did not find your Package</h4>
-								<p class="card-text">inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
-									in the workplace that’s why it’s crucial.
-								</p>
-								<a href="#" class="main_btn2">Baca Sekarang</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-body">
-							<figure>
-								<img class="card-img-top img-fluid" src="{{URL::asset('extdinkes/img/donation/d1.jpg')}}" alt="Card image cap">
-							</figure>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
-									<!-- <span>Funded 76%</span> -->
-								</div>
-							</div>
-							<div class="card_inner_body">
-								<div class="card-body-top">
-									<!-- <span>Raised: $7,689</span> / $10,000 -->
-								</div>
-								<h4 class="card-title">Did not find your Package</h4>
-								<p class="card-text">inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
-									in the workplace that’s why it’s crucial.
-								</p>
-								<a href="#" class="main_btn2">Baca Sekarang</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-body">
-							<figure>
-								<img class="card-img-top img-fluid" src="{{URL::asset('extdinkes/img/donation/d2.jpg')}}" alt="Card image cap">
-							</figure>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
-									<!-- <span>Funded 76%</span> -->
-								</div>
-							</div>
-							<div class="card_inner_body">
-								<div class="card-body-top">
-									<!-- <span>Raised: $7,689</span> / $10,000 -->
-								</div>
-								<h4 class="card-title">Did not find your Package</h4>
-								<p class="card-text">inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially
-									in the workplace that’s why it’s crucial.
-								</p>
-								<a href="#" class="main_btn2">Baca Sekarang</a>
-							</div>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -262,21 +128,11 @@
 					<p><center>Untuk meningkatkan pelayanan, kami telah bermitra dengan berbagai instansi baik Negeri maupun Swasta</center></p>
 					<br>
 			<div class="clients_slider owl-carousel">
+				@foreach($mitra as $mitra)
 				<div class="item">
-					<img src="{{URL::asset('extdinkes/img/clients-logo/c-logo-1.png')}}" alt="">
+					<img src="{{URL::asset($mitra->gambar)}}" style="width:156px; height:71px;" alt="">
 				</div>
-				<div class="item">
-					<img src="{{URL::asset('extdinkes/img/clients-logo/c-logo-2.png')}}" alt="">
-				</div>
-				<!-- <div class="item">
-					<img src="img/clients-logo/c-logo-3.png" alt="">
-				</div> -->
-				<!-- <div class="item">
-					<img src="img/clients-logo/c-logo-4.png" alt="">
-				</div> -->
-				<!-- <div class="item">
-					<img src="img/clients-logo/c-logo-5.png" alt="">
-				</div> -->
+				@endforeach
 			</div>
 		</div>
 	</section><br><br>
@@ -287,12 +143,11 @@
 					</center></p>
 					<br>
 			<div class="clients_slider owl-carousel">
+				@foreach($sertifikat as $sertifikat)
 				<div class="item">
-					<img src="{{URL::asset('extdinkes/img/clients-logo/c-logo-1.png')}}" alt="">
+					<img src="{{URL::asset($sertifikat->gambar)}}" style="width:156px; height:71px;" alt="">
 				</div>
-				<div class="item">
-					<img src="{{URL::asset('extdinkes/img/clients-logo/c-logo-2.png')}}" alt="">
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</section>

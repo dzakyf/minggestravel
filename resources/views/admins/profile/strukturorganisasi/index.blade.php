@@ -68,7 +68,7 @@
                 @foreach($struktur_organisasi as $struktur_organisasi)
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
-                  <td>{{$struktur_organisasi ->deskripsi}}</td>
+                  <td><?php echo $struktur_organisasi ->deskripsi?></td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/profile/strukturorganisasi/')}}/{{$struktur_organisasi->id_struktur_organisasi}}">
                       detail

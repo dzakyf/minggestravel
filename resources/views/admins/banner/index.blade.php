@@ -5,9 +5,7 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
 
-@section('profile-menu-open', 'menu-open')
-@section('classsidebarprofile', 'active')
-@section('classsidebarvisidanmisi', 'active')
+@section('classsidebarbanner', 'active')
 
 @section('content')
 
@@ -18,12 +16,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Visi dan Misi</h1>
+            <h1>Banner Landing Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item active">Visi dan Misi</li>
+              <li class="breadcrumb-item active">Banner Landing Page</li>
             </ol>
           </div>
         </div>
@@ -42,20 +40,15 @@
           @endif
 
         <div class="col mb-2 text-right">
-          <a href="{{ url('/admin/profile/visidanmisi/visi/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Visi</button>
-          </a>
-          <a href="{{ url('/admin/profile/visidanmisi/misi/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Misi</button>
+          <a href="{{ url('/admin/banner/create') }}">
+                <button class="btn btn-primary" type="button">Tambah Banner Landing Page</button>
           </a>
         </div>
-
-        
 
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Visi</h3>
+              <h3 class="card-title">Banner</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -63,17 +56,19 @@
                 <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Visi</th>
+                  <th>Nama Banner</th>
+                  <th>Banner</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($visi as $visi)
+                @foreach($banner as $banner)
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
-                  <td><?php echo $visi->visi ?></td>
+                  <td>{{$banner->nama}}</td>
+                  <td><img src="{{URL::asset($banner->banner)}}" style="width:67px; height:67px;" alt="gambar"></td>
                   <td>
-                    <a class="badge badge-info" href="{{url('/admin/profile/visidanmisi/visi')}}/{{$visi->id_visi}}">
+                    <a class="badge badge-info" href="{{url('/admin/banner/')}}/{{$banner->id_banner}}">
                       detail
                     </a>
                   </td>
@@ -83,7 +78,8 @@
                 <tfoot>
                 <tr>
                   <th>No.</th>
-                  <th>Visi</th>
+                  <th>Nama Banner</th>
+                  <th>Banner</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>
@@ -93,49 +89,6 @@
           </div>
           <!-- /.card -->
         </div>
-
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Misi</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example2" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Misi</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($misi as $misi)
-                <tr>
-                  <th scope="row">{{ $loop->iteration }}</th>
-                  <td><?php echo $misi->misi ?></td>
-                  <td>
-                    <a class="badge badge-info" href="{{url('/admin/profile/visidanmisi/misi')}}/{{$misi->id_misi}}">
-                      detail
-                    </a>
-                  </td>
-                </tr>
-                @endforeach
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>No.</th>
-                  <th>Misi</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-
         
         <!-- /.col -->
       </div>
@@ -156,19 +109,6 @@
   $(function () {
     $("#example1").DataTable();
     $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
-  });
-</script>
-<script>
-  $(function () {
-    $("#example3").DataTable();
-    $('#example4').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,
