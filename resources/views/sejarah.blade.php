@@ -28,8 +28,9 @@
 					<div class="bottom_para">
                             @foreach($sejarah as $sejarah)
                             <?php
-                                echo "$sejarah->sejarah";
+								$limit = "$sejarah->sejarah";
                             ?>
+							{{str_limit($limit)}}
                             @endforeach
 					</div>
 				</div>

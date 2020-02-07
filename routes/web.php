@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
         //index
         Route::get('/', 'MenuController@beritadanartikel');
         //berita
+        Route::get('berita', 'BeritaController@index');
         Route::get('berita/create','BeritaController@create');
         Route::get('berita/{berita}','BeritaController@show');
         Route::post('berita', 'BeritaController@store');  
@@ -72,12 +73,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
     Route::group(['prefix' => 'layanandantarif'], function(){
         Route::get('/', 'MenuController@layanandantarif');
         //jenispelayanan
-        Route::get  ('jenispelayanan/create', 'JenisPelayananController@create');
+        Route::get('jenispelayanan', 'JenisPelayananController@index');
+        Route::get('jenispelayanan/create', 'JenisPelayananController@create');
         Route::post('jenispelayanan', 'JenisPelayananController@store');
         //kategoripelayanan
+        Route::get('kategoripelayanan', 'KategoriPelayananController@index');
         Route::get('kategoripelayanan/create','KategoriPelayananController@create');
         Route::get('kategoripelayanan/{query}','KategoriPelayananController@show');
-        Route::post('kategoripelayanan/', 'KategoriPelayananController@store'); 
+        Route::post('kategoripelayanan', 'KategoriPelayananController@store'); 
         Route::delete('kategoripelayanan/{query}', 'KategoriPelayananController@destroy'); 
         Route::get('kategoripelayanan/{query}/edit', 'KategoriPelayananController@edit'); 
         Route::patch('kategoripelayanan/{query}', 'KategoriPelayananController@update'); 

@@ -19,7 +19,7 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        //ditampilkan melalui MenuController
+        return redirect()->to('/admin/beritadanartikel');
     }
 
     /**

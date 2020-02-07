@@ -60,8 +60,8 @@
                 <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Id Galeri</th>
-                  <th>deskripsi</th>
+                  <!-- <th>Id Galeri</th> -->
+                  <th>Judul</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -69,8 +69,8 @@
                 @foreach($galeri as $galeri)
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
-                  <td>{{$galeri->id_galeri}}</td>
-                  <td><?php echo $galeri->deskripsi ?></td>
+                  <!-- <td>{{$galeri->id_galeri}}</td> -->
+                  <td>{{$galeri->judul}}</td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/kepustakaan/galeri/')}}/{{$galeri->id_galeri}}">
                       detail
@@ -82,8 +82,8 @@
                 <tfoot>
                 <tr>
                   <th>No.</th>
+                  <!-- <th>Id Galeri</th> -->
                   <th>Judul</th>
-                  <th>Deskripsi</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>

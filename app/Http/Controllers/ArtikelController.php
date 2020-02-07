@@ -20,7 +20,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        //di menuconroller
+        return redirect()->to('/admin/beritadanartikel');
     }
 
     /**

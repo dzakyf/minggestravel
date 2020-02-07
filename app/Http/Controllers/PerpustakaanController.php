@@ -6,6 +6,8 @@ use App\Perpustakaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Facades\File;
+use Helper;
 
 class PerpustakaanController extends Controller
 {
@@ -63,8 +65,8 @@ class PerpustakaanController extends Controller
         if ($request->has('cover')) {
             // Get image file
             $image = $request->file('cover');
-            // Make a image name based on id_perpustakaan, cover and current timestamp
-            $name = $id_perpustakaanplus1 .'_'. $request->cover .'_'. time();
+            // Make a image name based on id_perpustakaan, judul and current timestamp
+            $name = $id_perpustakaanplus1 .'_'. $request->judul .'_'. time();
             // Define folder path   
             $folder = '/uploads/images/kepustakaan/perpustakaan/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -132,10 +134,15 @@ class PerpustakaanController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('cover')) {
+            $serverpathimage = Helper::serverpathimage();
+            $image_path = "$serverpathimage$perpustakaan->cover";  // Value is not URL but directory file path
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
             // Get image file
             $image = $request->file('cover');
-            // Make a image name based on id_perpustakaan, cover and current timestamp
-            $name = $perpustakaan->id_perpustakaan .'_'. $request->cover .'_'. time();
+            // Make a image name based on id_perpustakaan, judul and current timestamp
+            $name = $perpustakaan->id_perpustakaan .'_'. $request->judul .'_'. time();
             // Define folder path   
             $folder = '/uploads/images/kepustakaan/perpustakaan/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -167,6 +174,12 @@ class PerpustakaanController extends Controller
      */
     public function destroy(Perpustakaan $perpustakaan)
     {
+        $serverpathimage = Helper::serverpathimage();
+        $image_path = "$serverpathimage$perpustakaan->cover";  // Value is not URL but directory file path
+        // return $image_path;
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
         Perpustakaan::destroy($perpustakaan->id_perpustakaan);
         return redirect('/admin/kepustakaan/perpustakaan')->with('status','Data Perpustakaan Berhasil Dihapus');
     }

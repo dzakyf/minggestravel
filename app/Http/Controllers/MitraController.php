@@ -6,6 +6,8 @@ use App\Mitra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Facades\File;
+use Helper;
 
 class MitraController extends Controller
 {
@@ -114,6 +116,11 @@ class MitraController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
+            $serverpathimage = Helper::serverpathimage();
+            $image_path = "$serverpathimage$mitra->gambar";  // Value is not URL but directory file path
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
             // Get image file
             $image = $request->file('gambar');
             // Make a image name based on id_mitra, nama and current timestamp
@@ -143,6 +150,11 @@ class MitraController extends Controller
      */
     public function destroy(Mitra $mitra)
     {
+        $serverpathimage = Helper::serverpathimage();
+        $image_path = "$serverpathimage$mitra->gambar";  // Value is not URL but directory file path
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
         Mitra::destroy($mitra->id_mitra);
         return redirect('/admin/mitra')->with('status', 'Data Mitra Berhasil Dihapus');
     }

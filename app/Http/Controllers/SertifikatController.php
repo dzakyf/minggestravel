@@ -6,6 +6,8 @@ use App\Sertifikat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Facades\File;
+use Helper;
 
 class SertifikatController extends Controller
 {
@@ -114,6 +116,11 @@ class SertifikatController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
+            $serverpathimage = Helper::serverpathimage();
+            $image_path = "$serverpathimage$sertifikat->gambar";  // Value is not URL but directory file path
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
             // Get image file
             $image = $request->file('gambar');
             // Make a image name based on id_sertifikat, nama and current timestamp
@@ -143,6 +150,12 @@ class SertifikatController extends Controller
      */
     public function destroy(Sertifikat $sertifikat)
     {
+        $serverpathimage = Helper::serverpathimage();
+        $image_path = "$serverpathimage$sertifikat->gambar";  // Value is not URL but directory file path
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+
         Sertifikat::destroy($sertifikat->id_sertifikat);
         return redirect('/admin/sertifikat')->with('status', 'Data Sertifikat Berhasil Dihapus');
     }

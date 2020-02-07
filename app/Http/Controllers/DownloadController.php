@@ -6,6 +6,8 @@ use App\Download;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Facades\File;
+use Helper;
 
 class DownloadController extends Controller
 {
@@ -57,8 +59,8 @@ class DownloadController extends Controller
         if ($request->has('file')) {
             // Get image file
             $image = $request->file('file');
-            // Make a image name based on id_download, file and current timestamp
-            $name = $id_downloadplus1 .'_'. $request->file .'_'. time();
+            // Make a image name based on id_download, nama_file and current timestamp
+            $name = $id_downloadplus1 .'_'. $request->nama_file .'_'. time();
             // Define folder path   
             $folder = '/uploads/images/kepustakaan/download/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -114,10 +116,15 @@ class DownloadController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('file')) {
+            $serverpathimage = Helper::serverpathimage();
+            $image_path = "$serverpathimage$download->file";  // Value is not URL but directory file path
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
             // Get image file
             $image = $request->file('file');
-            // Make a image name based on id_download, file and current timestamp
-            $name = $download->id_download .'_'. $request->file .'_'. time();
+            // Make a image name based on id_download, nama_file and current timestamp
+            $name = $download->id_download .'_'. $request->nama_file .'_'. time();
             // Define folder path   
             $folder = '/uploads/images/kepustakaan/download/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -128,7 +135,7 @@ class DownloadController extends Controller
 
         Download::where('id_download', $download->id_download)
             ->update([
-                'nama_file'         => $request->nama_file,
+                'nama_file'    => $request->nama_file,
                 'file'         => $filePath
             ]);
 
@@ -143,6 +150,12 @@ class DownloadController extends Controller
      */
     public function destroy(Download $download)
     {
+        $serverpathimage = Helper::serverpathimage();
+        $image_path = "$serverpathimage$download->file";  // Value is not URL but directory file path
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+
         Download::destroy($download->id_download);
         return redirect('/admin/kepustakaan/download')->with('status','Data Download Berhasil Dihapus');
     }

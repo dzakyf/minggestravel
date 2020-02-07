@@ -6,6 +6,8 @@ use App\Galeri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Facades\File;
+use Helper;
 
 class GaleriController extends Controller
 {
@@ -58,8 +60,8 @@ class GaleriController extends Controller
         if ($request->has('gambar')) {
             // Get image file
             $image = $request->file('gambar');
-            // Make a image name based on id_galeri, gambar and current timestamp
-            $name = $id_galeriplus1 .'_'. $request->gambar .'_'. time();
+            // Make a image name based on id_galeri, judul and current timestamp
+            $name = $id_galeriplus1 .'_'. $request->judul .'_'. time();
             // Define folder path   
             $folder = '/uploads/images/kepustakaan/galeri/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -117,10 +119,15 @@ class GaleriController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
+            $serverpathimage = Helper::serverpathimage();
+            $image_path = "$serverpathimage$galeri->gambar";  // Value is not URL but directory file path
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
             // Get image file
             $image = $request->file('gambar');
-            // Make a image name based on id_galeri, gambar and current timestamp
-            $name = $galeri->id_galeri .'_'. $request->gambar .'_'. time();
+            // Make a image name based on id_galeri, judul and current timestamp
+            $name = $galeri->id_galeri .'_'. $request->judul .'_'. time();
             // Define folder path   
             $folder = '/uploads/images/kepustakaan/galeri/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -147,6 +154,11 @@ class GaleriController extends Controller
      */
     public function destroy(Galeri $galeri)
     {
+        $serverpathimage = Helper::serverpathimage();
+        $image_path = "$serverpathimage$galeri->gambar";  // Value is not URL but directory file path
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
         Galeri::destroy($galeri->id_galeri);
         return redirect('/admin/kepustakaan/galeri')->with('status','Data Galeri Berhasil Dihapus');
     }

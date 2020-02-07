@@ -17,7 +17,7 @@ class JenisPelayananController extends Controller
      */
     public function index()
     {
-        //ditampilkan melalui MenuController
+        return redirect()->to('/admin/layanandantarif');
     }
 
     /**
