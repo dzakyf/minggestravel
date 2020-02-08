@@ -50,7 +50,7 @@ class PerpustakaanController extends Controller
             'kategori'          => 'required',
             'resensi'           => 'required',
             'cover'             => 'required|max:1000|image'
-        ]. [
+        ], [
             'cover.max'         => 'The cover may not be greater than 1 MegaBytes'
         ]);
 

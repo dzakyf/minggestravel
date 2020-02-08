@@ -45,9 +45,16 @@
           @csrf
             <div class="card-body">
               <div class="row">
-                
-
-                
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="gambar" class="d-block">Upload gambar</label>
+                      <input type="file" class="form-control-file @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+                      @error('gambar')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                      @enderror
+                  </div>
+                  <!-- /.form-group -->
+                </div>
                 <!-- /.col -->
 
                 <div class="col-md-12">

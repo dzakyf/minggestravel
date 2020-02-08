@@ -60,7 +60,7 @@ class MenuController extends Controller
 
     function visidanmisi(){
         $visi   = Visi::orderBy('id_visi', 'DESC')->get();
-        $misi   = Misi::orderBy('id_misi', 'DESC')->get();
+        $misi   = Misi::orderBy('id_misi')->get();
         return view('admins.profile.visidanmisi.index', ['visi' => $visi, 'misi' => $misi]);
     }
 

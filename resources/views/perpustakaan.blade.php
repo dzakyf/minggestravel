@@ -39,9 +39,6 @@
 										<h4 class="title">
 											<a href="{{('/perpustakaan')}}/{{$perpustakaans->id_perpustakaan}}">{{$perpustakaans->judul}}</a>
 										</h4>
-                                        <p>Pengarang: {{$perpustakaans->pengarang}}</p>
-                                        <p>kategori: {{$perpustakaans->kategori}}</p>
-                                        <a href="{{url('/perpustakaan')}}/{{$perpustakaans->id_perpustakaan}}" class="btn btn-default">Show More</a>
 									</div>
 								</div>
 							</div>

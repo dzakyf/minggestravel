@@ -43,7 +43,14 @@
           <!-- /.card-header -->
           <div class="card-body">
             <div class="row">
-
+              <div class="col-md-3">
+                <p class="card-title">Gambar</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+              <div class="col-md-9"> 
+                <img src="{{URL::asset($sejarah->gambar)}}" style='width: 50%; vertical-align: middle'; /> 
+                <p class="card-text"></p> 
+              </div>
              <!-- Sejarah -->
               <div class="col-md-3">
                 <p class="card-title">Sejarah</p><p class="text-right">:</p>  
@@ -53,10 +60,6 @@
                 <textarea name="sejarah" id="sejarah" class="textarea2" placeholder="Masukkan Sejarah" value=""
                             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$sejarah->sejarah}}</textarea>
               </div>
-              <!-- /.col -->
-            
-              <!-- /.col -->
-              
               <!-- /.col -->
 
               <!-- Created at -->

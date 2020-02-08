@@ -42,7 +42,7 @@
           <!-- /.card-header -->
           <div class="card-body">
             <div class="row">
-<div class="col-md-3">
+              <div class="col-md-3">
                 <p class="card-title">Gambar</p><p class="text-right">:</p>  
               </div>
               <!-- /.col -->

@@ -83,7 +83,7 @@ class PagesController extends Controller
     }
 
     public function penelitian(){
-        $penelitian     = Penelitian::orderBy('id_penelitian', 'DESC')->paginate(5);
+        $penelitian     = Penelitian::orderBy('id_penelitian', 'DESC')->paginate(3);
         return view('penelitian', compact('penelitian'));
     }
 

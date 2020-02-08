@@ -17,7 +17,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Event</h1>
+            <h1>Tambah Struktur Organisasi</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -43,7 +43,7 @@
           @csrf
             <div class="card-body">
               <div class="row">
-                  <div class="col-md-6">
+                <div class="col-md-6">
                   <div class="form-group">
                       <label for="gambar" class="d-block">Upload gambar</label>
                       <input type="file" class="form-control-file @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
@@ -53,9 +53,6 @@
                   </div>
                   <!-- /.form-group -->
                 </div>
-                
-
-                
                 <!-- /.col -->
 
                 <div class="col-md-12">

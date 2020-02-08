@@ -15,7 +15,7 @@ class VisiController extends Controller
      */
     public function index()
     {
-        //
+        return redirect()->to('/admin/profile/visidanmisi');
     }
 
     /**

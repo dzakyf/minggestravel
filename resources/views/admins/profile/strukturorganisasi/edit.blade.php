@@ -61,7 +61,7 @@
                <div class="col-md-12">
                   <div class="form-group">
                       <label for="deskripsi">Struktur Organisasi</label>
-                      <textarea name="deskripsi" id="deskripsi" class="textarea form-control @error('deskripsi') is-invalid @enderror" placeholder="Masukkan Struktur Organisasi Event" 
+                      <textarea name="deskripsi" id="deskripsi" class="textarea form-control @error('deskripsi') is-invalid @enderror" placeholder="Masukkan Struktur Organisasi" 
                             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                             {{$struktur_organisasi->deskripsi}}
                       </textarea>

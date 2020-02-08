@@ -6,7 +6,8 @@ use App\Sejarah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
-
+use Illuminate\Support\Facades\File;
+use Helper;
 
 class SejarahController extends Controller
 {
@@ -42,7 +43,10 @@ class SejarahController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'sejarah'             => 'required',
+            'sejarah'           => 'required',
+            'gambar'            => 'required|max:1000|image'
+        ],[
+            'gambar.max'        => 'The gambar may not be greater than 1 MegaBytes'
         ]);
 
         
@@ -52,10 +56,26 @@ class SejarahController extends Controller
         }else{
             $id_sejarahlastplus1 = 1;
         }
+
+        // Check if a image has been uploaded
+        if ($request->has('gambar')) {
+            // Get image file
+            $image = $request->file('gambar');
+            // Make a image name based on id_sejarah, and current timestamp
+            $name = $id_sejarahlastplus1 .'_'. time();
+            // Define folder path   
+            $folder = '/uploads/images/profile/sejarah/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image, fungsi ini ada di app/Traits/UploadTrait.php diambil dari larashout.com cara upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+        }    
+
         
 
         Sejarah::create([
-            'sejarah'             => $request->sejarah,
+            'sejarah'           => $request->sejarah,
+            'gambar'            => $filePath
         ]);
 
         return redirect()->to('/admin/profile/sejarah')->with('status','Data sejarah berhasil ditambahkan');
@@ -99,10 +119,38 @@ class SejarahController extends Controller
             'sejarah'         => 'required',
         ]);
 
+        $filePath = $sejarah->gambar;
+
+        // Check if a image has been uploaded
+        if ($request->has('gambar')) {
+            $request->validate([
+                'gambar'             => 'required|max:1000|image',
+            ], [
+                'gambar.max'      => 'The gambar may not be greater than 1 MegaBytes'
+            ]);
+            $serverpathimage = Helper::serverpathimage();
+            $image_path = "$serverpathimage$sejarah->gambar";  // Value is not URL but directory file path
+            // return $image_path;
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            // Get image file
+            $image = $request->file('gambar');
+            // Make a image name based on id_sejarah, judul and current timestamp
+            $name = $sejarah->id_sejarah .'_'.time();
+            // Define folder path   
+            $folder = '/uploads/images/profile/strukturorganisasi/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image, fungsi ini ada di app/Traits/UploadTrait.php diambil dari larashout.com cara upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+        }    
+
         
         Sejarah::where('id_sejarah', $sejarah->id_sejarah)
             ->update([
-                'sejarah'        => $request->sejarah
+                'sejarah'       => $request->sejarah,
+                'gambar'        => $filePath
             ]);
 
         return redirect()->to('/admin/profile/sejarah')->with('status','Data sejarah berhasil diubah');
@@ -117,6 +165,11 @@ class SejarahController extends Controller
      */
     public function destroy(Sejarah $sejarah)
     {
+        $serverpathimage = Helper::serverpathimage();
+        $image_path = "$serverpathimage$sejarah->gambar";  // Value is not URL but directory file path
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
         Sejarah::destroy($sejarah->id_sejarah);
         return redirect('/admin/profile/sejarah')->with('status','Data sejarah berhasil dihapus');
 

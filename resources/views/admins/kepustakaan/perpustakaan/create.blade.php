@@ -62,7 +62,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="judul">Judul</label>
-                    <input type="text" class="form-control @error('judul') is-invalid @enderror" style="width: 100%;" name="judul" id="judul" placeholder="Masukkan Judul" value="{{old('judul')}}">
+                    <input type="text" class="form-control @error('judul') is-invalid @enderror" style="width: 100%;" name="judul" id="judul" placeholder="Masukkan Judul" value="{{old('judul')}}" maxlength="140">
                     <!-- munculin pesan error jika salah -->
                     @error('judul')
                             <div class="invalid-feedback"> {{ $message }} </div>
@@ -193,4 +193,31 @@
         $('.textarea').summernote()
     })
     </script>
+
+    <script>
+    // Restricts input for the given textbox to the given inputFilter.
+    function setInputFilter(textbox, inputFilter) {
+      ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+        textbox.addEventListener(event, function() {
+          if (inputFilter(this.value)) {
+            this.oldValue = this.value;
+            this.oldSelectionStart = this.selectionStart;
+            this.oldSelectionEnd = this.selectionEnd;
+          } else if (this.hasOwnProperty("oldValue")) {
+            this.value = this.oldValue;
+            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+          } else {
+            this.value = "";
+          }
+        });
+      });
+    }
+
+    // Install input filters.
+    setInputFilter(document.getElementById("tahun_terbit"), function(value) {
+      return /^\d*$/.test(value); });
+    setInputFilter(document.getElementById("jumlah_halaman"), function(value) {
+      return /^\d*$/.test(value); });
+    </script>
+    
   @endsection

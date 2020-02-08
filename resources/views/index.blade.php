@@ -139,7 +139,7 @@
 	<section class="clients_logo_area ">
 		<div class="container">
 			<h1><center>Sertifikat</center></h1>
-					<p><center>Untuk meningkatkan pelayanan, kami telah bermitra dengan berbagai instansi baik Negeri maupun Swasta
+					<p><center>Untuk menjamin pelayanan, kami mempunyai beberapa sertifikat kesehatan
 					</center></p>
 					<br>
 			<div class="clients_slider owl-carousel">

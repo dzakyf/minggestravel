@@ -70,7 +70,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                       <label for="file">Upload File (klik browse jika ingin mengganti file)</label>
-                        <input type="file" class="mb-2 form-control-file @error('file') is-invalid @enderror" name="file" id="file"> <img src="{{$download->file}}" class="d-flex justify-content-center" style="width: 50%"/>
+                        <input type="file" class="mb-2 form-control-file @error('file') is-invalid @enderror" name="file" id="file"> <a href="{{URL::asset($download->file)}}" target="_blank">Lihat File </a>
                         @error('file')
                           <div class="invalid-feedback"> {{ $message }} </div>
                         @enderror

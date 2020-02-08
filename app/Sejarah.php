@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sejarah extends Model
 {
     protected $table = 'sejarah';
-    protected $fillable = ['sejarah'];
+    protected $fillable = ['sejarah', 'gambar'];
 
     //memberi tahu model kalau primary key-nya yaitu event_id
     protected $primaryKey = 'id_sejarah';

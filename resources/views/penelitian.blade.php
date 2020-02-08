@@ -43,10 +43,10 @@
 							</div>
 						</div>
                         @endforeach
+						{{$penelitian->links()}}
 					</div>
 				</div>
 			</div>
-            {{$penelitian->links()}}
 		</div>
 	</section>
 	<!--================ End Recent Event Area =================-->

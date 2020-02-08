@@ -27,10 +27,12 @@
                 <h1>Sejarah</h1>
 					<div class="bottom_para">
                             @foreach($sejarah as $sejarah)
+							<div class="col-lg-12 mb-5">
+								<img class="img-fluid" src="{{$sejarah->gambar}}" style="width: 50%" alt="">
+                        	</div>
                             <?php
-								$limit = "$sejarah->sejarah";
+								echo $sejarah->sejarah;
                             ?>
-							{{str_limit($limit)}}
                             @endforeach
 					</div>
 				</div>
