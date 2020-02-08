@@ -49,7 +49,9 @@ class PerpustakaanController extends Controller
             'jumlah_halaman'    => 'required|numeric',
             'kategori'          => 'required',
             'resensi'           => 'required',
-            'cover'             => 'required'
+            'cover'             => 'required|max:1000|image'
+        ]. [
+            'cover.max'         => 'The cover may not be greater than 1 MegaBytes'
         ]);
 
         
@@ -134,6 +136,11 @@ class PerpustakaanController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('cover')) {
+            $request->validate([
+                'cover'             => 'required|max:1000|image',
+            ], [
+                'cover.max'      => 'The cover may not be greater than 1 MegaBytes'
+            ]);
             $serverpathimage = Helper::serverpathimage();
             $image_path = "$serverpathimage$perpustakaan->cover";  // Value is not URL but directory file path
             if(File::exists($image_path)) {

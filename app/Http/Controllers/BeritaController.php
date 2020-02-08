@@ -44,7 +44,9 @@ class BeritaController extends Controller
             'judul'             => 'required',
             'kategori'          => 'required',
             'berita'            => 'required',
-            'gambar'            => 'required'
+            'gambar'            => 'required|max:1000|image'
+        ],[
+            'gambar.max'        => 'The gambar may not be greater than 1 MegaBytes'
         ]);
 
         
@@ -121,6 +123,11 @@ class BeritaController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
+            $request->validate([
+                'gambar'             => 'required|max:1000|image',
+            ], [
+                'gambar.max'      => 'The gambar may not be greater than 1 MegaBytes'
+            ]);
             $serverpathimage = Helper::serverpathimage();
             $image_path = "$serverpathimage$berita->gambar";  // Value is not URL but directory file path
             // return $image_path;

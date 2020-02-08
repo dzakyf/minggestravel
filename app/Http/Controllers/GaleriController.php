@@ -44,7 +44,9 @@ class GaleriController extends Controller
         $request->validate([
             'judul'             => 'required',
             'deskripsi'         => 'required',
-            'gambar'            => 'required',
+            'gambar'            => 'required|max:1000|image'
+        ],[
+            'gambar.max'        => 'The gambar mmay not be greater than 1 MegaBytes'
         ]);
 
         
@@ -119,6 +121,11 @@ class GaleriController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
+            $request->validate([
+                'gambar'             => 'required|max:1000|image',
+            ], [
+                'gambar.max'      => 'The gambar may not be greater than 1 MegaBytes'
+            ]);
             $serverpathimage = Helper::serverpathimage();
             $image_path = "$serverpathimage$galeri->gambar";  // Value is not URL but directory file path
             if(File::exists($image_path)) {

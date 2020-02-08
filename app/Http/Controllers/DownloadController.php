@@ -43,7 +43,9 @@ class DownloadController extends Controller
     {
         $request->validate([
             'nama_file'          => 'required',
-            'file'               => 'required'
+            'file'               => 'required|mimes:pdf|max:5000'
+        ], [
+            'file.max'      => 'The file may not be greater than 5 MegaBytes'
         ]);
 
         
@@ -116,6 +118,11 @@ class DownloadController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('file')) {
+            $request->validate([
+                'file'             => 'required|max:5000',
+            ], [
+                'file.max'      => 'The file may not be greater than 5 MegaBytes'
+            ]);
             $serverpathimage = Helper::serverpathimage();
             $image_path = "$serverpathimage$download->file";  // Value is not URL but directory file path
             if(File::exists($image_path)) {

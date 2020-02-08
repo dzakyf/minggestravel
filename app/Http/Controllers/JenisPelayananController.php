@@ -40,7 +40,9 @@ class JenisPelayananController extends Controller
     {
         $request->validate([
             'nama'      => 'required',
-            'icon'      => 'required'
+            'icon'      => 'required|max:1000|image'
+        ],[
+            'icon.max'  => 'The icon may not be greater than 1 MegaBytes'
         ]);
 
         $id_pelayananlast = DB::table('jenis_pelayanan')->select('id_pelayanan')->latest('id_pelayanan')->first();

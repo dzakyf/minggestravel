@@ -45,7 +45,9 @@ class UpayaKesehatanController extends Controller
             'judul'                       => 'required',
             'deskripsi'                   => 'required',
             'upaya_kesehatan'             => 'required',
-            'gambar'                      => 'required',
+            'gambar'                      => 'required|max:1000|image'
+        ], [
+            'gambar.max'                  => 'The gambar may not be greater than 1 MegaBytes'
         ]);
 
         
@@ -125,6 +127,11 @@ class UpayaKesehatanController extends Controller
 
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
+            $request->validate([
+                'gambar'             => 'required|max:1000|image',
+            ], [
+                'gambar.max'      => 'The gambar may not be greater than 1 MegaBytes'
+            ]);
             // Get image file
             $image = $request->file('gambar');
             // Make a image name based on id_upaya_kesehatan, judul and current timestamp
