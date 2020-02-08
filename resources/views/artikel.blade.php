@@ -39,9 +39,6 @@
 										<h4 class="title">
 											<a href="{{('/artikel')}}/{{$artikels->id_artikel}}">{{$artikels->judul}}</a>
 										</h4>
-										<?php
-											echo "$artikels->deskripsi";
-										?>
 									</div>
 								</div>
 							</div>

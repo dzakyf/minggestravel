@@ -46,7 +46,7 @@
                   <div class="form-group">
                     <label for="kategori">Kategori Artikel</label>
                     <select class="form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori" required>
-                        <option value="" disabled selected>Kategori Berita</option>
+                        <option value="" disabled selected>Kategori Artikel</option>
                         <option value="sport">Sport</option>
                         <option value="teknologi">Teknologi</option>
                         <option value="finance">Finance</option>
@@ -67,27 +67,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="judul">Judul artikel</label>
-                    <input type="text" class="form-control @error('judul') is-invalid @enderror" style="width: 100%;" name="judul" id="judul" placeholder="Masukkan Judul" value="{{old('judul')}}">
+                    <input type="text" class="form-control @error('judul') is-invalid @enderror" style="width: 100%;" name="judul" id="judul" placeholder="Masukkan Judul" value="{{old('judul')}}" maxlength="140">
                     <!-- munculin pesan error jika salah -->
                     @error('judul')
                             <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                   </div>
                   <!-- /.form-group -->
-                </div>
-                <!-- /.col -->
-
-                <div class="col-md-12">
-                  <div class="form-group">
-                      <label for="deskripsi">Deskripsi singkat artikel</label>
-                      <textarea name="deskripsi" id="deskripsi" class="textarea form-control @error('deskripsi') is-invalid @enderror" placeholder="Masukkan Deskripsi Singkat Event" value="{{old('deskripsi')}}"
-                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{old('deskripsi')}}</textarea>
-                      <!-- munculin pesan error jika salah -->
-                      @error('deskripsi')
-                            <div class="invalid-feedback"> {{ $message }} </div>
-                      @enderror
-                  </div>
-                  <!-- /.form group -->
                 </div>
                 <!-- /.col -->
 

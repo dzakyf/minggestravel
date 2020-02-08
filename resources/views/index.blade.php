@@ -70,7 +70,7 @@
 									<!-- <span>Raised: $7,689</span> / $10,000 -->
 								</div>
 								<h4 class="card-title">{{$beritanz->judul}}</h4>
-								<p class="card-text"><?php echo $beritanz->deskripsi ?></p>
+								<p class="card-text"><?php echo $beritanz->berita ?></p>
 								<a href="{{url('/berita')}}/{{$beritanz->id_berita}}" class="main_btn2">Baca Sekarang</a>
 							</div>
 						</div>

@@ -44,7 +44,6 @@ class ArtikelController extends Controller
         $request->validate([
             'judul'     => 'required',
             'kategori'  => 'required',
-            'deskripsi' => 'required',
             'artikel'   => 'required',
             'gambar'    => 'required'
         ]);
@@ -75,7 +74,6 @@ class ArtikelController extends Controller
         Artikel::create([
             'judul'             => $request->judul,
             'kategori'          => $request->kategori,
-            'deskripsi'         => $request->deskripsi,
             'artikel'           => $request->artikel,
             'gambar'            => $filePath
         ]);
@@ -120,7 +118,6 @@ class ArtikelController extends Controller
         $request->validate([
             'judul'         => 'required',
             'kategori'      => 'required',
-            'deskripsi'     => 'required',
             'artikel'       => 'required',
             
         ]);
@@ -150,7 +147,6 @@ class ArtikelController extends Controller
             ->update([
                 'judul'         => $request->judul,
                 'kategori'      => $request->kategori,
-                'deskripsi'     => $request->deskripsi,
                 'artikel'       => $request->artikel,
                 'gambar'        => $filePath
             ]);

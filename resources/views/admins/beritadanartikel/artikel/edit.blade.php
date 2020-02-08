@@ -105,29 +105,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="judul">Judul</label>
-                    <input type="text" class="form-control @error('judul') is-invalid @enderror" style="width: 100%;" name="judul" id="judul" placeholder="Masukkan Judul" value="{{$artikel->judul}}">
+                    <input type="text" class="form-control @error('judul') is-invalid @enderror" style="width: 100%;" name="judul" id="judul" placeholder="Masukkan Judul" value="{{$artikel->judul}}" maxlength="140">
                     <!-- munculin pesan error jika salah -->
                     @error('judul')
                             <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                   </div>
                   <!-- /.form-group -->
-                </div>
-                <!-- /.col -->
-
-                <div class="col-md-12">
-                  <div class="form-group">
-                      <label for="deskripsi">Deskripsi Singkat</label>
-                      <textarea name="deskripsi" id="deskripsi" class="textarea form-control @error('deskripsi') is-invalid @enderror" placeholder="Masukkan Deskripsi Singkat artikel" 
-                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                            {{$artikel->deskripsi}}
-                      </textarea>
-                      <!-- munculin pesan error jika salah -->
-                      @error('deskripsi')
-                            <div class="invalid-feedback"> {{ $message }} </div>
-                      @enderror
-                  </div>
-                  <!-- /.form group -->
                 </div>
                 <!-- /.col -->
 

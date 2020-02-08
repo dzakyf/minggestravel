@@ -62,7 +62,6 @@
                 <tr>
                   <th>No.</th>
                   <th>Judul</th>
-                  <th>Deskripsi</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -71,7 +70,6 @@
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$berita->judul}}</td>
-                  <td><?php echo $berita->deskripsi ?></td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/beritadanartikel/berita/')}}/{{$berita->id_berita}}">
                       detail
@@ -84,7 +82,6 @@
                 <tr>
                   <th>No.</th>
                   <th>Judul</th>
-                  <th>Deskripsi</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>
@@ -107,7 +104,6 @@
                 <tr>
                   <th>No.</th>
                   <th>Judul</th>
-                  <th>Deskripsi</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -116,7 +112,6 @@
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$artikel->judul}}</td>
-                  <td><?php echo $artikel->deskripsi ?></td>
 
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/beritadanartikel/artikel/')}}/{{$artikel->id_artikel}}">
@@ -130,7 +125,6 @@
                 <tr>
                   <th>No.</th>
                   <th>Judul</th>
-                  <th>Deskripsi</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>

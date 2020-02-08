@@ -83,7 +83,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="tanggal">Tanggal Penelitian</label>
-                    <input type="text" class="form-control @error('tanggal') is-invalid @enderror" style="width: 100%;" name="tanggal" id="tanggal" placeholder="Masukkan Tanggal Penelitian" value="{{$penelitian->tanggal}}">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                      </div>
+                      <input type="text" class="form-control @error('tanggal') is-invalid @enderror" style="width: 50%;" name="tanggal" id="datemask" placeholder="Masukkan Tanggal Penelitian" value="{{$penelitian->tanggal}}" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                    </div>
+                    <!-- /.input group -->
                     <!-- munculin pesan error jika salah -->
                     @error('tanggal')
                             <div class="invalid-feedback"> {{ $message }} </div>
@@ -139,5 +145,15 @@
         // Summernote
         $('.textarea').summernote()
     })
+    </script>
+
+     <!-- InputMask -->
+     <script src="{{URL::asset('extadmin/plugins/moment/moment.min.js')}}"></script>
+    <script src="{{URL::asset('extadmin/plugins/inputmask/min/jquery.inputmask.bundle.min.js')}}"></script>
+    <script>
+        $(function () {
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        })
     </script>
   @endsection

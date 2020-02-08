@@ -39,9 +39,6 @@
 										<h4 class="title">
 											<a href="{{('/berita')}}/{{$beritas->id_berita}}">{{$beritas->judul}}</a>
 										</h4>
-										<?php
-											echo "$beritas->deskripsi";
-										?>
 									</div>
 								</div>
 							</div>

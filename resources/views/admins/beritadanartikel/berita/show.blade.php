@@ -71,17 +71,6 @@
               </div>
               <!-- /.col -->
 
-              <!-- Deskripsi Singkat -->
-              <div class="col-md-3">
-                <p class="card-title">Deskripsi Singkat</p><p class="text-right">:</p>  
-              </div>
-              <!-- /.col -->
-              <div class="col-md-12">
-                <textarea name="deskripsi" id="deskripsi" class="textarea1" placeholder="Masukkan Deskripsi Singkat Berita" value=""
-                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$berita->deskripsi}}</textarea>
-              </div>
-              <!-- /.col -->
-
               <!-- Berita -->
               <div class="col-md-3">
                 <p class="card-title">Berita</p><p class="text-right">:</p>  

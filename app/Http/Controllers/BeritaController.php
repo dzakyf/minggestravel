@@ -43,7 +43,6 @@ class BeritaController extends Controller
         $request->validate([
             'judul'             => 'required',
             'kategori'          => 'required',
-            'deskripsi'         => 'required',
             'berita'            => 'required',
             'gambar'            => 'required'
         ]);
@@ -74,7 +73,6 @@ class BeritaController extends Controller
         Berita::create([
             'judul'             => $request->judul,
             'kategori'          => $request->kategori,
-            'deskripsi'         => $request->deskripsi,
             'berita'            => $request->berita,
             'gambar'            => $filePath
         ]);
@@ -116,7 +114,6 @@ class BeritaController extends Controller
         $request->validate([
             'judul'         => 'required',
             'kategori'      => 'required',
-            'deskripsi'     => 'required',
             'berita'        => 'required',
         ]);
 
@@ -146,7 +143,6 @@ class BeritaController extends Controller
             ->update([
                 'judul'         => $request->judul,
                 'kategori'      => $request->kategori,
-                'deskripsi'     => $request->deskripsi,
                 'berita'        => $request->berita,
                 'gambar'        => $filePath
             ]);
