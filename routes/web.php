@@ -91,9 +91,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
     });
     ///kontakdanpesan
     Route::group(['prefix' => 'kontakdanpesan'], function(){
-        Route::resource('kontak', 'KontakController');
+        Route::resource('kontak', 'KontakController')->except(['create', 'store', 'destroy']);
         Route::resource('pesan', 'PesanController')->except([
-            'create', 'store'
+            'create', 'store', 'edit', 'update'
         ]);
     }); 
 

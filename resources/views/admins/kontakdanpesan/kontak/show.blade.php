@@ -41,13 +41,33 @@
           <div class="card-body">
             <div class="row">
 
-              <!-- event id : -->
+              <!-- nama_event -->
               <div class="col-md-3">
-              <p class="card-title">Id kontak</p> <p class="text-right">:</p> 
+                <p class="card-title">Alamat</p><p class="text-right">:</p>  
               </div>
               <!-- /.col -->
               <div class="col-md-9">
-                <p class="card-text">{{$kontak->id_kontak}}</p>
+                <p class="card-text">{{$kontak->alamat}}</p> 
+              </div>
+              <!-- /.col -->
+
+              <!-- nama_event -->
+              <div class="col-md-3">
+                <p class="card-title">Telepon</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+              <div class="col-md-9">
+                <p class="card-text">{{$kontak->telepon}}</p> 
+              </div>
+              <!-- /.col -->
+
+              <!-- nama_event -->
+              <div class="col-md-3">
+                <p class="card-title">Fax</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+              <div class="col-md-9">
+                <p class="card-text">{{$kontak->fax}}</p> 
               </div>
               <!-- /.col -->
 
@@ -83,12 +103,6 @@
 
               <div class="col mb-2 text-center">
                 <a href="{{ $kontak->id_kontak }}/edit" class="btn btn-primary">Edit</a>
-
-                <form action="{{ url('/admin/kontakdanpesan/kontak')}}/{{ $kontak->id_kontak }}" method="post" class="d-inline">
-                    @method('delete')
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Hapus</button>
-                </form>
               </div>
 
             <!-- /.row -->

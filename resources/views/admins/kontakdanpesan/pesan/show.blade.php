@@ -105,7 +105,6 @@
               <!-- /.col -->
 
               <div class="col mb-2 text-center">
-                <a href="{{ $pesan->id_pesan }}/edit" class="btn btn-primary">Edit</a>
 
                 <form action="{{ url('/admin/kontakdanpesan/pesan')}}/{{ $pesan->id_pesan }}" method="post" class="d-inline">
                     @method('delete')

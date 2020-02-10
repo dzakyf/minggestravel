@@ -70,16 +70,7 @@ class PesanController extends Controller
      */
     public function update(Request $request, Pesan $pesan)
     {
-        $request->validate([
-            'jawaban'     => 'required'
-        ]);
-
-        Pesan::where('id_pesan', $pesan->id_pesan)
-            ->update([
-                'jawaban'   => $request->jawaban
-            ]);
-
-        return redirect()->to('/admin/kontakdanpesan/pesan')->with('status', 'Data Pesan Berhasil Diubah');
+        //
     }
 
     /**

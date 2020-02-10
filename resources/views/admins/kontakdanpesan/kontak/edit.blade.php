@@ -42,6 +42,45 @@
           @csrf
             <div class="card-body">
               <div class="row">
+
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" style="width: 100%;" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="{{$kontak->alamat}}">
+                    <!-- munculin pesan error jika salah -->
+                    @error('alamat')
+                            <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
+                  </div>
+                  <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="telepon">Telepon</label>
+                    <input type="text" class="form-control @error('telepon') is-invalid @enderror" style="width: 100%;" name="telepon" id="telepon" placeholder="Masukkan Telepon" value="{{$kontak->telepon}}">
+                    <!-- munculin pesan error jika salah -->
+                    @error('telepon')
+                            <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
+                  </div>
+                  <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="fax">Fax</label>
+                    <input type="text" class="form-control @error('fax') is-invalid @enderror" style="width: 100%;" name="fax" id="fax" placeholder="Masukkan Fax" value="{{$kontak->fax}}">
+                    <!-- munculin pesan error jika salah -->
+                    @error('fax')
+                            <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
+                  </div>
+                  <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
                 
                 <div class="col-md-6">
                   <div class="form-group">

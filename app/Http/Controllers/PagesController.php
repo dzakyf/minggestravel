@@ -111,7 +111,7 @@ class PagesController extends Controller
     }
 
     public function kontak(){
-        $kontak     = Kontak::orderBy('id_kontak', 'DESC')->get();
+        $kontak     = Kontak::all();
         return view('kontak')->with(compact('kontak'));
     }
 
@@ -130,8 +130,7 @@ class PagesController extends Controller
         Pesan::create([
             'nama'      => $request->nama,
             'email'     => $request->email,
-            'pesan'     => $request->pesan,
-            'jawaban'   => ''
+            'pesan'     => $request->pesan
         ]);
 
         return redirect()->to('/kontak')->with('status', 'Data Pesan berhasil dikirim');

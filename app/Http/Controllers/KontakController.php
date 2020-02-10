@@ -38,12 +38,18 @@ class KontakController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'alamat'            => 'required',
+            'telepon'           => 'required',
+            'fax'               => 'required',
             'email'             => 'required|email'
             
         ]);
 
         Kontak::create([
-            'email'             => $request->email,
+            'alamat'            => $request->alamat,
+            'telepon'           => $request->telepon,
+            'fax'               => $request->fax,
+            'email'             => $request->email
         ]);
 
         return redirect()->to('/admin/kontakdanpesan/kontak')->with('status','Data kontak berhasil ditambahkan');
@@ -81,11 +87,17 @@ class KontakController extends Controller
     public function update(Request $request, Kontak $kontak)
     {
         $request->validate([
-            'email'         => 'required'
+            'alamat'        => 'required',
+            'telepon'       => 'required',
+            'fax'           => 'required',
+            'email'         => 'required|email'
         ]);
 
         Kontak::where('id_kontak', $kontak->id_kontak)
             ->update([
+                'alamat'        => $request->alamat,
+                'telepon'       => $request->telepon,
+                'fax'           => $request->fax,
                 'email'         => $request->email
             ]);
 

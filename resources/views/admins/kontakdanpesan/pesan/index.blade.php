@@ -55,7 +55,6 @@
                   <th>No.</th>
                   <th>Nama</th>
                   <th>Pesan</th>
-                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -65,7 +64,6 @@
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$pesan->nama}}</td>
                   <td><?php echo $pesan->pesan ?></td>
-                  <td>temp</td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/kontakdanpesan/pesan')}}/{{$pesan->id_pesan}}">
                       detail
@@ -79,7 +77,6 @@
                   <th>No.</th>
                   <th>Nama</th>
                   <th>Pesan</th>
-                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>

@@ -28,23 +28,23 @@
                         <h3 class="mb-4">KANTOR KAMI</h3>
                         <div class="info_item">
                             <i class="lnr lnr-home"></i>
-                            <h6>Yogyakarta, Indonesia</h6>
-                            <p>Ngadinegaran MJ III/62 Yogyakarta 55143</p>
+                            <h6>Alamat</h6>
+                            <p>{{$kontak[0]->alamat}}</p>
                         </div>
                         <div class="info_item">
                             <i class="lnr lnr-phone-handset"></i>
                             <h6>Telp</h6>
-                            <p>(0274) 378187 </p>
+                            <p>{{$kontak[0]->telepon}}</p>
                         </div>
                          <div class="info_item">
                             <i class="lnr lnr-printer"></i>
                             <h6>Fax</h6>
-                            <p>(0274) 381582</p>
+                            <p>{{$kontak[0]->fax}}</p>
                         </div>
                         <div class="info_item">
                             <i class="lnr lnr-envelope"></i>
                             <h6>Email</h6>
-                            <p>labkes@gmail.com</p>
+                            <p>{{$kontak[0]->email}}</p>
                         </div>
                     </div>
                 </div>

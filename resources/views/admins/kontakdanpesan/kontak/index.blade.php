@@ -42,12 +42,6 @@
             </div>
           @endif
 
-        <div class="col mb-2 text-right">
-          <a href="{{ url('/admin/kontakdanpesan/kontak/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Kontak</button>
-          </a>
-        </div>
-
         <div class="col-12">
           <div class="card">
             <div class="card-header">
@@ -59,6 +53,9 @@
                 <thead>
                 <tr>
                   <th>No.</th>
+                  <th>Alamat</th>
+                  <th>Telepon</th>
+                  <th>Fax</th>
                   <th>Email</th>
                   <th>Action</th>
                 </tr>
@@ -67,6 +64,9 @@
                 @foreach($kontak as $kontak)
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
+                  <td>{{$kontak->alamat}}</td>
+                  <td>{{$kontak->telepon}}</td>
+                  <td>{{$kontak->fax}}</td>
                   <td>{{$kontak->email}}</td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/kontakdanpesan/kontak/')}}/{{$kontak->id_kontak}}">
@@ -79,6 +79,9 @@
                 <tfoot>
                 <tr>
                   <th>No.</th>
+                  <th>Alamat</th>
+                  <th>Telepon</th>
+                  <th>Fax</th>
                   <th>Email</th>
                   <th>Action</th>
                 </tr>
