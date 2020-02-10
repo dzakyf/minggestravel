@@ -150,20 +150,20 @@
 			</div>
 
 			<div class="row">
-				<div class="card-group">
-					@foreach($beritanz->slice(0,3) as $beritanz)
-					<div class="card">
-						<img class="card-img-top" src="{{URL::asset($beritanz->gambar)}}" alt="Card image cap">
-						<div class="card-body">
-							<h5 class="card-title">{{$beritanz->judul}}</h5>
-							<p class="card-text"><?php $string = (strlen($beritanz->berita) > 100) ? substr($beritanz->berita,0,97).'...' : $string; echo $string;?></p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">{{$beritanz->updated_at}}</small>
-						</div>
+			<div class="card-deck">
+				@foreach($beritanz->slice(0, 3) as $beritanz)
+				<div class="card">
+					<img src="{{URL::asset($beritanz->gambar)}}" style="height:277px;" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{$beritanz->judul}}</h5>
+						<p class="card-text"><small class="text-muted">{{$beritanz->updated_at}}</small></p>
 					</div>
-					@endforeach
 				</div>
+				@endforeach
+			</div>
+			<div class="col-md-12 text-center"> 
+					<a class="main_btn" href="{{url('/berita')}}">Selengkapnya</a>
+			</div>
 			</div>
 		</div>
 	</section>
@@ -190,6 +190,9 @@
 					</a>
 				</div>
 				@endforeach
+				<div class="col-md-12 text-center mt-5"> 
+					<a class="main_btn" href="{{url('/pengumuman')}}">Selengkapnya</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -211,7 +214,7 @@
 				@endforeach
 			</div>
 		</div>
-	</section><br><br>
+	</section>
 	<section class="clients_logo_area ">
 		<div class="container">
 			<h1><center>Sertifikat</center></h1>
