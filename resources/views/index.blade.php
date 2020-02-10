@@ -1,25 +1,122 @@
 @extends('layout/main')
 
+@section('css')
+<link rel="stylesheet" href="{{URL::asset('extdinkes/css/slider.css')}}">
+@endsection
+
 @section('content')
 
 	<!--================ Home Banner Area =================-->
+	
 	<section class="home_banner_area">
-		<div class="overlay"></div>
-		<div class="banner_inner d-flex align-items-center">
-			<div class="container">
-				<div class="banner_content row">
-					<div class="offset-lg-2 col-lg-8">
-						<img class="img-fluid" src="{{URL::asset('extdinkes/img/banner/text-img.png')}}" alt="">
-						<p>Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
-						<a class="main_btn mr-10" href="#">Daftar Sekarang</a>
-						<a class="white_bg_btn" href="#">Cek Antrian</a>
-					</div>
-				</div>
+	<div id="carouselExampleIndicators" class="carousel slide carousel-fade carousel-fullscreen" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+
+	</ol>
+    <div class="carousel-inner" role="listbox">
+	  <!-- Slide One - Set the background image for this slide in the line below -->
+	<div class="carousel-item active " style="background-image: url({{URL::asset('uploads/images/banner/1.jpg')}});">
+	  <div class="img-overlay"></div>
+        <div class="carousel-caption d-none d-md-block">
+          <img class="img-fluid" src="{{URL::asset('extdinkes/img/banner/text-img.png')}}" alt="">
+          <p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+              <a class="main_btn mr-10" href="#">Daftar Sekarang</a>
+              <a class="main_btn2" href="#">Cek Antrian</a>
+        </div>
+	  </div>
+	  <!-- Slide Two - Set the background image for this slide in the line below -->
+	  <div class="carousel-item " style="background-image: url({{URL::asset('uploads/images/banner/2.jpg')}})">
+	  <div class="img-overlay"></div>
+        <div class="carousel-caption d-none d-md-block">
+          <img class="img-fluid" src="{{URL::asset('extdinkes/img/banner/text-img.png')}}" alt="">
+          <p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+              <a class="main_btn mr-10" href="#">Daftar Sekarang</a>
+              <a class="main_btn2" href="#">Cek Antrian</a>
+        </div>
+	  </div>
+
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+	  <div class="carousel-item" style="background-image: url({{URL::asset('uploads/images/banner/3.jpg')}})">
+		<div class="img-overlay"></div>
+        <div class="carousel-caption d-none d-md-block">
+            <img class="img-fluid" src="{{URL::asset('extdinkes/img/banner/text-img.png')}}" alt="">
+              <p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+              <a class="main_btn mr-10" href="#">Daftar Sekarang</a>
+              <a class="main_btn2" href="#">Cek Antrian</a>
+        </div>
+	  </div>
+	  
+	<div class="carousel-item " style="background-image: url({{URL::asset('uploads/images/banner/4.jpg')}})">
+			<div class="img-overlay"></div>
+			<div class="carousel-caption d-none d-md-block">
+			<img class="img-fluid" src="{{URL::asset('extdinkes/img/banner/text-img.png')}}" alt="">
+			<p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+				<a class="main_btn mr-10" href="#">Daftar Sekarang</a>
+				<a class="main_btn2" href="#">Cek Antrian</a>
 			</div>
 		</div>
-	</section>
+		</div>
+		
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+			</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+			</a>
+	</div>
+	</div>
+		<!--<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+									<ol class="carousel-indicators">
+										<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+										<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+										<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+									</ol>
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+										<img class="d-block w-100" src="img/norway.jpg" alt="First slide">
+										<div class="carousel-caption d-none d-md-block">
+										<img class="img-fluid" src="img/banner/text-img.png" alt="">
+											<p>Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+											<a class="main_btn mr-10" href="#">Daftar Sekarang</a>
+											<a class="white_bg_btn" href="#">Cek Antrian</a>
+										</div>	
+									</div>
+										<div class="carousel-item">
+										<img class="d-block w-100" src="img/norway3.jpg" alt="Second slide">
+										<div class="carousel-caption d-none d-md-block">
+										<img class="img-fluid" src="img/banner/text-img.png" alt="">
+											<p>Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+											<a class="main_btn mr-10" href="#">Daftar Sekarang</a>
+											<a class="white_bg_btn" href="#">Cek Antrian</a>
+										</div>	
+										</div>
+										</div>
+										
+									</div>
+									<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="sr-only">Previous</span>
+									</a>
+									<a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>
+								</div>							
+							</div> 
+						</div>
+					<div class="banner_inner d-flex ">
+						
+					</div>
+			<div class="container-fluid">-->
+	</div>
+	</section> 
 	<!--================ End Home Banner Area =================-->
-
 
 	<!--================ Start important-points section =================-->
 	<section class="donation_details pad_top">
@@ -47,39 +144,25 @@
 				<div class="col-lg-12">
 					<h1>Berita Terkini</h1>
 					<p>
-						Baca artikel-artikel bermanfaat berikut ini.
+						Baca berita terbaru bermanfaat berikut ini.
 					</p>
 				</div>
 			</div>
 
 			<div class="row">
-				<div id="our-major-cause" class="owl-carousel">
-					@foreach($beritanz as $beritanz)
+				<div class="card-group">
+					@foreach($beritanz->slice(0,3) as $beritanz)
 					<div class="card">
+						<img class="card-img-top" src="{{URL::asset($beritanz->gambar)}}" alt="Card image cap">
 						<div class="card-body">
-							<figure>
-								<img class="card-img-top img-fluid" src="{{URL::asset($beritanz->gambar)}}" style="width:310px;height:213px" alt="Card image cap">
-							</figure>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
-									<!-- <span>Funded 76%</span> -->
-								</div>
-							</div>
-							<div class="card_inner_body">
-								<div class="card-body-top">
-									<!-- <span>Raised: $7,689</span> / $10,000 -->
-								</div>
-								<h4 class="card-title">{{$beritanz->judul}}</h4>
-								<p class="card-text"><?php echo $beritanz->berita ?></p>
-								<a href="{{url('/berita')}}/{{$beritanz->id_berita}}" class="main_btn2">Baca Sekarang</a>
-							</div>
+							<h5 class="card-title">{{$beritanz->judul}}</h5>
+							<p class="card-text"><?php $string = (strlen($beritanz->berita) > 100) ? substr($beritanz->berita,0,97).'...' : $string; echo $string;?></p>
+						</div>
+						<div class="card-footer">
+							<small class="text-muted">{{$beritanz->updated_at}}</small>
 						</div>
 					</div>
 					@endforeach
-
-					
-
-					
 				</div>
 			</div>
 		</div>
@@ -87,37 +170,30 @@
 
 	<!--================ Ens Our Major Cause section =================-->
 
-<section class="donation_details pad_bottom">
+	<!-- pengumuman start -->
+	<section class="donation_details ">
 		<div class="container">
-				<h1><center>Pengumuman</center></h1>
-			  	<div class="row">
-				<div class="col-lg-4 col-md-6 single_donation_box">
-					<img src="{{URL::asset('extdinkes/img/icons/home1.png')}}" alt="">
-					<h4>Layanan Patologi</h4>
-					<p>
-						Untuk Pelayanan Patologi
-					</p>
+			<div class="row justify-content-center section-title-wrap">
+				<div class="col-lg-12">
+					<h1>Pengumuman</h1>
+					<p>Nantikan pengumuman terbaru dari kami.</p>
 				</div>
-				<div class="col-lg-4 col-md-6 single_donation_box">
-					<img src="{{URL::asset('extdinkes/img/icons/home2.png')}}" alt="">
-					<h4>Layanan Mikrobiologi</h4>
-					<p>
-						Untuk Pelayanan Mikrobiologi
-					</p>
+			</div>
+			<div class="row">
+				@foreach($pengumuman->slice(0,3) as $pengumuman)
+				<div class="list-group col-lg-12">
+					<a href="{{('/pengumuman')}}/{{$pengumuman->id_pengumuman}}" class="list-group-item list-group-item-action flex-column align-items-start ">
+					<div class="d-flex w-100 justify-content-between">
+						<h5 class="mb-1">{{$pengumuman->judul}}</h5>
+						<small class="text-right">{{date('d M Y', strtotime($pengumuman->updated_at))}}</small>
+					</div>
+					</a>
 				</div>
-				<div class="col-lg-4 col-md-6 single_donation_box">
-					<img src="{{URL::asset('extdinkes/img/icons/home3.png')}}" alt="">
-					<h4>Layanan Kimia Kesehatan</h4>
-					<p>
-						Untuk Layanan Kimia Kesehatan
-					</p>
-				</div>
-				
-				</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</section>
+	<!-- pengumuman end -->
 	<!--================ Start Clients Logo Area =================-->
 
 <div class="card">

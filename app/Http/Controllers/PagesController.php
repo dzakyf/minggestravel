@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Banner;
 use App\JenisPelayanan;
 use App\KategoriPelayanan;
 use App\Sejarah;
@@ -29,7 +30,9 @@ class PagesController extends Controller
         $sertifikat = Sertifikat::all();
         $beritanz    = Berita::orderBy('id_berita', 'DESC')->get();
         $jenispelayanan = JenisPelayanan::orderBy('nama', 'DESC')->get();
-        return view('index')->with(compact('jenispelayanan', 'beritanz', 'sertifikat', 'mitra'));
+        $banner = Banner::all();
+        $pengumuman = Pengumuman::orderBy('id_pengumuman', 'DESC')->get();
+        return view('index')->with(compact('banner', 'pengumuman', 'jenispelayanan', 'beritanz', 'sertifikat', 'mitra'));
     }
 
     public function sejarah(){
@@ -131,5 +134,17 @@ class PagesController extends Controller
                     ->select('kategori_pelayanan.nama', 'kategori_pelayanan.total', 'jenis_pelayanan.nama as namas')
                     ->orderBy('kategori_pelayanan.id_pelayanan', 'ASC')->get();
         return view('tarif', ['query' => $query]);
+    }
+
+    public function pengumuman(){
+        $pengumuman = Pengumuman::orderBy('id_pengumuman', 'DESC')->paginate(10);
+        return view('pengumuman', compact('pengumuman'));
+    }
+
+    public function showpengumuman(Pengumuman $pengumuman){
+        $beritans     = Berita::orderBy('id_berita', 'DESC')->get();
+        $artikels     = Artikel::orderBy('id_artikel', 'DESC')->get();
+        $pengumumans  = Pengumuman::orderBy('id_pengumuman', 'DESC')->get();
+        return view('showpengumuman', compact('pengumuman', 'beritans', 'artikels', 'pengumumans'));
     }
 }

@@ -42,8 +42,8 @@ class BannerController extends Controller
         if ($request->has('banner')) {
             // Get image file
             $image = $request->file('banner');
-            // Make a image name based on id_banner, nama and current timestamp
-            $name = $id_bannerlastplus1 .'_'. $request->nama .'_'. time();
+            // Make a image name based on id_banner and current timestamp
+            $name = $id_bannerlastplus1;
             // Define folder path   
             $folder = '/uploads/images/banner/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
@@ -90,7 +90,7 @@ class BannerController extends Controller
             // Get image file
             $image = $request->file('banner');
             // Make a image name based on id_banner, nama and current timestamp
-            $name = $banner->id_banner .'_'.$request->nama .'_'.time();
+            $name = $banner->id_banner;
             // Define folder path   
             $folder = '/uploads/images/banner/';
             // Make a file path where image will be stored [ folder path + file name + file extension]

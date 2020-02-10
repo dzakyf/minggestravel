@@ -29,6 +29,8 @@ Route::get('/download', 'PagesController@download');
 Route::get('/kontak', 'PagesController@kontak');
 Route::get('/layanan/{jenispelayanan}', 'PagesController@layanan');
 Route::get('/tarif', 'PagesController@tarif');
+Route::get('/pengumuman', 'PagesController@pengumuman');
+Route::get('/pengumuman/{pengumuman}', 'PagesController@showpengumuman');
 
 //Register
 Route::get('register', 'AuthController@register');

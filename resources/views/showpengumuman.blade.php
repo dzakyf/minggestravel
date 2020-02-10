@@ -8,10 +8,11 @@
             <div class="overlay"></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2>Detail Berita</h2>
+                    <h2>Detail Pengumuman</h2>
                     <div class="page_link">
                         <a href="{{url('/')}}">Home</a>
-                        <a href="{{('/berita/id_berita')}}">Detail Berita</a>
+                        <a href="{{url('/pengumuman')}}">Pengumuman</a>
+                        <a href="#">Detail Pengumuman</a>
                     </div>
                 </div>
             </div>
@@ -26,15 +27,10 @@
                 <div class="col-lg-8 posts-list">
                     <div class="single-post row">
                         <div class="col-lg-12">
-                            <div class="feature-img">
-                                <center><img class="img-fluid" src="{{$berita->gambar}}" style="width: 50%" alt=""></center>
-                            </div>
+                            <h1>Pengumuman</h1>
                         </div>
                         <div class="col-lg-3  col-md-3">
                             <div class="blog_info text-right">
-                                <div class="post_tag">
-                                    <a class="active" href="#">{{$berita->kategori}}</a>
-                                </div>
                                 <ul class="blog_meta list">
                                     <li>
                                         <a href="#">Dinkes DIY
@@ -42,7 +38,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">{{$berita->created_at}}
+                                        <a href="#">{{$pengumuman->updated_at}}
                                             <i class="lnr lnr-calendar-full"></i>
                                         </a>
                                     </li>
@@ -51,9 +47,9 @@
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
-                            <h2>{{$berita->judul}}</h2>
+                            <h2>{{$pengumuman->judul}}</h2>
                             <?php
-                                echo "$berita->berita";
+                                echo "$pengumuman->pengumuman";
                             ?>
                         </div>
                        
@@ -85,7 +81,7 @@
                                         <a href="blog-details.html">
                                             <h3>{{$beritans->judul}}</h3>
                                         </a>
-                                        <p>{{$beritans->updated_at}}</p>
+                                        <p>{{$beritans->created_at}}</p>
                                     </div>
                                 </div>  
                             @endforeach
