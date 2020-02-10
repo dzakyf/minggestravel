@@ -49,18 +49,36 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <form class="row contact_form" action="#" method="post" id="contactForm" novalidate="novalidate">
+                    <form method="post" action="{{ url('/kontak') }}" class="row contact_form" id="contactForm" novalidate="novalidate">
+                    @csrf
                         <div class="col-md-12">
                             <h3 class="mb-4">HUBUNGI KAMI</h3> 
+                            <!-- menampilkan pesan -->
+                            @if (session('status'))
+                                <div class="col-12 mb-2 alert alert-success d-block">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama" maxlength="30" >
+                                <label for="nama"></label>
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan nama" maxlength="30" value="{{old('nama')}}">
+                                @error('nama')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email">
+                                <label for="email"></label>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Masukkan email" value="{{old('email')}}">
+                                @error('email')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                 <textarea class="form-control" name="message" id="message" rows="1" placeholder="Masukkan pesan"></textarea>
-
+                                <label for="pesan"></label>
+                                 <textarea class="form-control @error('pesan') is-invalid @enderror" name="pesan" id="pesan" rows="1" placeholder="Masukkan pesan" value="{{old('pesan')}}"></textarea>
+                                 @error('pesan')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">

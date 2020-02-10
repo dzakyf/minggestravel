@@ -5,7 +5,10 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
 
-@section('classsidebarkontak', 'active')
+@section('kontakdanpesan-menu-open', 'menu-open')
+@section('classsidebarkontakdanpesan', 'active')
+@section('classsidebarpesan', 'active')
+
 
 @section('content')
 
@@ -16,12 +19,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Kontak</h1>
+            <h1>Pesan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item active">Kontak</li>
+              <li class="breadcrumb-item active">Pesan</li>
             </ol>
           </div>
         </div>
@@ -39,16 +42,10 @@
             </div>
           @endif
 
-        <div class="col mb-2 text-right">
-          <a href="{{ url('/admin/kontak/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Kontak</button>
-          </a>
-        </div>
-
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Kontak</h3>
+              <h3 class="card-title">Pesan Masuk</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -56,17 +53,21 @@
                 <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Email</th>
+                  <th>Nama</th>
+                  <th>Pesan</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($kontak as $kontak)
+                @foreach($pesan as $pesan)
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
-                  <td>{{$kontak->email}}</td>
+                  <td>{{$pesan->nama}}</td>
+                  <td><?php echo $pesan->pesan ?></td>
+                  <td>temp</td>
                   <td>
-                    <a class="badge badge-info" href="{{url('/admin/kontak/')}}/{{$kontak->id_kontak}}">
+                    <a class="badge badge-info" href="{{url('/admin/kontakdanpesan/pesan')}}/{{$pesan->id_pesan}}">
                       detail
                     </a>
                   </td>
@@ -76,7 +77,9 @@
                 <tfoot>
                 <tr>
                   <th>No.</th>
-                  <th>Email</th>
+                  <th>Nama</th>
+                  <th>Pesan</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>

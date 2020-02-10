@@ -27,6 +27,7 @@ Route::get('/perpustakaan/{perpustakaan}', 'PagesController@showperpustakaan');
 Route::get('/galeri', 'PagesController@galeri');
 Route::get('/download', 'PagesController@download');
 Route::get('/kontak', 'PagesController@kontak');
+Route::post('/kontak', 'PagesController@kontakstore');
 Route::get('/layanan/{jenispelayanan}', 'PagesController@layanan');
 Route::get('/tarif', 'PagesController@tarif');
 Route::get('/pengumuman', 'PagesController@pengumuman');
@@ -88,8 +89,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
         Route::patch('kategoripelayanan/{query}', 'KategoriPelayananController@update'); 
 
     });
-    ///kontak
-    Route::resource('kontak', 'KontakController');
+    ///kontakdanpesan
+    Route::group(['prefix' => 'kontakdanpesan'], function(){
+        Route::resource('kontak', 'KontakController');
+        Route::resource('pesan', 'PesanController')->except([
+            'create', 'store'
+        ]);
+    }); 
+
     //pengumuman
     Route::resource('pengumuman', 'PengumumanController');
     //mitra

@@ -78,13 +78,6 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('/admin/kontak') }}" class="nav-link @yield('classsidebarkontak')">
-                <i class="nav-icon fas fa-phone"></i>
-                <p>Kontak</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
             <a href="{{url('/admin/pengumuman')}}" class="nav-link @yield('classsidebarpengumuman')">
               <i class="nav-icon fas fa-bullhorn"></i>
               <p>Pengumuman</p>
@@ -110,6 +103,30 @@
               <i class="nav-icon fas fa-file"></i>
               <p>Banner Landing Page</p>
             </a>
+          </li>
+
+          <li class="nav-item has-treeview @yield('kontakdanpesan-menu-open')">
+            <a href="#" class="nav-link @yield('classsidebarkontakdanpesan')">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Kontak dan Pesan
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/admin/kontakdanpesan/kontak') }}" class="nav-link @yield('classsidebarkontak')">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kontak</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('/admin/kontakdanpesan/pesan')}}" class="nav-link @yield('classsidebarpesan')">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pesan</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <li class="nav-item has-treeview @yield('kepustakaan-menu-open')">

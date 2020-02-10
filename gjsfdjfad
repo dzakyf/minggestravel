@@ -1,0 +1,42 @@
+* [33mb926dbc[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m menambahkan peta dan memodifikasi halaman utama
+* [33mf82d17e[m[33m ([m[1;31morigin/master[m[33m)[m menambah halaman pengumuman
+* [33m070b9c1[m memodifikasi input tahun terbit dan jumlah halaman di edit perpustakaan
+* [33m008f412[m menambah konten dan memperbaiki input nomor pada crud perpustakaan
+* [33mdc0052a[m membatasi ukuran dan jenis file upload
+* [33m942ddf5[m membersihkan dan mengoptimalkan image di server
+* [33m5695bcf[m memberi fungsi delete image yang ada di server
+* [33me445586[m menambah CRUD Banner dan Helper path ke image server
+* [33mfa7cc84[m membuat CRUD mitra dan CRUD sertifikat
+* [33m9ee3491[m menambah menu beserta isinya pada front end, keculi layanan dan tarif
+* [33ma6b4d50[m menambah pengumuman di admin, dan menambah berita dan artikel serta menu profile di front office
+* [33m909a43e[m menambah beranda dan profile dinkes
+* [33m6a5cc5a[m memperbaiki route
+* [33m3cfff5b[m menambahkan auth login
+* [33m701431c[m tambah CRUD di menu profile, beserta active linknya
+* [33m6c6d4c3[m menambah CRUD upaya kesehatan dan kompetensi sdm
+* [33m718f07b[m menambah CRUD struktur organisasi
+*   [33m8b4abca[m Merge pull request #1 from chsmyth/sejarah
+[32m|[m[33m\[m  
+[32m|[m * [33mc83a6ea[m tambah CRUD sejarah
+[32m|[m[32m/[m  
+* [33m9bcf3c0[m merapihkan layout
+* [33m0c40b07[m modifikasi fa icon
+* [33m659b9cc[m menampilkan breadcumb-item
+* [33ma4450e0[m menambahkan foto artikel
+* [33m15360dd[m memodifikasi file dengan cara menghapus card collapse
+* [33m17600aa[m menambah file untuk halaman utama
+* [33me7b718d[m menambah route halaman utama
+* [33mff0ba88[m CRUD kontak, membuat file baru
+* [33mb8f3341[m CRUD Kontak, memodifikasi file
+* [33m50102b7[m merapihkan javascript penjumlahan harga
+* [33m60cffd5[m CRUD layanan dan tarif, menambahkan file baru
+* [33m956e8d9[m CRUD layanan dan tarif, memodifikasi file
+* [33m254511d[m CRUD download, menambah file baru
+* [33m59d3119[m CRUD download, memodifikasi file
+* [33md23780c[m CRUD galeri, menambahkan folder dan isinya ke kepustakan/galeri di view DAN folder uploads/images/kepustakaan/galeri di public
+* [33m02d6b61[m memodifikasi file untuk menambah crud kepustakaan/galeri
+* [33m397d9a3[m menambahkan folder kepustakaan di public view
+* [33meca92e3[m memodifikasi file untuk menambah crud kepustakaan/penelitian
+* [33mf264bdf[m menambahkan folder kepustakaan public dan di view
+* [33m9a24e26[m memodifikasi file untuk menambah crud kepustakaan/perpustakaan
+* [33ma81003e[m initial state

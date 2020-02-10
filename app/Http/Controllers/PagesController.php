@@ -18,6 +18,7 @@ use App\Perpustakaan;
 use App\Galeri;
 use App\Download;
 use App\Kontak;
+use App\Pesan;
 use App\Mitra;
 use App\Sertifikat;
 use Illuminate\Support\Facades\DB;
@@ -112,6 +113,28 @@ class PagesController extends Controller
     public function kontak(){
         $kontak     = Kontak::orderBy('id_kontak', 'DESC')->get();
         return view('kontak')->with(compact('kontak'));
+    }
+
+    public function kontakstore(Request $request){
+        $request->validate([
+            'nama'      => 'required',
+            'email'     => 'required|email',
+            'pesan'     => 'required'
+        ],[
+            'nama.required'         => 'Nama tidak boleh kosong',
+            'email.required'        => 'Email tidak boleh kosong',
+            'email.email'           => 'Email bukan alamat email yang valid',
+            'pesan'                 => 'Pesan tidak boleh kosong'
+        ]);
+
+        Pesan::create([
+            'nama'      => $request->nama,
+            'email'     => $request->email,
+            'pesan'     => $request->pesan,
+            'jawaban'   => ''
+        ]);
+
+        return redirect()->to('/kontak')->with('status', 'Data Pesan berhasil dikirim');
     }
 
     public function layanan(JenisPelayanan $jenispelayanan){

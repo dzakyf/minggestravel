@@ -1,9 +1,14 @@
 @extends('layout.admin')
 
 @section('css')
+!-- summernote -->
+<link rel="stylesheet" href="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.css')}}">
 @endsection
 
-@section('classsidebarkontak', 'active')
+@section('kontakdanpesan-menu-open', 'menu-open')
+@section('classsidebarkontakdanpesan', 'active')
+@section('classsidebarpesan', 'active')
+
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -13,13 +18,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Detail Kontak</h1>
+            <h1>Detail Pesan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('/admin/kontak') }}">Kontak</a></li>
-              <li class="breadcrumb-item active">Detail Kontak</li>
+              <li class="breadcrumb-item"><a href="{{ url('/admin/kontakdanpesan/pesan') }}">Pesan</a></li>
+              <li class="breadcrumb-item active">Detail Pesan</li>
             </ol>
           </div>
         </div>
@@ -32,7 +37,7 @@
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
           <div class="card-header">
-            <h3 class="card-title">Detail Kontak</h3>
+            <h3 class="card-title">Detail Pesan</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -40,11 +45,21 @@
 
               <!-- event id : -->
               <div class="col-md-3">
-              <p class="card-title">Id kontak</p> <p class="text-right">:</p> 
+              <p class="card-title">Id Pesan</p> <p class="text-right">:</p> 
               </div>
               <!-- /.col -->
               <div class="col-md-9">
-                <p class="card-text">{{$kontak->id_kontak}}</p>
+                <p class="card-text">{{$pesan->id_pesan}}</p>
+              </div>
+             <!-- /.col -->
+
+              <!-- nama_event -->
+              <div class="col-md-3">
+                <p class="card-title">Nama</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+              <div class="col-md-9">
+                <p class="card-text">{{$pesan->nama}}</p> 
               </div>
               <!-- /.col -->
 
@@ -54,7 +69,18 @@
               </div>
               <!-- /.col -->
               <div class="col-md-9">
-                <p class="card-text">{{$kontak->email}}</p> 
+                <p class="card-text">{{$pesan->email}}</p> 
+              </div>
+              <!-- /.col -->
+
+              <!-- Pesan -->
+              <div class="col-md-3">
+                <p class="card-title">Pesan</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+              <div class="col-md-12">
+                <textarea name="pesan" id="pesan" class="textarea2" placeholder="Masukkan Pesan" value=""
+                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$pesan->pesan}}</textarea>
               </div>
               <!-- /.col -->
 
@@ -64,7 +90,7 @@
               </div>
               <!-- /.col -->
               <div class="col-md-9">
-                <p class="card-text">{{$kontak->created_at}}</p> 
+                <p class="card-text">{{$pesan->created_at}}</p> 
               </div>
               <!-- /.col -->
 
@@ -74,14 +100,14 @@
               </div>
               <!-- /.col -->
               <div class="col-md-9">
-                <p class="card-text">{{$kontak->updated_at}}</p> 
+                <p class="card-text">{{$pesan->updated_at}}</p> 
               </div>
               <!-- /.col -->
 
               <div class="col mb-2 text-center">
-                <a href="{{ $kontak->id_kontak }}/edit" class="btn btn-primary">Edit</a>
+                <a href="{{ $pesan->id_pesan }}/edit" class="btn btn-primary">Edit</a>
 
-                <form action="{{ url('/admin/kontak')}}/{{ $kontak->id_kontak }}" method="post" class="d-inline">
+                <form action="{{ url('/admin/kontakdanpesan/pesan')}}/{{ $pesan->id_pesan }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger">Hapus</button>
@@ -103,4 +129,12 @@
   @endsection
 
   @section('script')
+  <script src="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.min.js')}}"></script>
+    <script>
+    $(function () {
+        // Summernote
+        $('.textarea1').summernote("disable")
+        $('.textarea2').summernote("disable")
+    })
+  </script>
   @endsection
