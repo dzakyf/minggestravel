@@ -17,6 +17,7 @@ use App\Penelitian;
 use App\Perpustakaan;
 use App\Galeri;
 use App\Download;
+use App\Layananaduan;
 use App\Kontak;
 use App\Pesan;
 use App\Mitra;
@@ -108,6 +109,46 @@ class PagesController extends Controller
     public function download(){
         $download = Download::orderBy('id_download', 'DESC')->paginate(10);
         return view('download')->with(compact('download'));
+    }
+
+    public function layananaduan(){
+        $layananaduan = Layananaduan::all();
+        return view('layananaduan')->with(compact('layananaduan'));
+    }
+
+    public function layananaduanstore(Request $request){
+        $request->validate([
+            'nama'      => 'required',
+            'email'     => 'required|email',
+            'telepon'   => 'required|numeric',
+            'alamat'    => 'required',
+            'topik'     => 'required',
+            'pesan'     => 'required'
+        ],[
+            'nama.required'         => 'Nama tidak boleh kosong',
+            'email.required'        => 'Email tidak boleh kosong',
+            'email.email'           => 'Email bukan alamat email yang valid',
+            'telepon.required'      => 'Telepon tidak boleh kosong',
+            'telepon.numeric'       => 'Nomor telepon harus berupa integer',
+            'alamat.required'       => 'Alamat tidak boleh kosong',
+            'topik.required'        => 'Topik tidak boleh kosong',
+            'pesan.required'        => 'Pesan tidak boleh kosong',
+            'email.email'           => 'Email bukan alamat email yang valid',
+            'pesan'                 => 'Pesan tidak boleh kosong'
+        ]);
+
+        Layananaduan::create([
+            'nama'      => $request->nama,
+            'email'     => $request->email,
+            'telepon'   => $request->telepon,
+            'alamat'     => $request->alamat,
+            'topik'     => $request->topik,
+            'pesan'     => $request->pesan,
+            'jawaban'   => '',
+            'status'    => 'off'
+        ]);
+
+        return redirect()->to('/layananaduan')->with('status', 'Data Layanan Aduan berhasil dikirim, administrator akan segera memprosesnya');
     }
 
     public function kontak(){

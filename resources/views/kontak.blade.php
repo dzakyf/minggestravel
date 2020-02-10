@@ -60,22 +60,22 @@
                                 </div>
                             @endif
                             <div class="form-group">
-                                <label for="nama"></label>
+                                <!-- <label for="nama"></label> -->
                                 <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan nama" maxlength="30" value="{{old('nama')}}">
                                 @error('nama')
                                         <div class="invalid-feedback"> {{ $message }} </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="email"></label>
+                                <!-- <label for="email"></label> -->
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Masukkan email" value="{{old('email')}}">
                                 @error('email')
                                         <div class="invalid-feedback"> {{ $message }} </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="pesan"></label>
-                                 <textarea class="form-control @error('pesan') is-invalid @enderror" name="pesan" id="pesan" rows="1" placeholder="Masukkan pesan" value="{{old('pesan')}}"></textarea>
+                                <!-- <label for="pesan"></label> -->
+                                 <textarea class="form-control @error('pesan') is-invalid @enderror" name="pesan" id="pesan" rows="1" placeholder="Masukkan pesan">{{old('pesan')}}</textarea>
                                  @error('pesan')
                                         <div class="invalid-feedback"> {{ $message }} </div>
                                 @enderror

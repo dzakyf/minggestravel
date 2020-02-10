@@ -105,6 +105,13 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{url('/admin/layananaduan')}}" class="nav-link @yield('classsidebarlayananaduan')">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Layanan Aduan</p>
+            </a>
+          </li>
+
           <li class="nav-item has-treeview @yield('kontakdanpesan-menu-open')">
             <a href="#" class="nav-link @yield('classsidebarkontakdanpesan')">
               <i class="nav-icon fas fa-book"></i>

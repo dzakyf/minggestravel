@@ -32,6 +32,8 @@ Route::get('/layanan/{jenispelayanan}', 'PagesController@layanan');
 Route::get('/tarif', 'PagesController@tarif');
 Route::get('/pengumuman', 'PagesController@pengumuman');
 Route::get('/pengumuman/{pengumuman}', 'PagesController@showpengumuman');
+Route::get('/layananaduan', 'PagesController@layananaduan');
+Route::post('/layananaduan', 'PagesController@layananaduanstore');
 
 //Register
 Route::get('register', 'AuthController@register');
@@ -96,7 +98,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
             'create', 'store', 'edit', 'update'
         ]);
     }); 
-
+    //layanan aduan
+    Route::resource('layananaduan', 'LayananAduanController')->except(['create', 'store']);
     //pengumuman
     Route::resource('pengumuman', 'PengumumanController');
     //mitra

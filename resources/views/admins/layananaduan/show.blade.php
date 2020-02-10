@@ -5,9 +5,7 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.css')}}">
 @endsection
 
-@section('kontakdanpesan-menu-open', 'menu-open')
-@section('classsidebarkontakdanpesan', 'active')
-@section('classsidebarpesan', 'active')
+@section('classsidebarlayananaduan', 'active')
 
 
 @section('content')
@@ -18,13 +16,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Detail Pesan</h1>
+            <h1>Detail Layanan Aduan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('/admin/kontakdanpesan/pesan') }}">Pesan</a></li>
-              <li class="breadcrumb-item active">Detail Pesan</li>
+              <li class="breadcrumb-item active">Detail Layanan Aduan</li>
             </ol>
           </div>
         </div>
@@ -37,21 +34,11 @@
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
           <div class="card-header">
-            <h3 class="card-title">Detail Pesan</h3>
+            <h3 class="card-title">Detail Layanan Aduan</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
             <div class="row">
-
-              <!-- event id : -->
-              <div class="col-md-3">
-              <p class="card-title">Id Pesan</p> <p class="text-right">:</p> 
-              </div>
-              <!-- /.col -->
-              <div class="col-md-9">
-                <p class="card-text">{{$pesan->id_pesan}}</p>
-              </div>
-             <!-- /.col -->
 
               <!-- nama_event -->
               <div class="col-md-3">
@@ -59,7 +46,7 @@
               </div>
               <!-- /.col -->
               <div class="col-md-9">
-                <p class="card-text">{{$pesan->nama}}</p> 
+                <p class="card-text">{{$layananaduan->nama}}</p> 
               </div>
               <!-- /.col -->
 
@@ -69,7 +56,38 @@
               </div>
               <!-- /.col -->
               <div class="col-md-9">
-                <p class="card-text">{{$pesan->email}}</p> 
+                <p class="card-text">{{$layananaduan->email}}</p> 
+              </div>
+              <!-- /.col -->
+
+              <!-- nama_event -->
+              <div class="col-md-3">
+                <p class="card-title">No. Telepon</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+              <div class="col-md-9">
+                <p class="card-text">{{$layananaduan->telepon}}</p> 
+              </div>
+              <!-- /.col -->
+
+              <!-- Alamat -->
+              <div class="col-md-3">
+                <p class="card-title">Alamat</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+              <div class="col-md-12">
+                <textarea name="alamat" id="alamat" class="textarea2" placeholder="Masukkan alamat" value=""
+                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$layananaduan->alamat}}</textarea>
+              </div>
+              <!-- /.col -->
+
+              <!-- nama_event -->
+              <div class="col-md-3">
+                <p class="card-title">Topik</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+              <div class="col-md-9">
+                <p class="card-text">{{$layananaduan->pesan}}</p> 
               </div>
               <!-- /.col -->
 
@@ -80,7 +98,7 @@
               <!-- /.col -->
               <div class="col-md-12">
                 <textarea name="pesan" id="pesan" class="textarea2" placeholder="Masukkan Pesan" value=""
-                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$pesan->pesan}}</textarea>
+                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$layananaduan->pesan}}</textarea>
               </div>
               <!-- /.col -->
 
@@ -90,7 +108,7 @@
               </div>
               <!-- /.col -->
               <div class="col-md-9">
-                <p class="card-text">{{$pesan->created_at}}</p> 
+                <p class="card-text">{{$layananaduan->created_at}}</p> 
               </div>
               <!-- /.col -->
 
@@ -100,17 +118,12 @@
               </div>
               <!-- /.col -->
               <div class="col-md-9">
-                <p class="card-text">{{$pesan->updated_at}}</p> 
+                <p class="card-text">{{$layananaduan->updated_at}}</p> 
               </div>
               <!-- /.col -->
 
               <div class="col mb-2 text-center">
-
-                <form action="{{ url('/admin/kontakdanpesan/pesan')}}/{{ $pesan->id_pesan }}" method="post" class="d-inline">
-                    @method('delete')
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Hapus</button>
-                </form>
+                <a href="{{ $layananaduan->id_layananaduan }}/edit" class="btn btn-primary">Edit</a>
               </div>
 
             <!-- /.row -->
