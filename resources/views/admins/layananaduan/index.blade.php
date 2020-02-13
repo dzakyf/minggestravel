@@ -53,6 +53,7 @@
                   <th>No.</th>
                   <th>Nama</th>
                   <th>Email</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -62,6 +63,13 @@
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$layananaduan->nama}}</td>
                   <td>{{$layananaduan->email}}</td>
+                  <td>
+                  @if($layananaduan->status == 'off')
+                  <span class="badge badge-danger">Belum dibalas</span>
+                  @else
+                  <span class="badge badge-success">Sudah dibalas</span>
+                  @endif
+                  </td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/layananaduan/')}}/{{$layananaduan->id_layananaduan}}">
                       detail
@@ -75,6 +83,7 @@
                   <th>No.</th>
                   <th>Nama</th>
                   <th>Email</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>

@@ -58,7 +58,7 @@ class LayananAduanController extends Controller
      */
     public function edit(Layananaduan $layananaduan)
     {
-        return view('admins.layananaduan.edit', compact('layananaaduan'));
+        return view('admins.layananaduan.edit', compact('layananaduan'));
     }
 
     /**
@@ -74,12 +74,25 @@ class LayananAduanController extends Controller
             'jawaban'   => 'required'
         ]);
 
+        if($layananaduan->status == 'off'){
+            $keterangan = 'Dijawab';
+        }else{
+            $keterangan = "Dihapus";
+        }
+
         Layananaduan::where('id_layananaduan', $layananaduan->id_layananaduan)
             ->update([
-                'jawaban'   => $request->jawaban
+                'jawaban'   => $request->jawaban,
+                'status'    => 'on'
             ]);
+        
+        if($keterangan == "Dijawab"){
+            return redirect()->to('/admin/layananaduan')->with('status','Data Layanan Aduan Berhasil Dijawab');
+        }else{
+            return redirect()->to('/admin/layananaduan')->with('status','Data Layanan Aduan Berhasil Diubah');
+        }
 
-        return redirect()->to('/admin/layananaduan')->with('status','Data Layanan Aduan Berhasil Dijawab');
+        
     }
 
     /**
