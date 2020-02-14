@@ -25817,7 +25817,8 @@ html.maximized-card {
 
 .user-block .description {
   color: #6c757d;
-  font-size: 13px;
+  font-size: 16x;
+  font-weight: bold;
   margin-top: -3px;
 }
 

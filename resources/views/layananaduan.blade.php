@@ -13,8 +13,8 @@
                 <div class="banner_content text-center">
                     <h2>Layanan aduan</h2>
                     <div class="page_link">
-                        <a href="index.html">Home</a>
-                        <a href="contact.html">Layanan aduan</a>
+                        <a href="{{url('/')}}">Home</a>
+                        <a href="#">Layanan aduan</a>
                     </div>
                 </div>
             </div>
@@ -88,65 +88,21 @@
                             <h3>Daftar Aduan </h3> 
                             <div class="row">
                                 <div class="col-12">
+                                    @foreach($layananaduan->slice(0,3) as $layananaduan)
                                     <div class="post clearfix">
                                         <div class="user-block">
-                                            <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="">
+                                            <img class="img-circle img-bordered-sm" src="{{URL::asset('extdinkes/img/usericon.jpg')}}" alt="">
                                             <span class="username">
-                                            <a href="#">Pelayanan baik</a>
+                                            <a href="{{url('/layananaduan/detail')}}/{{$layananaduan->id_layananaduan}}">{{$layananaduan->topik}}</a>
                                             </span>
-                                            <span class="description">Nandar Sujono - 7:45 PM today</span>
+                                            <span class="description">{{$layananaduan->nama}} - {{date('d M Y | h:i', strtotime($layananaduan->created_at))}}</span>
                                         </div>
                                         <!-- /.user-block -->
                                         <p class="col-lg-12 crop-text-3">
-                                            Lorem ipsum represents a long-held tradition for designers,
-                                            typographers and the like. Some people hate it and argue for
-                                            its demise, but others ignore.
-                                            Lorem ipsum represents a long-held tradition for designers,
-                                            typographers and the like. Some people hate it and argue for
-                                            its demise, but others ignore.
-                                            Lorem ipsum represents a long-held tradition for designers,
-                                            typographers and the like. Some people hate it and argue for
-                                            its demise, but others ignore.
+                                            <?php echo $layananaduan->topik ?>
                                         </p>
                                     </div>
-
-                                    <div class="post clearfix">
-                                        <div class="user-block">
-                                            <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="">
-                                            <span class="username">
-                                            <a href="#">Pas lagi casting istri saya selingkuh</a>
-                                            </span>
-                                            <span class="description">Jim Carrey - 3 days ago</span>
-                                        </div>
-                                        <!-- /.user-block -->
-                                        <p class="col-lg-12 crop-text-3">
-                                            Lorem ipsum represents a long-held tradition for designers,
-                                            typographers and the like. Some people hate it and argue for
-                                            its demise, but others ignore.
-                                        </p>
-                                    </div>
-
-                                    <div class="post">
-                                        <div class="user-block">
-                                            <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="">
-                                            <span class="username">
-                                            <a href="#">Mantap jiwa</a>
-                                            </span>
-                                            <span class="description">Sule - 5 days ago</span>
-                                        </div>
-                                        <!-- /.user-block -->
-                                        <p class="col-lg-12 crop-text-3">
-                                            Lorem ipsum represents a long-held tradition for designers,
-                                            typographers and the like. Some people hate it and argue for
-                                            its demise, but others ignore.
-                                            Lorem ipsum represents a long-held tradition for designers,
-                                            typographers and the like. Some people hate it and argue for
-                                            its demise, but others ignore.
-                                            Lorem ipsum represents a long-held tradition for designers,
-                                            typographers and the like. Some people hate it and argue for
-                                            its demise, but others ignore.
-                                        </p>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div> 
@@ -158,7 +114,7 @@
                         <div class="col-md-12 text-right">
                         </div><br>
                     </form>                
-                    <a href="/layanan_aduan/daftar_aduan" class="btn btn-primary">Lihat Lainnya</a>
+                    <a href="{{url('/layananaduan/daftaraduan')}}" class="btn btn-primary">Lihat Lainnya</a>
                   </div>
                   <!-- layananaduan -->
 						

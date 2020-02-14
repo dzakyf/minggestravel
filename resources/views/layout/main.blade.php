@@ -106,9 +106,9 @@
 									<li class="nav-item">
 										<a class="nav-link" href="{{url('/berita')}}">Berita</a>
 									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{url('/artikel')}}">Artikel</a>
-									</li>
+									<!-- <li class="nav-item">
+										<a class="nav-link" href="url('/artikel')">Artikel</a>
+									</li> -->
 									<li class="nav-item">
 										<a class="nav-link" href="{{url('/layananaduan')}}">Layanan Aduan</a>
 									</li>

@@ -151,6 +151,15 @@ class PagesController extends Controller
         return redirect()->to('/layananaduan')->with('status', 'Data Layanan Aduan berhasil dikirim, administrator akan segera memprosesnya');
     }
 
+    public function daftaraduan(){
+        $layananaduan = Layananaduan::orderBy('id_layananaduan', 'DESC')->paginate(5);
+        return view('daftaraduan', compact('layananaduan'));
+    }
+
+    public function detailaduan(Layananaduan $layananaduan){
+        return view('detailaduan', compact('layananaduan'));
+    }
+
     public function kontak(){
         $kontak     = Kontak::all();
         return view('kontak')->with(compact('kontak'));
