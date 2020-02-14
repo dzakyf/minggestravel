@@ -19,7 +19,8 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        return redirect()->to('/admin/beritadanartikel');
+        $berita     = Berita::orderBy('id_berita', 'DESC')->get();
+        return view('admins.berita.index', ['berita' => $berita]);
     }
 
     /**
@@ -29,7 +30,7 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('admins.beritadanartikel.berita.create');
+        return view('admins.berita.create');
     }
 
     /**
@@ -79,7 +80,7 @@ class BeritaController extends Controller
             'gambar'            => $filePath
         ]);
 
-        return redirect()->to('/admin/beritadanartikel')->with('status','Data berita berhasil ditambahkan');
+        return redirect()->to('/admin/berita')->with('status','Data berita berhasil ditambahkan');
     }
 
     /**
@@ -90,7 +91,7 @@ class BeritaController extends Controller
      */
     public function show(Berita $berita)
     {
-        return view('admins.beritadanartikel.berita.show', compact('berita')); 
+        return view('admins.berita.show', compact('berita')); 
     }
 
     /**
@@ -101,7 +102,7 @@ class BeritaController extends Controller
      */
     public function edit(Berita $berita)
     {
-        return view('admins.beritadanartikel.berita.edit', compact('berita'));
+        return view('admins.berita.edit', compact('berita'));
     }
 
     /**
@@ -154,7 +155,7 @@ class BeritaController extends Controller
                 'gambar'        => $filePath
             ]);
 
-        return redirect()->to('/admin/beritadanartikel')->with('status','Data Berita Berhasil Diubah');
+        return redirect()->to('/admin/berita')->with('status','Data Berita Berhasil Diubah');
     }
 
     /**
@@ -172,6 +173,6 @@ class BeritaController extends Controller
             File::delete($image_path);
         }
         Berita::destroy($berita->id_berita);
-        return redirect('/admin/beritadanartikel')->with('status','Data Berita Berhasil Dihapus');
+        return redirect('/admin/berita')->with('status','Data Berita Berhasil Dihapus');
     }
 }

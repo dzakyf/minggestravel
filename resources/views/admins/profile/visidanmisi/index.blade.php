@@ -42,9 +42,6 @@
           @endif
 
         <div class="col mb-2 text-right">
-          <a href="{{ url('/admin/profile/visidanmisi/visi/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Visi</button>
-          </a>
           <a href="{{ url('/admin/profile/visidanmisi/misi/create') }}">
                 <button class="btn btn-primary" type="button">Tambah Misi</button>
           </a>

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.css')}}">
 @endsection
 
-@section('classsidebarberitadanartikel', 'active')
+@section('classsidebarberita', 'active')
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -20,7 +20,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('/admin/beritadanartikel') }}">Berita dan Artikel</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('/admin/berita') }}">Berita</a></li>
               <li class="breadcrumb-item active">Detail Berita</li>
             </ol>
           </div>
@@ -116,7 +116,7 @@
               <div class="col mb-2 text-center">
                 <a href="{{ $berita->id_berita }}/edit" class="btn btn-primary">Edit</a>
 
-                <form action="{{ url('/admin/beritadanartikel/berita')}}/{{ $berita->id_berita }}" method="post" class="d-inline">
+                <form action="{{ url('/admin/berita')}}/{{ $berita->id_berita }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger">Hapus</button>

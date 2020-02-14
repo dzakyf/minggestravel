@@ -71,9 +71,9 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('/admin/beritadanartikel') }}" class="nav-link @yield('classsidebarberitadanartikel')">
+            <a href="{{ url('/admin/berita') }}" class="nav-link @yield('classsidebarberita')">
                 <i class="nav-icon fas fa-newspaper"></i>
-                <p>Berita dan Artikel</p>
+                <p>Berita</p>
             </a>
           </li>
 

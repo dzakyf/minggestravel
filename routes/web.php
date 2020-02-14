@@ -51,21 +51,16 @@ Route::get('/logout', 'AuthController@logout');
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
     ///Admin Start
     Route::get('/', 'MenuController@dashboard');
-    //berita dan artikel
-    Route::group(['prefix' => 'beritadanartikel'], function(){
-        //index
-        Route::get('/', 'MenuController@beritadanartikel');
-        //berita
-        Route::get('berita', 'BeritaController@index');
-        Route::get('berita/create','BeritaController@create');
-        Route::get('berita/{berita}','BeritaController@show');
-        Route::post('berita', 'BeritaController@store');  
-        Route::delete('berita/{berita}', 'BeritaController@destroy'); 
-        Route::get('berita/{berita}/edit', 'BeritaController@edit'); 
-        Route::patch('berita/{berita}', 'BeritaController@update'); 
-        //artikel
-        Route::resource('artikel', 'ArtikelController');
-    });
+
+    //berita
+    Route::get('berita', 'BeritaController@index');
+    Route::get('berita/create','BeritaController@create');
+    Route::get('berita/{berita}','BeritaController@show');
+    Route::post('berita', 'BeritaController@store');  
+    Route::delete('berita/{berita}', 'BeritaController@destroy'); 
+    Route::get('berita/{berita}/edit', 'BeritaController@edit'); 
+    Route::patch('berita/{berita}', 'BeritaController@update'); 
+  
     //kepustakaan
     Route::group(['prefix' => 'kepustakaan'], function(){
         //penelitian
@@ -142,7 +137,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
         //visi dan misi
         Route::group(['prefix' => 'visidanmisi'], function(){
             Route::get('/', 'MenuController@visidanmisi');
-            Route::resource('visi', 'VisiController');
+            Route::resource('visi', 'VisiController')->except(['create', 'store']);
             Route::resource('misi', 'MisiController');
         });
     });

@@ -1,7 +1,6 @@
 @extends('layout/main')
 
 @section('classnavitemberita', 'active')
-
 @section('content')
 <!--================ Banner Area =================-->
 	<section class="banner_area">

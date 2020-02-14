@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
 
-@section('classsidebarberitadanartikel', 'active')
+@section('classsidebarberita', 'active')
 
 @section('content')
 
@@ -40,11 +40,8 @@
           @endif
 
         <div class="col mb-2 text-right">
-          <a href="{{ url('/admin/beritadanartikel/berita/create') }}">
+          <a href="{{ url('/admin/berita/create') }}">
                 <button class="btn btn-primary" type="button">Tambah Berita</button>
-          </a>
-          <a href="{{ url('/admin/beritadanartikel/artikel/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Artikel</button>
           </a>
         </div>
 
@@ -71,7 +68,7 @@
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$berita->judul}}</td>
                   <td>
-                    <a class="badge badge-info" href="{{url('/admin/beritadanartikel/berita/')}}/{{$berita->id_berita}}">
+                    <a class="badge badge-info" href="{{url('/admin/berita/')}}/{{$berita->id_berita}}">
                       detail
                     </a>
                   </td>
@@ -91,50 +88,6 @@
           </div>
           <!-- /.card -->
         </div>
-
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Artikel</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example3" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Judul</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($artikel as $artikel)
-                <tr>
-                  <th scope="row">{{ $loop->iteration }}</th>
-                  <td>{{$artikel->judul}}</td>
-
-                  <td>
-                    <a class="badge badge-info" href="{{url('/admin/beritadanartikel/artikel/')}}/{{$artikel->id_artikel}}">
-                      detail
-                    </a>
-                  </td>
-                </tr>
-                @endforeach
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>No.</th>
-                  <th>Judul</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-
         
         <!-- /.col -->
       </div>

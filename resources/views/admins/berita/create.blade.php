@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.css')}}">
 @endsection
 
-@section('classsidebarberitadanartikel', 'active')
+@section('classsidebarberita', 'active')
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -20,7 +20,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('/admin/beritadanartikel') }}">Berita dan Artikel</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('/admin/berita') }}">Berita</a></li>
               <li class="breadcrumb-item active">Tambah Berita</li>
             </ol>
           </div>
@@ -37,7 +37,7 @@
             <h3 class="card-title">Form Tambah Berita</h3>
           </div>
           <!-- /.card-header -->
-          <form method="post" action="{{ url('/admin/beritadanartikel/berita') }}" enctype="multipart/form-data">
+          <form method="post" action="{{ url('/admin/berita') }}" enctype="multipart/form-data">
           @csrf
             <div class="card-body">
               <div class="row">
@@ -50,9 +50,9 @@
                         <option value="sport">Sport</option>
                         <option value="teknologi">Teknologi</option>
                         <option value="finance">Finance</option>
-                        <option value="Otomotif">Otomotif</option>
-                        <option value="Makanan">Makanan</option>
-                        <option value="Kesehatan">Kesehatan</option>
+                        <option value="otomotif">Otomotif</option>
+                        <option value="makanan">Makanan</option>
+                        <option value="kesehatan">Kesehatan</option>
                     </select>
                     @error('kategori')
                         <div class="invalid-feedback">{{ $message }}</div>
