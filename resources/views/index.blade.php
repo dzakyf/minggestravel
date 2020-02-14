@@ -3,7 +3,7 @@
 @section('css')
 <link rel="stylesheet" href="{{URL::asset('extdinkes/css/slider.css')}}">
 @endsection
-
+@section('classnavitemberanda', 'active')
 @section('content')
 
 	<!--================ Home Banner Area =================-->
@@ -71,49 +71,7 @@
 			</a>
 	</div>
 	</div>
-		<!--<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-									<ol class="carousel-indicators">
-										<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-										<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-										<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-									</ol>
-									<div class="carousel-inner">
-										<div class="carousel-item active">
-										<img class="d-block w-100" src="img/norway.jpg" alt="First slide">
-										<div class="carousel-caption d-none d-md-block">
-										<img class="img-fluid" src="img/banner/text-img.png" alt="">
-											<p>Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
-											<a class="main_btn mr-10" href="#">Daftar Sekarang</a>
-											<a class="white_bg_btn" href="#">Cek Antrian</a>
-										</div>	
-									</div>
-										<div class="carousel-item">
-										<img class="d-block w-100" src="img/norway3.jpg" alt="Second slide">
-										<div class="carousel-caption d-none d-md-block">
-										<img class="img-fluid" src="img/banner/text-img.png" alt="">
-											<p>Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
-											<a class="main_btn mr-10" href="#">Daftar Sekarang</a>
-											<a class="white_bg_btn" href="#">Cek Antrian</a>
-										</div>	
-										</div>
-										</div>
-										
-									</div>
-									<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-										<span class="sr-only">Previous</span>
-									</a>
-									<a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-										<span class="carousel-control-next-icon" aria-hidden="true"></span>
-										<span class="sr-only">Next</span>
-									</a>
-								</div>							
-							</div> 
-						</div>
-					<div class="banner_inner d-flex ">
-						
-					</div>
-			<div class="container-fluid">-->
+		
 	</div>
 	</section> 
 	<!--================ End Home Banner Area =================-->

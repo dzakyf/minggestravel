@@ -3,7 +3,7 @@
 @section('css')
 <link rel="stylesheet" href="{{URL::asset('extadmin/dist/css/adminlte.css')}}">
 @endsection
-
+@section('classnavitemlayananaduan', 'active')
 @section('content')
 <!--================ Banner Area =================-->
     <section class="banner_area">
@@ -73,9 +73,22 @@
                                         <div class="invalid-feedback"> {{ $message }} </div>
                                 @enderror
                             </div>
+                            <div class="form-group ">
+                                <div class="captcha">
+                                    <span>{!! captcha_img('flat') !!}</span>
+                                    <button type="button" class="btn btn-success" id="refresh"><i class="fa fa-refresh"></i></button>
+                                </div><br>
+
+                                <div class="form-group">
+                                    <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" placeholder="Masukkan kode captcha" name="captcha">
+                                    @error('captcha')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-10 text-right">
-                            <button type="submit" value="submit" class="btn submit_btn">Kirim</button>
+                            <button type="submit" value="submit" class="btn btn-success">Kirim</button>
                         </div><br>
                     </form> 
                     </div>
@@ -128,4 +141,15 @@
 @endsection
 
 @section('js')
+<script type="text/javascript">
+$('#refresh').click(function(){
+  $.ajax({
+     type:'GET',
+     url:'refreshcaptcha',
+     success:function(data){
+        $(".captcha span").html(data.captcha);
+     }
+  });
+});
+</script>
 @endsection

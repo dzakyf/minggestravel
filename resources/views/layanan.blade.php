@@ -4,7 +4,7 @@
 <!-- DataTables -->
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 @endsection
-
+@section('classnavitemlayanan', 'active')
 @section('content')
 <!--================ Banner Area =================-->
 <section class="banner_area">

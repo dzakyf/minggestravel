@@ -2,6 +2,7 @@
 @section('css')
 <link rel="stylesheet" href="{{URL::asset('extadmin/dist/css/adminlte.css')}}">
 @endsection
+@section('classnavitemlayananaduan', 'active')
 @section('content')
 <!--================ Banner Area =================-->
 <section class="banner_area">

@@ -33,6 +33,7 @@ Route::get('/tarif', 'PagesController@tarif');
 Route::get('/pengumuman', 'PagesController@pengumuman');
 Route::get('/pengumuman/{pengumuman}', 'PagesController@showpengumuman');
 Route::get('/layananaduan', 'PagesController@layananaduan');
+Route::get('refreshcaptcha', 'PagesController@refreshCaptcha');
 Route::post('/layananaduan', 'PagesController@layananaduanstore');
 Route::get('/layananaduan/daftaraduan', 'PagesController@daftaraduan');
 Route::get('/layananaduan/detail/{layananaduan}', 'PagesController@detailaduan');

@@ -1,3 +1,29 @@
+<?php 
+//mengambil ip pengunjung
+$ambil_ip_pengunjung = $_SERVER['REMOTE_ADDR'];
+$tanggal = date('d');
+$bulan = date('M');
+$tahun = date('Y');
+
+//cek unique ip
+$ip_check = DB::table('pengunjung')->select('ip_address')->where('ip_address', '=', $ambil_ip_pengunjung)->where('tanggal', '=', $tanggal)->where('bulan', '=', $bulan)->where('tahun' ,'=', $tahun)->count();
+if($ip_check<1){
+	DB::table('pengunjung')->insert(
+		[
+			'ip_address' 	=> $ambil_ip_pengunjung, 
+			'tanggal' 		=> $tanggal,
+			'bulan'			=> $bulan,
+			'tahun'			=> $tahun
+		]
+	);
+}
+
+//menampilkan pengunjung
+$pengunjungperhari = DB::table('pengunjung')->select('tanggal')->where('tanggal', '=', $tanggal)->where('bulan', '=', $bulan)->where('tahun' ,'=', $tahun)->count();
+$pengunjungperbulan = DB::table('pengunjung')->select('bulan')->where('bulan', '=', $bulan)->where('tahun', '=', $tahun)->count();
+$pengunjungtotal = DB::table('pengunjung')->count();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -43,10 +69,10 @@
 						<div class="row ml-0 w-100">
 							<div class="col-lg-12 pr-0">
 								<ul class="nav navbar-nav center_nav pull-right">
-									<li class="nav-item active">
-										<a class="nav-link" href="{{url('/')}}">Beranda</a>
+									<li class="nav-item @yield('classnavitemberanda')">
+										<a class="nav-link overflow-auto" href="{{url('/')}}">Beranda</a>
 									</li>
-									<li class="nav-item submenu dropdown">
+									<li class="nav-item submenu dropdown @yield('classnavitemprofil')">
 										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profil</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item">
@@ -62,13 +88,11 @@
 												<a class="nav-link" href="{{url('/upayakesehatan')}}">Upaya Kesehatan</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="{{url('/kompetensisdm')}}">Kopetensi SDM</a>
+												<a class="nav-link" href="{{url('/kompetensisdm')}}">Kompetensi SDM</a>
 											</li>
 										</ul>
 									</li>
-									<li class="nav-item submenu dropdown">
-
-
+									<li class="nav-item submenu dropdown @yield('classnavitemlayanan')">
 										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Layanan </a>
 										<?php
 											$jenispelayanan = DB::table('jenis_pelayanan')->get();
@@ -82,11 +106,11 @@
 										</ul>
 									</li>
 									
-									<li class="nav-item">
+									<li class="nav-item @yield('classnavitemtarif')">
 										<a class="nav-link" href="{{url('/tarif')}}">Tarif</a>
 									</li>
 
-									<li class="nav-item submenu dropdown">
+									<li class="nav-item submenu dropdown @yield('classnavitemkepustakaan')">
 										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kepustakaan</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item">
@@ -103,16 +127,16 @@
 											</li>
 										</ul>
 									</li>
-									<li class="nav-item">
+									<li class="nav-item @yield('classnavitemberita')">
 										<a class="nav-link" href="{{url('/berita')}}">Berita</a>
 									</li>
 									<!-- <li class="nav-item">
 										<a class="nav-link" href="url('/artikel')">Artikel</a>
 									</li> -->
-									<li class="nav-item">
+									<li class="nav-item @yield('classnavitemlayananaduan')">
 										<a class="nav-link" href="{{url('/layananaduan')}}">Layanan Aduan</a>
 									</li>
-									<li class="nav-item">
+									<li class="nav-item @yield('classnavitemkontak')">
 										<a class="nav-link" href="{{url('/kontak')}}">Kontak</a>
 									</li>
 									<!--<li class="nav-item">
@@ -131,6 +155,8 @@
     @yield('content')
 
 	<!--================ Start Footer Area  =================-->
+
+	
 	<footer class="footer-area section_gap">
 		<div class="container">
 			<div class="row">
@@ -169,9 +195,9 @@
 				<div class="col-lg-2 col-md-6 col-sm-6">
 					<div class="single-footer-widget">
 						<h6 class="footer_title">KUNJUNGAN</h6>
-						<p>Kunjungan Hari ini : 342 </p>
-						<p>Kunjungan Bulan ini : 3023</p>
-						<p>Total kunjungan : 6021</p>
+						<p>Kunjungan Hari ini : {{$pengunjungperhari}} </p>
+						<p>Kunjungan Bulan ini : {{$pengunjungperbulan}}</p>
+						<p>Total kunjungan : {{$pengunjungtotal}}</p>
 						
 					</div>
 				</div>

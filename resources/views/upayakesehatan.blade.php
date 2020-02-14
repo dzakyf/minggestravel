@@ -1,5 +1,5 @@
 @extends('layout/main')
-
+@section('classnavitemprofil', 'active')
 @section('content')
 <!--================ Banner Area =================-->
 	<section class="banner_area">

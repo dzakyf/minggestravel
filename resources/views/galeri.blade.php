@@ -1,5 +1,5 @@
 @extends('layout/main')
-
+@section('classnavitemkepustakaan', 'active')
 @section('css')
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"> <!--2/3/2020-->
 <style>

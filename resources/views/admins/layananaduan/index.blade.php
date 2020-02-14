@@ -40,10 +40,14 @@
             </div>
           @endif
 
+          <?php
+          $notif = DB::table('layananaduan')->where('status', '=', 'off')->count();
+          ?>
+
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Daftar Layanan Aduan</h3>
+              <h3 class="card-title">Daftar Layanan Aduan @if($notif)| <span class="badge badge-danger">Anda memiliki <?=$notif?> aduan yang belum dibalas</span>@endif</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

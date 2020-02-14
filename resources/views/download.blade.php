@@ -1,5 +1,5 @@
 @extends('layout/main')
-
+@section('classnavitemkepustkaan', 'active')
 @section('content')
 
 	<!--================ Banner Area =================-->

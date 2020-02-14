@@ -105,10 +105,15 @@
             </a>
           </li>
 
+          <?php
+          $notif = DB::table('layananaduan')->where('status', '=', 'off')->count();
+          ?>
+
           <li class="nav-item">
             <a href="{{url('/admin/layananaduan')}}" class="nav-link @yield('classsidebarlayananaduan')">
               <i class="nav-icon fas fa-file"></i>
               <p>Layanan Aduan</p>
+              <span class="badge badge-light right"><?= $notif ?></span>
             </a>
           </li>
 

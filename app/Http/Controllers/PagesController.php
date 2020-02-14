@@ -24,9 +24,10 @@ use App\Mitra;
 use App\Sertifikat;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Captcha;
 
 class PagesController extends Controller
-{
+{    
     public function index(){
         $mitra      = Mitra::all();
         $sertifikat = Sertifikat::all();
@@ -116,6 +117,11 @@ class PagesController extends Controller
         return view('layananaduan')->with(compact('layananaduan'));
     }
 
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
+
     public function layananaduanstore(Request $request){
         $request->validate([
             'nama'      => 'required',
@@ -123,7 +129,8 @@ class PagesController extends Controller
             'telepon'   => 'required|numeric',
             'alamat'    => 'required',
             'topik'     => 'required',
-            'pesan'     => 'required'
+            'pesan'     => 'required',
+            'captcha'   => 'required|captcha'
         ],[
             'nama.required'         => 'Nama tidak boleh kosong',
             'email.required'        => 'Email tidak boleh kosong',
@@ -134,7 +141,9 @@ class PagesController extends Controller
             'topik.required'        => 'Topik tidak boleh kosong',
             'pesan.required'        => 'Pesan tidak boleh kosong',
             'email.email'           => 'Email bukan alamat email yang valid',
-            'pesan'                 => 'Pesan tidak boleh kosong'
+            'pesan'                 => 'Pesan tidak boleh kosong',
+            'captcha.required'      => 'Captcha tidak boleh kosong',
+            'captcha.captcha'       => 'Captcha tidak cocok.'
         ]);
 
         Layananaduan::create([
@@ -169,12 +178,15 @@ class PagesController extends Controller
         $request->validate([
             'nama'      => 'required',
             'email'     => 'required|email',
-            'pesan'     => 'required'
+            'pesan'     => 'required',
+            'captcha'   => 'required|captcha'
         ],[
             'nama.required'         => 'Nama tidak boleh kosong',
             'email.required'        => 'Email tidak boleh kosong',
             'email.email'           => 'Email bukan alamat email yang valid',
-            'pesan'                 => 'Pesan tidak boleh kosong'
+            'pesan'                 => 'Pesan tidak boleh kosong',
+            'captcha.required'      => 'Captcha tidak boleh kosong',
+            'captcha.captcha'       => 'Captcha tidak cocok.'
         ]);
 
         Pesan::create([

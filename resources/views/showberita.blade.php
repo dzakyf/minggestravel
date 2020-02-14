@@ -1,5 +1,5 @@
 @extends('layout/main')
-
+@section('classnavitemberita', 'active')
 @section('content')
 
 <!--================Home Banner Area =================-->
