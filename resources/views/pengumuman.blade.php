@@ -37,7 +37,6 @@
 		</div>
 	</section>
 	<!-- pengumuman end -->
-	<!--================ Start Clients Logo Area =================-->
 
 @endsection
 

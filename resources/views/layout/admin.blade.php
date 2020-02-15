@@ -100,7 +100,7 @@
 
           <li class="nav-item">
             <a href="{{url('/admin/banner')}}" class="nav-link @yield('classsidebarbanner')">
-              <i class="nav-icon fas fa-file"></i>
+              <i class="nav-icon fas fa-image"></i>
               <p>Banner Landing Page</p>
             </a>
           </li>
@@ -111,7 +111,7 @@
 
           <li class="nav-item">
             <a href="{{url('/admin/layananaduan')}}" class="nav-link @yield('classsidebarlayananaduan')">
-              <i class="nav-icon fas fa-file"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>Layanan Aduan</p>
               <span class="badge badge-light right"><?= $notif ?></span>
             </a>
@@ -119,7 +119,7 @@
 
           <li class="nav-item has-treeview @yield('kontakdanpesan-menu-open')">
             <a href="#" class="nav-link @yield('classsidebarkontakdanpesan')">
-              <i class="nav-icon fas fa-book"></i>
+              <i class="nav-icon fas fa-phone"></i>
               <p>
                 Kontak dan Pesan
                 <i class="fas fa-angle-left right"></i>

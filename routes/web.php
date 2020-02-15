@@ -39,7 +39,7 @@ Route::get('/layananaduan/daftaraduan', 'PagesController@daftaraduan');
 Route::get('/layananaduan/detail/{layananaduan}', 'PagesController@detailaduan');
 
 //Register
-Route::get('register', 'AuthController@register');
+// Route::get('register', 'AuthController@register');
 Route::post('postregister', 'AuthController@postregister'); 
 
 //login and logout
@@ -105,7 +105,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
     //sertifikat
     Route::resource('sertifikat', 'SertifikatController');
     //banner
-    Route::resource('banner', 'BannerController');
+    Route::resource('banner', 'BannerController')->except(['create', 'store', 'destroy']);
     ///profle
     Route::group(['prefix' => 'profile'], function(){
         //sejarah

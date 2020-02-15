@@ -7,6 +7,7 @@ use App\Artikel;
 use App\JenisPelayanan;
 use App\KategoriPelayanan;
 use App\Kontak;
+use App\Pesan;
 use App\Penelitian;
 use App\Perpustakaan;
 use App\Galeri;
@@ -17,6 +18,10 @@ use App\Sejarah;
 use App\Struktur_Organisasi;
 use App\Upaya_Kesehatan;
 use App\Kompetensi_SDM;
+use App\Pengumuman;
+use App\Sertifikat;
+use App\Mitra;
+use App\Layananaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Traits\UploadTrait;
@@ -26,10 +31,14 @@ class MenuController extends Controller
 
     public function dashboard(){
         $berita         = DB::table('berita')->count();
-        $artikel        = DB::table('artikel')->count();
+        $pengumuman     = DB::table('pengumuman')->count();
+        $mitra          = DB::table('mitra')->count();
+        $sertifikat     = DB::table('sertifikat')->count();
+        $layananaduan   = DB::table('layananaduan')->count();
         $jenispelayanan = DB::table('jenis_pelayanan')->count();
         $kategoripelayanan = DB::table('kategori_pelayanan')->count();
-        $kontak         = DB::table('kontak')->select('email')->first();
+        $kontak         = DB::table('kontak')->select('alamat', 'telepon', 'fax', 'email')->first();
+        $pesan          = DB::table('pesan')->count();
         $penelitian     = DB::table('penelitian')->count();
         $perpustakaan   = DB::table('perpustakaan')->count();
         $galeri         = DB::table('galeri')->count();
@@ -40,7 +49,7 @@ class MenuController extends Controller
         $struktur_organisasi    = DB::table('struktur_organisasi')->count();
         $upaya_kesehatan        = DB::table('upaya_kesehatan')->count();
         $kompetensi_sdm         = DB::table('kompetensi_sdm')->count();
-        return view('admins.index')->with(compact('berita', 'artikel', 'jenispelayanan', 'kategoripelayanan', 'kontak', 'penelitian', 'perpustakaan', 'galeri', 'download', 'sejarah', 'visi', 'misi', 'struktur_organisasi', 'upaya_kesehatan', 'kompetensi_sdm'));
+        return view('admins.index')->with(compact('berita', 'pengumuman', 'mitra', 'sertifikat', 'layananaduan', 'jenispelayanan', 'kategoripelayanan', 'kontak', 'pesan', 'penelitian', 'perpustakaan', 'galeri', 'download', 'sejarah', 'visi', 'misi', 'struktur_organisasi', 'upaya_kesehatan', 'kompetensi_sdm'));
     }
 
     function beritadanartikel(){

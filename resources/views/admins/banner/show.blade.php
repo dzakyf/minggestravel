@@ -92,12 +92,6 @@
 
               <div class="col mb-2 text-center">
                 <a href="{{ $banner->id_banner }}/edit" class="btn btn-primary">Edit</a>
-
-                <form action="{{ url('/admin/banner')}}/{{ $banner->id_banner }}" method="post" class="d-inline">
-                    @method('delete')
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Hapus</button>
-                </form>
               </div>
 
             <!-- /.row -->

@@ -22,14 +22,9 @@ class AuthController extends Controller
         $this->validate(request(),[
             'name'              => 'required',
             'email'             => 'required',
-            'password'          => 'required',
-            'retype-password'   => 'required'
+            'password'          => 'required|confirmed',
         ]);
 
-        // if($request->password != $request->retype-password){
-        //     return redirect()->to('register')->with('status','Password yang dimasukkan tidak');
-        // }
-        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

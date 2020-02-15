@@ -39,12 +39,6 @@
             </div>
           @endif
 
-        <div class="col mb-2 text-right">
-          <a href="{{ url('/admin/banner/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Banner Landing Page</button>
-          </a>
-        </div>
-
         <div class="col-12">
           <div class="card">
             <div class="card-header">

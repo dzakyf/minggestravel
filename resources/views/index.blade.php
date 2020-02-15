@@ -155,6 +155,32 @@
 		</div>
 	</section>
 	<!-- pengumuman end -->
+
+	<!-- nomor antrian start -->
+	<section>
+<div class="container">
+<div class="row justify-content-center section-title-wrap">
+			<div class="col-lg-12">
+					<h1>Nomor Antrian</h1>
+					<p>Nomor antrian berjalan tanggal (dd/mm/yyyy).</p>
+				</div>
+			</div>
+
+</div>
+</div>
+
+<div class="row justify-content-center ">
+<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+			<div class="card-header text-center">Loket:</div>
+			<div class="card-body">
+				<h1 class="card-text text-center text-white">A 01</h1>
+				<h1 class="card-text text-center text-white">B 21</h1>
+				<h1 class="card-text text-center text-white">C 12</h1>
+			</div>
+</div>
+</section>
+	<!-- nomor antrian end -->
+
 	<!--================ Start Clients Logo Area =================-->
 
 <div class="card">

@@ -68,7 +68,7 @@
         <!-- /.row -->
 
         <!-- Info boxes -->
-        <h3 class="mt-4 mb-4">Berita dan Artikel</h3>
+        <h3 class="mt-4 mb-4">Berita</h3>
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
@@ -86,13 +86,100 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Info boxes -->
+        <h3 class="mt-4 mb-4">Pengumuman</h3>
+        <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-newspaper"></i></span>
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-bullhorn"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Artikel</span>
-                <span class="info-box-number">{{$artikel}}</span>
+                <span class="info-box-text">Pengumuman</span>
+                <span class="info-box-number">
+                  {{$pengumuman}}
+                  <small></small>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Info boxes -->
+        <h3 class="mt-4 mb-4">Mitra</h3>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-handshake"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Mitra</span>
+                <span class="info-box-number">
+                  {{$mitra}}
+                  <small></small>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Info boxes -->
+        <h3 class="mt-4 mb-4">Sertifikat</h3>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-handshake"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Sertifikat</span>
+                <span class="info-box-number">
+                  {{$sertifikat}}
+                  <small></small>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+        </div>
+        <!-- /.row -->
+
+         <!-- Info boxes -->
+         <h3 class="mt-4 mb-4">Layanan Aduan</h3>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-handshake"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Layanan Aduan</span>
+                <span class="info-box-number">
+                  {{$layananaduan}}
+                  <small></small>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -112,9 +199,79 @@
             <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-phone"></i></span>
               <div class="info-box-content">
+                <span class="info-box-text">Alamat</span>
+                <span class="info-box-number">
+                  {{$kontak->alamat}}
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-phone"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Telepon</span>
+                <span class="info-box-number">
+                  {{$kontak->telepon}}
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-phone"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Fax</span>
+                <span class="info-box-number">
+                  {{$kontak->fax}}
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-phone"></i></span>
+              <div class="info-box-content">
                 <span class="info-box-text">Email</span>
                 <span class="info-box-number">
                   {{$kontak->email}}
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+        </div>
+        <!-- /.row -->
+
+         <!-- Info boxes -->
+         <h3 class="mt-4 mb-4">Pesan</h3>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-handshake"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Pesan</span>
+                <span class="info-box-number">
+                  {{$pesan}}
+                  <small></small>
                 </span>
               </div>
               <!-- /.info-box-content -->
