@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.css')}}">
 @endsection
 
+@section('classsidebarberitadanartikel', 'active')
+@section('beritadanartikel-menu-open', 'menu-open')
 @section('classsidebarberita', 'active')
 
 @section('content')
@@ -66,11 +68,6 @@
                                     <option value="teknologi" selected>Teknologi</option>
                                 @else
                                     <option value="teknologi">Teknologi</option>
-                                @endif
-                                @if($berita->kategori == 'finance')
-                                    <option value="finance" selected>Finance</option>
-                                @else
-                                    <option value="finance">Finance</option>
                                 @endif
                                 @if($berita->kategori == 'finance')
                                     <option value="finance" selected>Finance</option>

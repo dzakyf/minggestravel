@@ -113,7 +113,7 @@
 				<div class="card">
 					<img src="{{URL::asset($beritanz->gambar)}}" style="height:277px;" class="card-img-top" alt="...">
 					<div class="card-body">
-						<h5 class="card-title">{{$beritanz->judul}}</h5>
+						<a href="{{('/berita')}}/{{$beritanz->id_berita}}">{{$beritanz->judul}}</a>
 						<p class="card-text"><small class="text-muted">{{$beritanz->updated_at}}</small></p>
 					</div>
 				</div>
@@ -178,7 +178,7 @@
 				<h1 class="card-text text-center text-white">C 12</h1>
 			</div>
 </div>
-</section>
+</section>	
 	<!-- nomor antrian end -->
 
 	<!--================ Start Clients Logo Area =================-->

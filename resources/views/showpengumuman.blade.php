@@ -63,7 +63,7 @@
                             <ul class="list cat-list">
                                 @foreach($pengumumans->slice(0,5) as $pengumumans)
                                 <li>
-                                    <a href="#" class="d-flex justify-content-between">
+                                    <a href="{{('/pengumuman')}}/{{$pengumumans->id_pengumuman}}" class="d-flex justify-content-between">
                                         <p>{{ $loop->iteration }}. {{$pengumumans->judul}}</p>
                                         <p>{{$pengumumans->created_at}}</p>
                                     </a>
@@ -78,7 +78,7 @@
                                 <div class="media post_item">
                                     <img src="{{$beritans->gambar}}" style="width:100px;height:60px;" alt="post">
                                     <div class="media-body">
-                                        <a href="blog-details.html">
+                                        <a href="{{('/berita')}}/{{$beritans->id_berita}}">
                                             <h3>{{$beritans->judul}}</h3>
                                         </a>
                                         <p>{{$beritans->created_at}}</p>
@@ -93,7 +93,7 @@
                                 <div class="media post_item">
                                     <img src="{{$artikels->gambar}}" style="width:100px;height:60px;" alt="post">
                                     <div class="media-body">
-                                        <a href="blog-details.html">
+                                        <a href="{{('/artikel')}}/{{$artikels->id_artikel}}">
                                             <h3>{{$artikels->judul}}</h3>
                                         </a>
                                         <p>{{$artikels->created_at}}</p>

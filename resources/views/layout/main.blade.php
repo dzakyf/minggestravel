@@ -127,12 +127,20 @@ $pengunjungtotal = DB::table('pengunjung')->count();
 											</li>
 										</ul>
 									</li>
-									<li class="nav-item @yield('classnavitemberita')">
-										<a class="nav-link" href="{{url('/berita')}}">Berita</a>
+
+									<li class="nav-item submenu dropdown @yield('classnavitemberita')">
+										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Berita</a>
+										<ul class="dropdown-menu">
+											<li class="nav-item">
+												<a class="nav-link" href="{{url('/berita')}}">Berita</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="{{url('/artikel')}}">Artikel</a>
+											</li>
+										</ul>
 									</li>
-									<!-- <li class="nav-item">
-										<a class="nav-link" href="url('/artikel')">Artikel</a>
-									</li> -->
+
+
 									<li class="nav-item @yield('classnavitemlayananaduan')">
 										<a class="nav-link" href="{{url('/layananaduan')}}">Layanan Aduan</a>
 									</li>

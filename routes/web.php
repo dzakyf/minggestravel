@@ -60,6 +60,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
     Route::delete('berita/{berita}', 'BeritaController@destroy'); 
     Route::get('berita/{berita}/edit', 'BeritaController@edit'); 
     Route::patch('berita/{berita}', 'BeritaController@update'); 
+
+    //artikel
+    Route::resource('artikel', 'ArtikelController');
   
     //kepustakaan
     Route::group(['prefix' => 'kepustakaan'], function(){

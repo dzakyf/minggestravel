@@ -51,7 +51,7 @@
 					<th scope="row">{{ $loop->iteration }}</th>
 					<td>{{$query->namas}}</td>
 					<td>{{$query->nama}}</td>
-					<td>{{$query->total}}</td>
+					<td>@currency($query->total)</td>
 				  </tr>
 				  @endforeach
 				  </tbody>

@@ -108,7 +108,7 @@
                   <th scope="row">{{ $loop->iteration }}</th>
                   <td>{{$query->nama}}</td>
                   <td>{{$query->namas}}</td>
-                  <td>{{$query->total}}</td>
+                  <td>@currency($query->total)</td>
                   <td>
                     <a class="badge badge-info" href="{{url('/admin/layanandantarif/kategoripelayanan/')}}/{{$query->id_kategori}}">
                       detail

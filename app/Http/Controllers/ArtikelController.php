@@ -20,7 +20,8 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        return redirect()->to('/admin/beritadanartikel');
+        $artikel = Artikel::all();
+        return view('admins.artikel.index', compact('artikel'));
     }
 
     /**
@@ -30,7 +31,7 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        return view('admins.beritadanartikel.artikel.create');
+        return view('admins.artikel.create');
     }
 
     /**
@@ -80,7 +81,7 @@ class ArtikelController extends Controller
             'gambar'            => $filePath
         ]);
 
-        return redirect()->to('/admin/beritadanartikel')->with('status','Data artikel berhasil ditambahkan');
+        return redirect()->to('/admin/artikel')->with('status','Data artikel berhasil ditambahkan');
 
     }
 
@@ -92,7 +93,7 @@ class ArtikelController extends Controller
      */
     public function show(Artikel $artikel)
     {
-        return view('admins.beritadanartikel.artikel.show', compact('artikel')); 
+        return view('admins.artikel.show', compact('artikel')); 
 
     }
 
@@ -104,7 +105,7 @@ class ArtikelController extends Controller
      */
     public function edit(Artikel $artikel)
     {
-        return view('admins.beritadanartikel.artikel.edit', compact('artikel'));
+        return view('admins.artikel.edit', compact('artikel'));
 
     }
 
@@ -158,7 +159,7 @@ class ArtikelController extends Controller
                 'gambar'        => $filePath
             ]);
 
-        return redirect()->to('/admin/beritadanartikel/')->with('status','Data Artikel Berhasil Diubah');
+        return redirect()->to('/admin/artikel/')->with('status','Data Artikel Berhasil Diubah');
 
     }
 
@@ -176,6 +177,6 @@ class ArtikelController extends Controller
             File::delete($image_path);
         }
         Artikel::destroy($artikel->id_artikel);
-        return redirect('/admin/beritadanartikel')->with('status','Data artikel Berhasil Dihapus');
+        return redirect('/admin/artikel')->with('status','Data artikel Berhasil Dihapus');
     }
 }

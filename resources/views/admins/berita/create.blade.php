@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="{{URL::asset('extadmin/plugins/summernote/summernote-bs4.css')}}">
 @endsection
 
+@section('classsidebarberitadanartikel', 'active')
+@section('beritadanartikel-menu-open', 'menu-open')
 @section('classsidebarberita', 'active')
 
 @section('content')

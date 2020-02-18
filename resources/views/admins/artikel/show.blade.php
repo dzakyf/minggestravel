@@ -6,6 +6,8 @@
 @endsection
 
 @section('classsidebarberitadanartikel', 'active')
+@section('beritadanartikel-menu-open', 'menu-open')
+@section('classsidebarartikel', 'active')
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -20,7 +22,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('/admin/beritadanartikel') }}">Artikel dan Artikel</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('/admin/Artikel') }}">Artikel</a></li>
               <li class="breadcrumb-item active">Detail Artikel</li>
             </ol>
           </div>
@@ -115,7 +117,7 @@
               <div class="col mb-2 text-center">
                 <a href="{{ $artikel->id_artikel }}/edit" class="btn btn-primary">Edit</a>
 
-                <form action="{{ url('/admin/beritadanartikel/artikel')}}/{{ $artikel->id_artikel }}" method="post" class="d-inline">
+                <form action="{{ url('/admin/artikel')}}/{{ $artikel->id_artikel }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger">Hapus</button>

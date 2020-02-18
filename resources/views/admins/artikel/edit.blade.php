@@ -6,6 +6,8 @@
 @endsection
 
 @section('classsidebarberitadanartikel', 'active')
+@section('beritadanartikel-menu-open', 'menu-open')
+@section('classsidebarartikel', 'active')
 
 @section('content')
 
@@ -21,7 +23,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ url('/admin/beritadanartikel') }}">berita dan Artikel</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('/admin/artikel') }}">Artikel</a></li>
               <li class="breadcrumb-item active">Edit artikel</li>
             </ol>
           </div>
@@ -38,7 +40,7 @@
             <h3 class="card-title">Form Edit artikel</h3>
           </div>
           <!-- /.card-header -->
-          <form method="post" action="{{ url('/admin/beritadanartikel/artikel') }}/{{$artikel->id_artikel}}" enctype="multipart/form-data">
+          <form method="post" action="{{ url('/admin/artikel') }}/{{$artikel->id_artikel}}" enctype="multipart/form-data">
           @method('patch')
           @csrf
             <div class="card-body">

@@ -7,7 +7,7 @@
 
 @section('classsidebarberitadanartikel', 'active')
 @section('beritadanartikel-menu-open', 'menu-open')
-@section('classsidebarberita', 'active')
+@section('classsidebarartikel', 'active')
 
 @section('content')
 
@@ -18,12 +18,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Berita dan Artikel</h1>
+            <h1>Artikel</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-              <li class="breadcrumb-item active">Berita dan Artikel</li>
+              <li class="breadcrumb-item active">Artikel</li>
             </ol>
           </div>
         </div>
@@ -42,8 +42,8 @@
           @endif
 
         <div class="col mb-2 text-right">
-          <a href="{{ url('/admin/berita/create') }}">
-                <button class="btn btn-primary" type="button">Tambah Berita</button>
+          <a href="{{ url('/admin/artikel/create') }}">
+                <button class="btn btn-primary" type="button">Tambah artikel</button>
           </a>
         </div>
 
@@ -52,7 +52,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Berita</h3>
+              <h3 class="card-title">artikel</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -65,12 +65,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($berita as $berita)
+                @foreach($artikel as $artikel)
                 <tr>
                   <th scope="row">{{ $loop->iteration }}</th>
-                  <td>{{$berita->judul}}</td>
+                  <td>{{$artikel->judul}}</td>
                   <td>
-                    <a class="badge badge-info" href="{{url('/admin/berita/')}}/{{$berita->id_berita}}">
+                    <a class="badge badge-info" href="{{url('/admin/artikel/')}}/{{$artikel->id_artikel}}">
                       detail
                     </a>
                   </td>

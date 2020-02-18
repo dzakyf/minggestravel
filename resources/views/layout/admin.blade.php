@@ -71,13 +71,6 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('/admin/berita') }}" class="nav-link @yield('classsidebarberita')">
-                <i class="nav-icon fas fa-newspaper"></i>
-                <p>Berita</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
             <a href="{{url('/admin/pengumuman')}}" class="nav-link @yield('classsidebarpengumuman')">
               <i class="nav-icon fas fa-bullhorn"></i>
               <p>Pengumuman</p>
@@ -115,6 +108,30 @@
               <p>Layanan Aduan</p>
               <span class="badge badge-light right"><?= $notif ?></span>
             </a>
+          </li>
+
+          <li class="nav-item has-treeview @yield('beritadanartikel-menu-open')">
+            <a href="#" class="nav-link @yield('classsidebarberitadanartikel')">
+              <i class="nav-icon fas fa-newspaper"></i>
+              <p>
+                Berita dan Artikel
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('/admin/berita')}}" class="nav-link @yield('classsidebarberita')">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Berita</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('/admin/artikel')}}" class="nav-link @yield('classsidebarartikel')">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Artikel</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <li class="nav-item has-treeview @yield('kontakdanpesan-menu-open')">
