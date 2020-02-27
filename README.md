@@ -2,7 +2,7 @@ untuk masuk ke admin ketik di url: <url_labkes>/login
 
 changelog:
 -rev 1.2:
-    1. tambah migrasi: add_gambar_to_pengumuman_table; 
+    1. tambah migrasi: add_gambar_to_pengumuman_table<br>
     2. tambah .htaccess: <IfModule mod_php7.c> (utk upload file max 50 MB)  
     3. ubah view, validasi kontroller, & model pengumuman:
         - tambah kolom "gambar" di table pengumuman (model)
