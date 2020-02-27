@@ -29,6 +29,11 @@
                         <div class="col-lg-12">
                             <h1>Pengumuman</h1>
                         </div>
+                        <div class="col-lg-12">
+                            <div class="feature-img">
+                                <center><img class="img-fluid" src="{{$pengumuman->gambar}}" style="width: 50%; height: 50%;" alt=""></center>
+                            </div>
+                        </div>
                         <div class="col-lg-3  col-md-3">
                             <div class="blog_info text-right">
                                 <ul class="blog_meta list">
@@ -47,6 +52,7 @@
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
+						       
                             <h2>{{$pengumuman->judul}}</h2>
                             <?php
                                 echo "$pengumuman->pengumuman";
@@ -62,6 +68,7 @@
                             <h4 class="widget_title">Pengumuman Terbaru</h4>
                             <ul class="list cat-list">
                                 @foreach($pengumumans->slice(0,5) as $pengumumans)
+
                                 <li>
                                     <a href="{{('/pengumuman')}}/{{$pengumumans->id_pengumuman}}" class="d-flex justify-content-between">
                                         <p>{{ $loop->iteration }}. {{$pengumumans->judul}}</p>

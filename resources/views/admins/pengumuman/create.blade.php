@@ -71,6 +71,17 @@
                 </div>
                 <!-- /.col -->
 
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="gambar" class="d-block">Upload Gambar</label>
+                      <input type="file" class="form-control-file @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+                      @error('gambar')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                      @enderror
+                  </div>
+                  <!-- /.form-group -->
+                </div>
+
                 <div class="col-12">
                   <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Tambah">

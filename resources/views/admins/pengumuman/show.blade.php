@@ -72,6 +72,21 @@
               </div>
               <!-- /.col -->
 
+              <!-- Gambar -->
+              <div class="col-md-3">
+                <p class="card-title">Gambar</p><p class="text-right">:</p>  
+              </div>
+              <!-- /.col -->
+
+
+              <div class="col-md-9"> 
+                  @if($pengumuman->gambar)
+                    <img src="{{URL::asset($pengumuman->gambar)}}" style='width: 50%; vertical-align: middle'; /> 
+                    <p class="card-text"></p> 
+                  @endif
+              </div>
+              <!-- /.col -->
+
               <!-- Created at -->
               <div class="col-md-3">
                 <p class="card-title">created At</p><p class="text-right">:</p>  
