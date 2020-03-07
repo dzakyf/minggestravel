@@ -47,7 +47,6 @@ class MenuController extends Controller
         $visi           = DB::table('visi')->count();
         $misi           = DB::table('misi')->count();
         $struktur_organisasi    = DB::table('struktur_organisasi')->count();
-        $upaya_kesehatan        = DB::table('upaya_kesehatan')->count();
         $kompetensi_sdm         = DB::table('kompetensi_sdm')->count();
         return view('admins.index')->with(compact('berita', 'pengumuman', 'mitra', 'sertifikat', 'layananaduan', 'jenispelayanan', 'kategoripelayanan', 'kontak', 'pesan', 'penelitian', 'perpustakaan', 'galeri', 'download', 'sejarah', 'visi', 'misi', 'struktur_organisasi', 'upaya_kesehatan', 'kompetensi_sdm'));
     }

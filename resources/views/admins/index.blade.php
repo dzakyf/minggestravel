@@ -288,20 +288,16 @@
         <!-- Info boxes -->
         <h3 class="mt-4 mb-4">Kepustakaan</h3>
         <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
+          <!--<div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fas fa-book"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Penelitian</span>
-                <span class="info-box-number">
-                  {{$penelitian}}
-                </span>
+                <span class="info-box-number">{{$penelitian}}</span>
               </div>
-              <!-- /.info-box-content -->
             </div>
-            <!-- /.info-box -->
-          </div>
+          </div>-->
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
@@ -397,18 +393,17 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
+          <!--<div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-address-card"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Upaya Kesehatan</span>
-                <span class="info-box-number">{{$upaya_kesehatan}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
-          </div>
+          </div>-->
           <!-- /.col -->
 
           <div class="col-12 col-sm-6 col-md-3">

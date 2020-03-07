@@ -17,8 +17,9 @@ class UpayaKesehatanController extends Controller
      */
     public function index()
     {
-        $upaya_kesehatan = Upaya_Kesehatan::orderBy('id_upaya_kesehatan', 'DESC')->get();
-        return view('admins.profile.upayakesehatan.index', ['upaya_kesehatan' => $upaya_kesehatan]);
+        return redirect()->action('MenuController@dashboard');
+        /*$upaya_kesehatan = Upaya_Kesehatan::orderBy('id_upaya_kesehatan', 'DESC')->get();
+        return view('admins.profile.upayakesehatan.index', ['upaya_kesehatan' => $upaya_kesehatan]);*/
 
     }
 
@@ -28,8 +29,8 @@ class UpayaKesehatanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admins.profile.upayakesehatan.create');
+    {   
+        return redirect()->action('MenuController@dashboard');
    
     }
 
@@ -41,7 +42,7 @@ class UpayaKesehatanController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /*$request->validate([
             'judul'                       => 'required',
             'deskripsi'                   => 'required',
             'upaya_kesehatan'             => 'required',
@@ -81,7 +82,7 @@ class UpayaKesehatanController extends Controller
         ]);
 
         return redirect()->to('/admin/profile/upayakesehatan')->with('status','Data upaya kesehatan berhasil ditambahkan');
-
+        */
     }
 
     /**
@@ -92,8 +93,9 @@ class UpayaKesehatanController extends Controller
      */
     public function show(Upaya_Kesehatan $upaya_kesehatan)
     {
+        /*
         return view('admins.profile.upayakesehatan.show', compact('upaya_kesehatan')); 
-
+        */
     }
 
     /**
@@ -103,9 +105,10 @@ class UpayaKesehatanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Upaya_Kesehatan $upaya_kesehatan)
-    {
+    {   
+        /*
         return view('admins.profile.upayakesehatan.edit', compact('upaya_kesehatan'));
-
+        */
     }
 
     /**
@@ -117,7 +120,7 @@ class UpayaKesehatanController extends Controller
      */
     public function update(Request $request, Upaya_Kesehatan $upaya_kesehatan)
     {
-         $request->validate([
+         /* $request->validate([
             'judul'                   => 'required',
             'deskripsi'               => 'required',
             'upaya_kesehatan'         => 'required'
@@ -153,7 +156,7 @@ class UpayaKesehatanController extends Controller
             ]);
 
         return redirect()->to('/admin/profile/upayakesehatan')->with('status','Data upaya kesehatan berhasil diubah');
-
+        */
     }
 
     /**
@@ -164,8 +167,8 @@ class UpayaKesehatanController extends Controller
      */
     public function destroy(Upaya_Kesehatan $upaya_kesehatan)
     {
-        Upaya_Kesehatan::destroy($upaya_kesehatan->id_upaya_kesehatan);
+       /* Upaya_Kesehatan::destroy($upaya_kesehatan->id_upaya_kesehatan);
         return redirect('/admin/profile/upayakesehatan')->with('status','Data upaya kesehatan berhasil dihapus');
-
+        */
     }
 }

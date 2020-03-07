@@ -21,7 +21,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Adminstrator Dinkes DIY</b> Login</a>
+    <a href="#"><b>Administrator Mingges Tour & Travel</b><br> Login</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

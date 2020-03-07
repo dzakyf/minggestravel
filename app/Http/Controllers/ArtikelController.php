@@ -46,9 +46,9 @@ class ArtikelController extends Controller
             'judul'     => 'required',
             'kategori'  => 'required',
             'artikel'   => 'required',
-            'gambar'    => 'required|max:20000|image'
+            'gambar'    => 'required|max:2000|image'
         ], [
-            'gambar.max'=> 'The gambar may not be greater than 20 MegaBytes'
+            'gambar.max'=> 'The gambar may not be greater than 2 MegaBytes'
         ]);
 
         
@@ -130,9 +130,9 @@ class ArtikelController extends Controller
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
             $request->validate([
-                'gambar'             => 'required|max:20000|image',
+                'gambar'             => 'required|max:2000|image',
             ], [
-                'gambar.max'      => 'The gambar may not be greater than 20 MegaBytes'
+                'gambar.max'      => 'The gambar may not be greater than 2 MegaBytes'
             ]);
             $serverpathimage = Helper::serverpathimage();
             $image_path = "$serverpathimage$artikel->gambar";  // Value is not URL but directory file path

@@ -31,8 +31,8 @@ $pengunjungtotal = DB::table('pengunjung')->count();
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="{{URL::asset('extdinkes/img/favicon.png')}}" type="image/png">
-	<title>Balai Labkes & Kalibrasi</title>
+	<link rel="icon" href="{{URL::asset('extdinkes/img/favicon.jpeg')}}" type="image/jpeg">
+	<title>Mingges Tour & Travel</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="{{URL::asset('extdinkes/css/bootstrap.css')}}">
 	<link rel="stylesheet" href="{{URL::asset('extdinkes/vendors/linericon/style.css')}}">
@@ -85,9 +85,6 @@ $pengunjungtotal = DB::table('pengunjung')->count();
 												<a class="nav-link" href="{{url('/strukturorganisasi')}}">Struktur Organisasi</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="{{url('/upayakesehatan')}}">Upaya Kesehatan</a>
-											</li>
-											<li class="nav-item">
 												<a class="nav-link" href="{{url('/kompetensisdm')}}">Kompetensi SDM</a>
 											</li>
 										</ul>
@@ -113,9 +110,6 @@ $pengunjungtotal = DB::table('pengunjung')->count();
 									<li class="nav-item submenu dropdown @yield('classnavitemkepustakaan')">
 										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kepustakaan</a>
 										<ul class="dropdown-menu">
-											<li class="nav-item">
-												<a class="nav-link" href="{{url('/penelitian')}}">Penelitian</a>
-											</li>
 											<li class="nav-item">
 												<a class="nav-link" href="{{('/perpustakaan')}}">Perpustakaan</a>
 											</li>
@@ -172,13 +166,9 @@ $pengunjungtotal = DB::table('pengunjung')->count();
 					<div class="single-footer-widget">
 						<h6 class="footer_title">KONTAK KAMI</h6>
 						<p>
-							<!--Alamat: Jalan Ngadinegaran MJ III No.62, Mantrijeron, Kec. Mantrijeron, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55143<br>-->
-							Balai laboratorium Kesehatan dan Kalibrasi<br> 
-							Alamat: Ngadinegaran MJ III/62 Yogyakarta 55143<br>
-							Telp. (0274) 378187, Fax. (0274) 381582<br>
-							Email: labkes@gmail.com
+						<!--Masukkan alamat here-->	
 
-							<p>
+						<p>
 						</p>
 					</div>
 				</div>
@@ -186,17 +176,9 @@ $pengunjungtotal = DB::table('pengunjung')->count();
 				<div class="col-lg-5  col-md-6 col-sm-6">
 					<div class="single-footer-widget">
 						<h6 class="footer_title">LINK</h6>
-							<!--Alamat: Jalan Ngadinegaran MJ III No.62, Mantrijeron, Kec. Mantrijeron, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55143<br>-->
 							<ul class="list-unstyled"> 
-								<p>JOGJAPROV</p>
-								<li><a href="http://lapor.jogjaprov.go.id">http://lapor.jogjaprov.go.id</a></li>
-								<p>JAMKESOS</p>
-								<li><a href="http://jamkesos.jogjaprov.go.id/">http://jamkesos.jogjaprov.go.id/</a></li>
-								<p>BPJS</p>
-								<li><a href="http://bpjs-kesehatan.go.id/">http://bpjs-kesehatan.go.id/</a></li>
-								<p>DINKES</p>
-								<li><a href="http://dinkes.jogjaprov.go.id/">http://dinkes.jogjaprov.go.id/</a></li>
-				            </ul> 
+							<!--Masukkan link terafiliasi-->
+							</ul> 
 					</div>
 				</div>
 
@@ -233,7 +215,7 @@ $pengunjungtotal = DB::table('pengunjung')->count();
 
 			<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="single-footer-widget f_social_wd">
-						<h6 class="footer_title">NEWSLETTER</h6>
+						<!--<h6 class="footer_title">NEWSLETTER</h6>
 						<div id="mc_embed_signup">
 							<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
 							 method="get" class="subscribe_form relative">
@@ -246,7 +228,7 @@ $pengunjungtotal = DB::table('pengunjung')->count();
 								</div>
 								<div class="mt-10 info"></div>
 							</form>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
@@ -256,7 +238,7 @@ $pengunjungtotal = DB::table('pengunjung')->count();
 		<div class="row">
 				<div class="col-lg-12">
 					<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright (c) 2020. All rights reserved  by <a>Balai Labkes & Kalibrasi Yogyakarta</a>
+                    Copyright (c) 2020. All rights reserved  by <a>Mingges Tour & Travel</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</p>
 				</div>

@@ -43,9 +43,9 @@ class MitraController extends Controller
     {
         $request->validate([
             'nama'             => 'required',
-            'gambar'           => 'required|max:1000|image'
+            'gambar'           => 'required|max:2000|image'
         ],[
-            'gambar.max'        => 'The gambar may not be greater than 1 MegaBytes'
+            'gambar.max'        => 'The gambar may not be greater than 2 MegaBytes'
         ]);
 
         
@@ -119,9 +119,9 @@ class MitraController extends Controller
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
             $request->validate([
-                'gambar'          => 'required|max:1000|image',
+                'gambar'          => 'required|max:2000|image',
             ], [
-                'gambar.max'      => 'The gambar may not be greater than 1 MegaBytes'
+                'gambar.max'      => 'The gambar may not be greater than 2 MegaBytes'
             ]);
             $serverpathimage = Helper::serverpathimage();
             $image_path = "$serverpathimage$mitra->gambar";  // Value is not URL but directory file path

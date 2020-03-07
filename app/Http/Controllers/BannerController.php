@@ -25,9 +25,9 @@ class BannerController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'nama'      => 'required',
-            'banner'    => 'required|max:1000|image'
+            'banner'    => 'required|max:2000|image'
         ], [
-            'banner.max'  => 'The file may not be greater than 1 MB'
+            'banner.max'  => 'The file may not be greater than 2 MB'
         ]);
 
         $id_bannerlast = DB::table('banner')->select('id_banner')->latest('id_banner')->first();
@@ -78,9 +78,9 @@ class BannerController extends Controller
         // Check if a image has been uploaded
         if ($request->has('banner')) {
             $request->validate([
-                'banner'             => 'required|max:1000|image',
+                'banner'             => 'required|max:2000|image',
             ], [
-                'banner.max'      => 'The banner may not be greater than 1 MegaBytes'
+                'banner.max'      => 'The banner may not be greater than 2 MegaBytes'
             ]);
             $serverpathimage = Helper::serverpathimage();
             $image_path = "$serverpathimage$banner->banner";  // Value is not URL but directory file path

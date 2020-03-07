@@ -18,9 +18,11 @@ class PerpustakaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+       
         $perpustakaan = Perpustakaan::orderBy('id_perpustakaan', 'DESC')->get();
         return view('admins.kepustakaan.perpustakaan.index', ['perpustakaan' => $perpustakaan]);
+        
     }
 
     /**
@@ -29,8 +31,10 @@ class PerpustakaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        
         return view('admins.kepustakaan.perpustakaan.create');
+        
     }
 
     /**
@@ -40,7 +44,7 @@ class PerpustakaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $request->validate([
             'judul'             => 'required',
             'pengarang'         => 'required',
@@ -49,9 +53,9 @@ class PerpustakaanController extends Controller
             'jumlah_halaman'    => 'required|numeric',
             'kategori'          => 'required',
             'resensi'           => 'required',
-            'cover'             => 'required|max:20000|image'
+            'cover'             => 'required|max:2000|image'
         ], [
-            'cover.max'         => 'The cover may not be greater than 20 MegaBytes'
+            'cover.max'         => 'The cover may not be greater than 2 MegaBytes'
         ]);
 
         
@@ -89,6 +93,7 @@ class PerpustakaanController extends Controller
         ]);
 
         return redirect()->to('/admin/kepustakaan/perpustakaan')->with('status','Data Perpustakaan berhasil ditambahkan');
+        
     }
 
     /**
@@ -98,8 +103,9 @@ class PerpustakaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Perpustakaan $perpustakaan)
-    {
+    {   
         return view('admins.kepustakaan.perpustakaan.show', compact('perpustakaan'));
+        
     }
 
     /**
@@ -109,8 +115,10 @@ class PerpustakaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Perpustakaan $perpustakaan)
-    {
+    {   
+        
         return view('admins.kepustakaan.perpustakaan.edit', compact('perpustakaan'));
+        
     }
 
     /**
@@ -121,7 +129,7 @@ class PerpustakaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Perpustakaan $perpustakaan)
-    {
+    {   
         $request->validate([
             'judul'             => 'required',
             'pengarang'         => 'required',
@@ -137,9 +145,9 @@ class PerpustakaanController extends Controller
         // Check if a image has been uploaded
         if ($request->has('cover')) {
             $request->validate([
-                'cover'             => 'required|max:20000|image',
+                'cover'             => 'required|max:2000|image',
             ], [
-                'cover.max'      => 'The cover may not be greater than 20 MegaBytes'
+                'cover.max'      => 'The cover may not be greater than 2 MegaBytes'
             ]);
             $serverpathimage = Helper::serverpathimage();
             $image_path = "$serverpathimage$perpustakaan->cover";  // Value is not URL but directory file path
@@ -171,6 +179,7 @@ class PerpustakaanController extends Controller
             ]);
 
         return redirect()->to('/admin/kepustakaan/perpustakaan')->with('status','Data Perpustakaan Berhasil Diubah');
+        
     }
 
     /**
@@ -180,7 +189,7 @@ class PerpustakaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Perpustakaan $perpustakaan)
-    {
+    {   
         $serverpathimage = Helper::serverpathimage();
         $image_path = "$serverpathimage$perpustakaan->cover";  // Value is not URL but directory file path
         // return $image_path;
@@ -189,5 +198,6 @@ class PerpustakaanController extends Controller
         }
         Perpustakaan::destroy($perpustakaan->id_perpustakaan);
         return redirect('/admin/kepustakaan/perpustakaan')->with('status','Data Perpustakaan Berhasil Dihapus');
+        
     }
 }

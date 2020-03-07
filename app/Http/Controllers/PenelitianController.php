@@ -16,9 +16,12 @@ class PenelitianController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        return redirect()->action('MenuController@dashboard');
+        /*
         $penelitian = Penelitian::orderBy('id_penelitian', 'DESC')->get();
         return view('admins.kepustakaan.penelitian.index', ['penelitian' => $penelitian]);
+        */
     }
 
     /**
@@ -27,8 +30,11 @@ class PenelitianController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        return redirect()->action('MenuController@dashboard');
+        /*
         return view('admins.kepustakaan.penelitian.create');
+        */
     }
 
     /**
@@ -38,7 +44,8 @@ class PenelitianController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        /*
         $request->validate([
             'judul'             => 'required',
             'peneliti'          => 'required',
@@ -54,6 +61,7 @@ class PenelitianController extends Controller
         ]);
 
         return redirect()->to('/admin/kepustakaan/penelitian')->with('status','Data Penelitian berhasil ditambahkan');
+        */
     }
 
     /**
@@ -63,8 +71,10 @@ class PenelitianController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Penelitian $penelitian)
-    {
+    {   
+        /*
         return view('admins.kepustakaan.penelitian.show', compact('penelitian'));
+        */
     }
 
     /**

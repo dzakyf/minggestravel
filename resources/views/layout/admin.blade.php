@@ -162,17 +162,11 @@
             <a href="#" class="nav-link @yield('classsidebarkepustakaan')">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Kepustakaan
+                Kepustakaan 
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/admin/kepustakaan/penelitian')}}" class="nav-link @yield('classsidebarpenelitian')">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Penelitian</p>
-                </a>
-              </li>
               <li class="nav-item">
                 <a href="{{url('/admin/kepustakaan/perpustakaan')}}" class="nav-link @yield('classsidebarperpustakaan')">
                   <i class="far fa-circle nav-icon"></i>
@@ -221,12 +215,7 @@
                   <p>Struktur Organisasi</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{url('/admin/profile/upayakesehatan')}}" class="nav-link @yield('classsidebarupayakesehatan')">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Upaya Kesehatan</p>
-                </a>
-              </li>
+             
               <li class="nav-item">
                 <a href="{{url('/admin/profile/kompetensisdm')}}" class="nav-link @yield('classsidebarkompetensisdm')">
                   <i class="far fa-circle nav-icon"></i>

@@ -44,9 +44,9 @@ class SejarahController extends Controller
     {
         $request->validate([
             'sejarah'           => 'required',
-            'gambar'            => 'required|max:20000|image'
+            'gambar'            => 'required|max:2000|image'
         ],[
-            'gambar.max'        => 'The gambar may not be greater than 20 MegaBytes'
+            'gambar.max'        => 'The gambar may not be greater than 2 MegaBytes'
         ]);
 
         
@@ -124,9 +124,9 @@ class SejarahController extends Controller
         // Check if a image has been uploaded
         if ($request->has('gambar')) {
             $request->validate([
-                'gambar'             => 'required|max:20000|image',
+                'gambar'             => 'required|max:2000|image',
             ], [
-                'gambar.max'      => 'The gambar may not be greater than 20 MegaBytes'
+                'gambar.max'      => 'The gambar may not be greater than 2 MegaBytes'
             ]);
             $serverpathimage = Helper::serverpathimage();
             $image_path = "$serverpathimage$sejarah->gambar";  // Value is not URL but directory file path

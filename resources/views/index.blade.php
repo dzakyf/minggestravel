@@ -23,9 +23,8 @@
 	  <div class="img-overlay"></div>
         <div class="carousel-caption d-none d-md-block">
           <img class="img-fluid" src="{{URL::asset('extdinkes/img/banner/text-img.png')}}" alt="">
-          <p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+          <p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran tour secara online.</p>
               <a class="main_btn mr-10" href="#">Daftar Sekarang</a>
-              <a class="main_btn2" href="#">Cek Antrian</a>
         </div>
 	  </div>
 	  <!-- Slide Two - Set the background image for this slide in the line below -->
@@ -33,9 +32,8 @@
 	  <div class="img-overlay"></div>
         <div class="carousel-caption d-none d-md-block">
           <img class="img-fluid" src="{{URL::asset('extdinkes/img/banner/text-img.png')}}" alt="">
-          <p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+          <p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran tour secara online.</p>
               <a class="main_btn mr-10" href="#">Daftar Sekarang</a>
-              <a class="main_btn2" href="#">Cek Antrian</a>
         </div>
 	  </div>
 
@@ -44,9 +42,8 @@
 		<div class="img-overlay"></div>
         <div class="carousel-caption d-none d-md-block">
             <img class="img-fluid" src="{{URL::asset('extdinkes/img/banner/text-img.png')}}" alt="">
-              <p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+              <p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran tour secara online.</p>
               <a class="main_btn mr-10" href="#">Daftar Sekarang</a>
-              <a class="main_btn2" href="#">Cek Antrian</a>
         </div>
 	  </div>
 	  
@@ -54,9 +51,8 @@
 			<div class="img-overlay"></div>
 			<div class="carousel-caption d-none d-md-block">
 			<img class="img-fluid" src="{{URL::asset('extdinkes/img/banner/text-img.png')}}" alt="">
-			<p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran antrean cek laboratorium secara online.</p>
+			<p class="lead">Kami siap melayani anda dengan sepenuh hati. Anda juga bisa melakukan pendaftaran tour secara online.</p>
 				<a class="main_btn mr-10" href="#">Daftar Sekarang</a>
-				<a class="main_btn2" href="#">Cek Antrian</a>
 			</div>
 		</div>
 		</div>
@@ -79,7 +75,7 @@
 	<!--================ Start important-points section =================-->
 	<section class="donation_details pad_top">
 		<div class="container">
-			<h1><center>Layanan Laboratorium</center></h1>
+			<h1><center>Layanan kami</center></h1>
 			<div class="row">
 				@foreach($jenispelayanan as $jenispelayanan)
 					<div class="col-lg-4 col-md-6 single_donation_box">
@@ -157,7 +153,7 @@
 	<!-- pengumuman end -->
 
 	<!-- nomor antrian start -->
-	<section>
+	<!--<section>
 <div class="container">
 <div class="row justify-content-center section-title-wrap">
 			<div class="col-lg-12">
@@ -170,7 +166,7 @@
 </div>
 
 <div class="row justify-content-center ">
-<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+			<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
 			<div class="card-header text-center">Loket:</div>
 			<div class="card-body">
 				<h1 class="card-text text-center text-white">A 01</h1>
@@ -178,7 +174,7 @@
 				<h1 class="card-text text-center text-white">C 12</h1>
 			</div>
 </div>
-</section>	
+</section>-->
 	<!-- nomor antrian end -->
 
 	<!--================ Start Clients Logo Area =================-->
@@ -228,11 +224,7 @@
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-lg-12">
-					<h1>Download Aplikasi SMART LAB !</h1>
-					<p>Sekarang anda dapat melakukan pendaftaran dan memantau antrean hanya lewat smartphone!
-						Download Aplikasi SMART LAB di Playstore sekarang juga!</p>
-					<a href="#" class="main_btn2 mr-10">Download Here!</a>
-					<!-- <a href="#" class="main_btn2">Create Fundraising today</a> -->
+				<!--masukkan footer tambahan-->	
 				</div>
 			</div>
 		</div>
